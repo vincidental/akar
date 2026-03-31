@@ -17,7 +17,7 @@ const nodes = [
     label: 'Akar Node',
     icon: Zap,
     tooltip: {
-      title: 'Sub-second Vercel Edge Network',
+      title: 'Sub-second Local Edge Network',
       body: 'Deployed globally on Vercel Edge Network with CDN optimization, ensuring <1s load times from any device in Indonesia.',
     },
   },
