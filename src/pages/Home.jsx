@@ -100,7 +100,7 @@ export default function Home() {
               to="/audit"
               className="shrink-0 bg-[#1a1a1a] text-white font-semibold px-7 py-3.5 rounded-full text-sm hover:bg-[#333] transition-colors flex items-center gap-2 whitespace-nowrap"
             >
-              Book a Free Audit
+              Plug the Leaks
               <ArrowRight className="w-3.5 h-3.5" />
             </Link>
           </motion.div>
