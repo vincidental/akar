@@ -55,7 +55,7 @@ export default function HeroSection() {
             <ArrowRight className="w-3.5 h-3.5" />
           </Link>
           <Link to="/infrastructure" className="btn-outline-pill text-sm px-6 py-3">
-            See how it works
+            See How It Works
           </Link>
         </motion.div>
       </div>
