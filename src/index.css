@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -6,28 +6,26 @@
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 215 28% 9%;
+    --background: 40 20% 95%;
+    --foreground: 0 0% 10%;
     --card: 0 0% 100%;
-    --card-foreground: 215 28% 9%;
+    --card-foreground: 0 0% 10%;
     --popover: 0 0% 100%;
-    --popover-foreground: 215 28% 9%;
-    --primary: 221 83% 53%;
+    --popover-foreground: 0 0% 10%;
+    --primary: 0 0% 10%;
     --primary-foreground: 0 0% 100%;
-    --secondary: 210 40% 96%;
-    --secondary-foreground: 215 28% 9%;
-    --muted: 210 40% 96%;
-    --muted-foreground: 215 16% 47%;
-    --accent: 210 40% 96%;
-    --accent-foreground: 215 28% 9%;
+    --secondary: 40 15% 90%;
+    --secondary-foreground: 0 0% 10%;
+    --muted: 40 10% 88%;
+    --muted-foreground: 0 0% 40%;
+    --accent: 158 60% 35%;
+    --accent-foreground: 0 0% 100%;
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 98%;
-    --border: 214 32% 91%;
-    --input: 214 32% 91%;
-    --ring: 221 83% 53%;
-    --radius: 0.75rem;
-    --emerald: 160 84% 39%;
-    --slate-dark: 215 28% 9%;
+    --border: 40 10% 85%;
+    --input: 40 10% 85%;
+    --ring: 0 0% 10%;
+    --radius: 0.5rem;
   }
 }
 
@@ -36,7 +34,9 @@
     @apply border-border outline-ring/50;
   }
   body {
-    @apply bg-background text-foreground font-inter antialiased;
+    @apply bg-background text-foreground font-sans antialiased;
+    background-color: #F0EDE8;
+    color: #1a1a1a;
   }
   html {
     scroll-behavior: smooth;
@@ -44,29 +44,34 @@
 }
 
 @layer utilities {
-  .font-inter {
+  .font-serif-display {
+    font-family: 'Playfair Display', Georgia, serif;
+  }
+  .font-sans {
     font-family: 'Inter', sans-serif;
   }
+  .text-accent-green {
+    color: #3a8c5c;
+  }
+  .bg-cream {
+    background-color: #F0EDE8;
+  }
+  .bg-cream-dark {
+    background-color: #E8E4DC;
+  }
+  .bg-stone {
+    background-color: #2a2520;
+  }
   .text-gradient {
-    background: linear-gradient(135deg, #2563EB 0%, #10B981 100%);
+    background: linear-gradient(135deg, #3a8c5c 0%, #2a7a4f 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
   }
-  .glow-blue {
-    box-shadow: 0 0 30px rgba(37, 99, 235, 0.3), 0 0 60px rgba(37, 99, 235, 0.1);
+  .btn-black {
+    @apply bg-[#1a1a1a] text-white font-medium px-5 py-2.5 rounded-full text-sm hover:bg-[#333] transition-colors duration-200;
   }
-  .glow-emerald {
-    box-shadow: 0 0 30px rgba(16, 185, 129, 0.3), 0 0 60px rgba(16, 185, 129, 0.1);
-  }
-  .glass {
-    background: rgba(255, 255, 255, 0.8);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-  }
-  .glass-dark {
-    background: rgba(15, 23, 42, 0.8);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
+  .btn-outline-pill {
+    @apply border border-[#1a1a1a]/20 text-[#1a1a1a] font-medium px-5 py-2.5 rounded-full text-sm hover:border-[#1a1a1a]/40 hover:bg-[#1a1a1a]/5 transition-all duration-200;
   }
 }

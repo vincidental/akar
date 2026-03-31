@@ -1,67 +1,75 @@
 import { Link } from 'react-router-dom';
-import { Zap, MapPin, Mail, Phone } from 'lucide-react';
 
 export default function Footer() {
   return (
-    <footer className="bg-slate-950 text-slate-400 pt-16 pb-8">
-      <div className="max-w-7xl mx-auto px-6">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
+    <footer className="bg-[#F0EDE8] border-t border-black/8 py-12 px-6">
+      <div className="max-w-6xl mx-auto">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-12">
           {/* Brand */}
-          <div className="md:col-span-1">
+          <div className="col-span-2 md:col-span-1">
             <div className="flex items-center gap-2 mb-4">
-              <div className="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center">
-                <Zap className="w-4 h-4 text-white" />
+              <div className="w-6 h-6 bg-[#1a1a1a] rounded-sm flex items-center justify-center">
+                <span className="text-white text-[9px] font-bold tracking-tight">AS</span>
               </div>
-              <span className="font-bold text-lg text-white">Akar Systems</span>
+              <span className="font-semibold text-[#1a1a1a] text-sm">Akar Systems</span>
             </div>
-            <p className="text-sm leading-relaxed text-slate-500">
-              Digital infrastructure and conversion optimization for Indonesia's most ambitious local businesses.
+            <p className="text-sm text-[#1a1a1a]/50 leading-relaxed max-w-[180px]">
+              Digital infrastructure for businesses that refuse to leave revenue on the table.
             </p>
           </div>
 
           {/* Services */}
           <div>
-            <h4 className="text-white font-semibold text-sm uppercase tracking-widest mb-4">Infrastructure</h4>
-            <ul className="space-y-2 text-sm">
-              <li><Link to="/infrastructure" className="hover:text-white transition-colors">Digital Storefront</Link></li>
-              <li><Link to="/infrastructure" className="hover:text-white transition-colors">Local Dominance Bundle</Link></li>
-              <li><Link to="/infrastructure" className="hover:text-white transition-colors">Automated Pipeline</Link></li>
-              <li><Link to="/philosophy#custom" className="hover:text-white transition-colors">Custom Engineering</Link></li>
+            <p className="text-xs font-semibold uppercase tracking-widest text-[#1a1a1a]/40 mb-3">Services</p>
+            <ul className="space-y-2">
+              {['Digital Storefront', 'Local SEO', 'AI Pipeline', 'Analytics'].map((s) => (
+                <li key={s}>
+                  <Link to="/infrastructure" className="text-sm text-[#1a1a1a]/60 hover:text-[#1a1a1a] transition-colors">
+                    {s}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
 
           {/* Company */}
           <div>
-            <h4 className="text-white font-semibold text-sm uppercase tracking-widest mb-4">Company</h4>
-            <ul className="space-y-2 text-sm">
-              <li><Link to="/philosophy" className="hover:text-white transition-colors">Our Philosophy</Link></li>
-              <li><Link to="/audit" className="hover:text-white transition-colors">Book an Audit</Link></li>
+            <p className="text-xs font-semibold uppercase tracking-widest text-[#1a1a1a]/40 mb-3">Company</p>
+            <ul className="space-y-2">
+              {[['Philosophy', '/philosophy'], ['Infrastructure', '/infrastructure'], ['Free Audit', '/audit']].map(([label, to]) => (
+                <li key={label}>
+                  <Link to={to} className="text-sm text-[#1a1a1a]/60 hover:text-[#1a1a1a] transition-colors">
+                    {label}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
 
           {/* Contact */}
           <div>
-            <h4 className="text-white font-semibold text-sm uppercase tracking-widest mb-4">Contact</h4>
-            <ul className="space-y-3 text-sm">
-              <li className="flex items-start gap-2">
-                <MapPin className="w-4 h-4 mt-0.5 text-blue-400 shrink-0" />
-                <span>Jakarta HQ, Indonesia</span>
+            <p className="text-xs font-semibold uppercase tracking-widest text-[#1a1a1a]/40 mb-3">Contact</p>
+            <ul className="space-y-2">
+              <li>
+                <a href="https://wa.me/62" target="_blank" rel="noopener noreferrer" className="text-sm text-[#1a1a1a]/60 hover:text-[#1a1a1a] transition-colors">
+                  WhatsApp
+                </a>
               </li>
-              <li className="flex items-center gap-2">
-                <Mail className="w-4 h-4 text-blue-400 shrink-0" />
-                <a href="mailto:hello@akarsystems.com" className="hover:text-white transition-colors">hello@akarsystems.com</a>
+              <li>
+                <a href="mailto:hello@akarsystems.id" className="text-sm text-[#1a1a1a]/60 hover:text-[#1a1a1a] transition-colors">
+                  hello@akarsystems.id
+                </a>
               </li>
-              <li className="flex items-center gap-2">
-                <Phone className="w-4 h-4 text-emerald-400 shrink-0" />
-                <a href="https://wa.me/62" className="hover:text-white transition-colors text-emerald-400">WhatsApp Us</a>
+              <li>
+                <span className="text-sm text-[#1a1a1a]/40">Jakarta, Indonesia</span>
               </li>
             </ul>
           </div>
         </div>
 
-        <div className="border-t border-slate-800 pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
-          <p className="text-sm text-slate-600">© 2026 Akar Systems. All rights reserved.</p>
-          <p className="text-sm text-slate-600">Jakarta, Indonesia · Silicon Valley Methodology</p>
+        <div className="flex flex-col sm:flex-row items-center justify-between pt-6 border-t border-black/8 gap-4">
+          <p className="text-xs text-[#1a1a1a]/40">© 2026 Akar Systems. All rights reserved.</p>
+          <p className="text-xs text-[#1a1a1a]/40">Jakarta, Indonesia</p>
         </div>
       </div>
     </footer>

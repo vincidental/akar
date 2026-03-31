@@ -11,19 +11,16 @@ const offerings = [
     icon: Zap,
     title: 'The Digital Storefront',
     desc: 'Premium, lightning-fast website built to convert traffic into customers. Launched in days.',
-    color: 'blue',
   },
   {
     icon: MapPin,
     title: 'Local Dominance Bundle',
     desc: 'Web + SEO wired directly to Google Business Profile. Own your local search market.',
-    color: 'emerald',
   },
   {
     icon: Bot,
     title: 'The Automated Pipeline',
     desc: 'AI chatbot + automated lead routing that qualifies prospects 24/7 while you sleep.',
-    color: 'blue',
   },
 ];
 
@@ -35,48 +32,47 @@ export default function Home() {
       <LeakyBucketSection />
 
       {/* Quick Offerings */}
-      <section className="py-24 bg-slate-50">
-        <div className="max-w-7xl mx-auto px-6">
+      <section className="py-24 bg-[#E8E4DC]">
+        <div className="max-w-6xl mx-auto px-6">
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="text-center mb-16"
+            className="mb-14"
           >
-            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-slate-400 mb-3">What We Build</p>
-            <h2 className="text-4xl md:text-5xl font-black text-slate-900 tracking-tight">
-              Three Levels of<br />
-              <span className="text-gradient">Digital Infrastructure</span>
+            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#1a1a1a]/35 mb-4">What We Build</p>
+            <h2 className="font-serif text-4xl md:text-5xl text-[#1a1a1a] tracking-tight leading-[1.1]">
+              Three levels of digital infrastructure.
             </h2>
           </motion.div>
 
-          <div className="grid md:grid-cols-3 gap-6">
+          <div className="grid md:grid-cols-3 gap-4">
             {offerings.map((item, i) => (
               <motion.div
                 key={i}
-                initial={{ opacity: 0, y: 30 }}
+                initial={{ opacity: 0, y: 24 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: i * 0.1 }}
-                className="group p-8 bg-white rounded-2xl border border-slate-200 hover:border-blue-200 hover:shadow-xl hover:shadow-blue-50 transition-all duration-300"
+                transition={{ duration: 0.5, delay: i * 0.08 }}
+                className="bg-white rounded-2xl p-7 border border-black/8 hover:shadow-md transition-shadow duration-300"
               >
-                <div className={`w-12 h-12 rounded-xl mb-6 flex items-center justify-center ${item.color === 'blue' ? 'bg-blue-50' : 'bg-emerald-50'}`}>
-                  <item.icon className={`w-6 h-6 ${item.color === 'blue' ? 'text-blue-600' : 'text-emerald-600'}`} />
+                <div className="w-9 h-9 rounded-lg bg-[#F0EDE8] flex items-center justify-center mb-5">
+                  <item.icon className="w-4 h-4 text-[#1a1a1a]/60" />
                 </div>
-                <h3 className="text-lg font-bold text-slate-900 mb-3">{item.title}</h3>
-                <p className="text-slate-500 text-sm leading-relaxed">{item.desc}</p>
+                <h3 className="font-serif text-lg text-[#1a1a1a] mb-2">{item.title}</h3>
+                <p className="text-sm text-[#1a1a1a]/50 leading-relaxed">{item.desc}</p>
               </motion.div>
             ))}
           </div>
 
-          <div className="text-center mt-10">
+          <div className="mt-8">
             <Link
               to="/infrastructure"
-              className="inline-flex items-center gap-2 px-6 py-3 bg-slate-900 text-white font-semibold rounded-xl hover:bg-slate-800 transition-all duration-200 hover:scale-105"
+              className="inline-flex items-center gap-2 text-sm font-medium text-[#1a1a1a]/60 hover:text-[#1a1a1a] transition-colors"
             >
-              View Full Infrastructure & Pricing
-              <ArrowRight className="w-4 h-4" />
+              View full infrastructure & pricing
+              <ArrowRight className="w-3.5 h-3.5" />
             </Link>
           </div>
         </div>
@@ -84,28 +80,25 @@ export default function Home() {
 
       <CaseStudySection />
 
-      {/* Bottom CTA */}
-      <section className="py-24 bg-white">
-        <div className="max-w-4xl mx-auto px-6 text-center">
+      {/* Bottom CTA Banner */}
+      <section className="py-16 bg-[#F0EDE8] px-6">
+        <div className="max-w-6xl mx-auto">
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
+            className="bg-gradient-to-br from-[#c4956a] via-[#b87d5a] to-[#8c6440] rounded-2xl px-10 py-14 flex flex-col md:flex-row items-center justify-between gap-6"
           >
-            <h2 className="text-4xl md:text-5xl font-black text-slate-900 tracking-tight mb-6">
-              Ready to stop leaving<br />
-              <span className="text-gradient">revenue on the table?</span>
+            <h2 className="font-serif text-3xl md:text-4xl text-white leading-[1.15] max-w-md">
+              Ready to stop leaving revenue on the table?
             </h2>
-            <p className="text-xl text-slate-500 mb-10">
-              Book a free 15-minute systems audit. We'll show you exactly where your leads are dropping off.
-            </p>
             <Link
               to="/audit"
-              className="inline-flex items-center gap-2 px-10 py-4 bg-blue-600 text-white font-bold rounded-xl text-lg hover:bg-blue-700 transition-all duration-200 glow-blue hover:scale-105"
+              className="shrink-0 bg-[#1a1a1a] text-white font-semibold px-7 py-3.5 rounded-full text-sm hover:bg-[#333] transition-colors flex items-center gap-2 whitespace-nowrap"
             >
-              Book Your Free Audit
-              <ArrowRight className="w-5 h-5" />
+              Book a Free Audit
+              <ArrowRight className="w-3.5 h-3.5" />
             </Link>
           </motion.div>
         </div>
