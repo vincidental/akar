@@ -171,13 +171,13 @@ export default function FAQSection() {
         >
           <div>
             <p className="font-serif text-xl text-white leading-snug">Still have questions?</p>
-            <p className="text-white/40 text-sm mt-1">Book a free 15-minute audit and we'll answer everything live.</p>
+            <p className="text-white/40 text-sm mt-1">Book a free 15-minute strategy call and we'll answer everything live.</p>
           </div>
           <Link
             to="/strategy"
             className="shrink-0 bg-white text-[#1a1a1a] font-semibold px-6 py-3 rounded-full text-sm hover:bg-white/90 transition-colors whitespace-nowrap"
           >
-            Book a Free Audit
+            Book a Free Strategy Call
           </Link>
         </motion.div>
       </div>
