@@ -51,11 +51,11 @@ export default function HeroSection() {
           className="flex flex-col sm:flex-row items-center justify-center gap-3"
         >
           <Link to="/audit" className="btn-black flex items-center gap-2 px-6 py-3 text-sm">
-            Book a Free Audit
+            Plug the leaks
             <ArrowRight className="w-3.5 h-3.5" />
           </Link>
           <Link to="/infrastructure" className="btn-outline-pill text-sm px-6 py-3">
-            See Pricing
+            See how it works
           </Link>
         </motion.div>
       </div>
