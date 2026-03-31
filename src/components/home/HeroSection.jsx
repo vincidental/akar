@@ -31,7 +31,7 @@ export default function HeroSection() {
         >
           Your ads are working.{' '}
           <br className="hidden md:block" />
-          But Your website is{' '}
+          But your website is{' '}
           <em className="not-italic text-green-600">losing the leads.</em>
         </motion.h1>
 
