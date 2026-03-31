@@ -13,7 +13,7 @@ const steps = [
     iconColor: 'text-white',
     accentColor: 'text-white/60',
     problem: 'Most businesses rely on just one traffic source.',
-    solution: 'We build a dual-engine intake. Local SEO / GBP captures high-intent organic search ("car detailing near me"), while paid ads are captured on both WhatsApp and a premium website.',
+    solution: 'We build a dual-engine intake. Local SEO / GBP captures high-intent organic search ("car detailing near me"), while your existing paid ads are captured on both our WhatsApp Automation and your premium website for those who still seek more info.',
     tags: ['Local SEO / GBP', 'Paid Ads (Meta / Google)'],
   },
   {
