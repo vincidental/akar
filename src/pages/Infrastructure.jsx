@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { Check, ArrowRight } from 'lucide-react';
-import WorkflowDiagram from '../components/infrastructure/WorkflowDiagram';
+import AkarPipeline from '../components/infrastructure/AkarPipeline';
 
 const tiers = [
   {
@@ -72,19 +72,19 @@ export default function Infrastructure() {
       </section>
 
       {/* Workflow Diagram */}
-      <section className="py-16 bg-[#1a1a1a]">
+      <section className="py-20 bg-[#E8E4DC]">
         <div className="max-w-5xl mx-auto px-6">
           <motion.div
             initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="mb-12"
+            className="mb-10"
           >
-            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-white/30 mb-3">How the System Works</p>
-            <h2 className="font-serif text-3xl text-white tracking-tight">The Akar Lead Lifecycle</h2>
-            <p className="text-white/40 mt-2 text-sm">Hover over each node to reveal the technology powering it.</p>
+            <p className="text-[10px] font-semibold uppercase tracking-[0.25em] text-[#1a1a1a]/35 mb-3">How the System Works</p>
+            <h2 className="font-serif text-4xl text-[#1a1a1a] tracking-tight">The Akar Lead Lifecycle</h2>
+            <p className="text-[#1a1a1a]/45 mt-2 text-sm">Click each step to reveal the strategy and technology powering it.</p>
           </motion.div>
-          <WorkflowDiagram />
+          <AkarPipeline />
         </div>
       </section>
 
