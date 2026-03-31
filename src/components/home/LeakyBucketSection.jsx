@@ -201,7 +201,7 @@ export default function LeakyBucketSection() {
             <div className="flex flex-col items-center">
               {[
                 { n: '1', label: 'Ad Click', sub: 'Traffic enters the pipeline', v: 'neutral_dark', d: 0.3 },
-                { n: '2', label: 'Sub-second Load', sub: 'Vercel Edge Network', v: 'good', d: 0.45 },
+                { n: '2', label: 'Sub-second Load', sub: 'Local-optimized Edge Network', v: 'good', d: 0.45 },
                 { n: '3', label: 'Crystal Clear UI', sub: 'Conversion-first design', v: 'good', d: 0.6 },
                 { n: '4', label: 'Lead Captured', sub: 'Form + WhatsApp routing', v: 'good', d: 0.75 },
                 { n: '5', label: 'Instant Notification', sub: 'You get pinged immediately', v: 'end_good', d: 0.9 },
