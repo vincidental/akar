@@ -2,6 +2,7 @@ import HeroSection from '../components/home/HeroSection';
 import AuthorityMarquee from '../components/home/AuthorityMarquee';
 import LeakyBucketSection from '../components/home/LeakyBucketSection';
 import CaseStudySection from '../components/home/CaseStudySection';
+import FAQSection from '../components/home/FAQSection';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { ArrowRight, Zap, MapPin, Bot } from 'lucide-react';
@@ -79,6 +80,8 @@ export default function Home() {
       </section>
 
       <CaseStudySection />
+
+      <FAQSection />
 
       {/* Bottom CTA Banner */}
       <section className="py-16 bg-[#F0EDE8] px-6">
