@@ -27,7 +27,7 @@ export default function Navbar() {
         initial={{ opacity: 0, y: -10 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.4 }}
-        className={`w-full max-w-4xl bg-white/95 backdrop-blur-md rounded-full border border-black/10 px-5 py-2.5 flex items-center justify-between transition-shadow duration-300 ${scrolled ? 'shadow-lg' : 'shadow-sm'}`}
+        className={`w-full max-w-4xl rounded-full px-5 py-2.5 flex items-center justify-between transition-all duration-500 ${scrolled ? 'bg-white/70 backdrop-blur-xl border border-white/60 shadow-[0_8px_32px_rgba(0,0,0,0.08),inset_0_1px_0_rgba(255,255,255,0.9)]' : 'bg-white/55 backdrop-blur-lg border border-white/50 shadow-[0_4px_16px_rgba(0,0,0,0.06),inset_0_1px_0_rgba(255,255,255,0.8)]'}`}
       >
         {/* Logo */}
         <Link to="/" className="flex items-center gap-2 shrink-0">
@@ -55,14 +55,19 @@ export default function Navbar() {
           <div className="w-px h-4 bg-black/10 mx-1" />
           <Link
             to="/launch"
-            className={`px-4 py-1.5 rounded-full text-sm font-medium flex items-center gap-1.5 transition-colors duration-200 ${
+            className={`px-4 py-1.5 rounded-full text-sm font-medium flex items-center gap-1.5 transition-all duration-200 ${
               location.pathname === '/launch'
                 ? 'text-green-600'
-                : 'text-[#1a1a1a]/60 hover:text-[#1a1a1a]'
+                : 'text-[#1a1a1a]/55 hover:text-green-600'
             }`}
           >
-            <span className="w-1.5 h-1.5 rounded-full bg-green-500 inline-block" />
-            48-Hour Launch
+            <span className="relative flex items-center justify-center w-1.5 h-1.5">
+              <span className="absolute w-2.5 h-2.5 rounded-full bg-green-400/30 animate-ping" />
+              <span className="relative w-1.5 h-1.5 rounded-full bg-green-500 shadow-[0_0_6px_rgba(34,197,94,0.8)]" />
+            </span>
+            <span className={`transition-all duration-200 ${location.pathname === '/launch' ? 'text-green-600 drop-shadow-[0_0_8px_rgba(34,197,94,0.5)]' : 'hover:drop-shadow-[0_0_8px_rgba(34,197,94,0.4)]'}`}>
+              48-Hour Launch
+            </span>
           </Link>
         </div>
 

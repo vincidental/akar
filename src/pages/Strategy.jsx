@@ -1,9 +1,8 @@
 import { motion } from 'framer-motion';
-import { Clock, TrendingUp, Shield, CheckCircle, MapPin, Bot } from 'lucide-react';
+import { Clock, TrendingUp, Shield, CheckCircle, Bot } from 'lucide-react';
 
 const benefits = [
   { icon: Clock, text: 'Free 15-minute deep-dive call with a systems engineer' },
-  { icon: MapPin, text: 'Mapping out your custom digital infrastructure and workflows' },
   { icon: TrendingUp, text: 'Live analysis of your current website performance' },
   { icon: Shield, text: 'Google Maps ranking audit and gap identification' },
   { icon: CheckCircle, text: 'Exact breakdown of where your leads are dropping off' },
@@ -38,9 +37,9 @@ export default function Strategy() {
                     initial={{ opacity: 0, x: -16 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.5, delay: 0.2 + i * 0.07 }}
-                    className="flex items-start gap-3"
+                    className="flex items-center gap-3"
                   >
-                    <div className="w-8 h-8 bg-white rounded-lg flex items-center justify-center shrink-0 border border-black/8 mt-0.5">
+                    <div className="w-8 h-8 bg-white rounded-lg flex items-center justify-center shrink-0 border border-black/8">
                       <b.icon className="w-3.5 h-3.5 text-[#1a1a1a]/40" />
                     </div>
                     <p className="text-[#1a1a1a]/60 text-sm leading-relaxed">{b.text}</p>
