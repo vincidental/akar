@@ -18,7 +18,7 @@ const nodes = [
     icon: Zap,
     tooltip: {
       title: 'Sub-second Local Edge Network',
-      body: 'Deployed globally on Vercel Edge Network with CDN optimization, ensuring <1s load times from any device in Indonesia.',
+      body: 'Deployed globally on Local Edge Network with CDN optimization, ensuring <1s load times from any device in Indonesia.',
     },
   },
   {
