@@ -174,7 +174,7 @@ export default function FAQSection() {
             <p className="text-white/40 text-sm mt-1">Book a free 15-minute audit and we'll answer everything live.</p>
           </div>
           <Link
-            to="/audit"
+            to="/strategy"
             className="shrink-0 bg-white text-[#1a1a1a] font-semibold px-6 py-3 rounded-full text-sm hover:bg-white/90 transition-colors whitespace-nowrap"
           >
             Book a Free Audit

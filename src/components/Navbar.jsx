@@ -54,21 +54,21 @@ export default function Navbar() {
           ))}
           <div className="w-px h-4 bg-black/10 mx-1" />
           <Link
-            to="/audit"
+            to="/launch"
             className={`px-4 py-1.5 rounded-full text-sm font-medium flex items-center gap-1.5 transition-colors duration-200 ${
-              location.pathname === '/audit'
+              location.pathname === '/launch'
                 ? 'text-green-600'
                 : 'text-[#1a1a1a]/60 hover:text-[#1a1a1a]'
             }`}
           >
             <span className="w-1.5 h-1.5 rounded-full bg-green-500 inline-block" />
-            Free Audit
+            48-Hour Launch
           </Link>
         </div>
 
         {/* CTA */}
         <div className="hidden md:flex items-center gap-3">
-          <Link to="/audit" className="btn-black text-xs px-4 py-2">
+          <Link to="/strategy" className="btn-black text-xs px-4 py-2">
             Book a Strategy Call
           </Link>
         </div>
@@ -102,14 +102,14 @@ export default function Navbar() {
               </Link>
             ))}
             <Link
-              to="/audit"
+              to="/launch"
               className="px-4 py-2.5 rounded-xl text-sm font-medium text-green-600 hover:bg-green-50 transition-colors flex items-center gap-2"
             >
               <span className="w-1.5 h-1.5 rounded-full bg-green-500" />
-              Free Audit
+              48-Hour Launch
             </Link>
             <div className="pt-2 border-t border-black/5">
-              <Link to="/audit" className="btn-black w-full text-center block text-xs">
+              <Link to="/strategy" className="btn-black w-full text-center block text-xs">
                 Book a Strategy Call
               </Link>
             </div>

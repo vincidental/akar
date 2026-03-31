@@ -174,7 +174,7 @@ export default function Philosophy() {
             </div>
 
             <Link
-              to="/audit"
+              to="/strategy"
               className="inline-flex items-center gap-2 bg-white text-[#1a1a1a] font-semibold px-7 py-3.5 rounded-full text-sm hover:bg-white/90 transition-colors"
             >
               Inquire for Custom Scope

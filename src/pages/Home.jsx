@@ -97,7 +97,7 @@ export default function Home() {
               Ready to stop leaving revenue on the table?
             </h2>
             <Link
-              to="/audit"
+              to="/strategy"
               className="shrink-0 bg-[#1a1a1a] text-white font-semibold px-7 py-3.5 rounded-full text-sm hover:bg-[#333] transition-colors flex items-center gap-2 whitespace-nowrap"
             >
               Plug the Leaks

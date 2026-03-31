@@ -156,7 +156,7 @@ export default function Infrastructure() {
                 <div>
                   <p className={`text-xs mb-3 ${tier.highlight ? 'text-white/30' : 'text-[#1a1a1a]/35'}`}>{tier.price}</p>
                   <Link
-                    to="/audit"
+                    to="/strategy"
                     className={`group flex items-center justify-center gap-2 w-full py-3 rounded-full font-medium text-sm transition-all duration-200 ${
                       tier.highlight
                         ? 'bg-white text-[#1a1a1a] hover:bg-white/90'

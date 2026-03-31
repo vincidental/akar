@@ -9,7 +9,8 @@ import Layout from '@/components/Layout';
 import Home from '@/pages/Home';
 import Infrastructure from '@/pages/Infrastructure';
 import Philosophy from '@/pages/Philosophy';
-import Audit from '@/pages/Audit';
+import Strategy from '@/pages/Strategy';
+import Launch from '@/pages/Launch';
 
 const AuthenticatedApp = () => {
   const { isLoadingAuth, isLoadingPublicSettings, authError, navigateToLogin } = useAuth();
@@ -37,7 +38,8 @@ const AuthenticatedApp = () => {
         <Route path="/" element={<Home />} />
         <Route path="/infrastructure" element={<Infrastructure />} />
         <Route path="/philosophy" element={<Philosophy />} />
-        <Route path="/audit" element={<Audit />} />
+        <Route path="/strategy" element={<Strategy />} />
+        <Route path="/launch" element={<Launch />} />
       </Route>
       <Route path="*" element={<PageNotFound />} />
     </Routes>
