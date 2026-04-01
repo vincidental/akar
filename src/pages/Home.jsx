@@ -72,7 +72,7 @@ export default function Home() {
               to="/infrastructure"
               className="inline-flex items-center gap-2 text-sm font-medium text-[#1a1a1a]/60 hover:text-[#1a1a1a] transition-colors"
             >
-              View full infrastructure & pricing
+              View our infrastructure & services
               <ArrowRight className="w-3.5 h-3.5" />
             </Link>
           </div>
