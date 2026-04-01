@@ -17,7 +17,6 @@ const tiers = [
     ],
     highlight: false,
     cta: 'Get Started',
-    price: 'Starting at Rp 5.5M',
   },
   {
     level: '02',
