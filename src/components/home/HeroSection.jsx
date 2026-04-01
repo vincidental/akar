@@ -50,7 +50,7 @@ export default function HeroSection() {
           transition={{ duration: 0.5, delay: 0.3 }}
           className="flex flex-col sm:flex-row items-center justify-center gap-3"
         >
-          <Link to="/audit" className="btn-black flex items-center gap-2 px-6 py-3 text-sm">
+          <Link to="/strategy" className="btn-black flex items-center gap-2 px-6 py-3 text-sm">
             Plug the Leaks
             <ArrowRight className="w-3.5 h-3.5" />
           </Link>
