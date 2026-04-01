@@ -59,7 +59,7 @@ export default function Infrastructure() {
       <section className="pt-32 pb-20 px-6">
         <div className="max-w-4xl mx-auto">
           <motion.div initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
-            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#1a1a1a]/35 mb-5">Infrastructure & Pricing</p>
+            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#1a1a1a]/35 mb-5">Infrastructure & Services</p>
             <h1 className="font-serif text-5xl md:text-7xl text-[#1a1a1a] tracking-tight leading-[1.08] mb-6">
               Digital infrastructure.{' '}
               <em className="not-italic text-green-600">Built for revenue.</em>
