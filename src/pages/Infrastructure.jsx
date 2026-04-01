@@ -31,7 +31,6 @@ const tiers = [
     ],
     highlight: true,
     cta: 'Get the Bundle',
-    price: 'Starting at Rp 12M',
     badge: 'Most Popular',
   },
   {
@@ -47,7 +46,6 @@ const tiers = [
     ],
     highlight: false,
     cta: 'Build My Pipeline',
-    price: 'Starting at Rp 22M',
   },
 ];
 
