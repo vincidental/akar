@@ -6,7 +6,7 @@ const benefits = [
   { icon: TrendingUp, text: 'Live analysis of your current website performance' },
   { icon: Shield, text: 'Google Maps ranking audit and gap identification' },
   { icon: CheckCircle, text: 'Exact breakdown of where your leads are dropping off' },
-  { icon: Bot, text: 'Architecting 24/7 AI lead automation for your Social Media touchpoints (WhatsApp, IG)' },
+  { icon: Bot, text: 'Architecting AI lead automation for your Social Media touchpoints (WhatsApp, IG)' },
 ];
 
 export default function Strategy() {
