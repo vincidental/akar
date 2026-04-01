@@ -62,7 +62,7 @@ export default function Infrastructure() {
               <em className="not-italic text-green-600">Built for revenue.</em>
             </h1>
             <p className="text-lg text-[#1a1a1a]/50 max-w-xl leading-relaxed">
-              We don't sell websites. We install complete lead-capture systems tailored to your business size.
+              We don't 'just' sell websites. We install complete lead-capture systems tailored to your business size.
             </p>
           </motion.div>
         </div>
