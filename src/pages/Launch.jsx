@@ -131,13 +131,14 @@ export default function Launch() {
           </motion.div>
 
           <motion.h1 {...fadeUp(0.08)} className="font-serif text-5xl md:text-7xl text-[#1a1a1a] tracking-tight leading-[1.06] mb-6">
-            <span className="relative inline-block text-green-600">
-              {c.headline1}
+            <span className="relative inline-block">
+              <span className="relative z-10 text-green-700">{c.headline1}</span>
               <motion.span
                 initial={{ scaleX: 0 }}
                 animate={{ scaleX: 1 }}
-                transition={{ duration: 0.6, delay: 0.5, ease: 'easeOut' }}
-                className="absolute bottom-1 left-0 right-0 h-2 bg-green-100 -z-0 origin-left rounded"
+                transition={{ duration: 0.65, delay: 0.45, ease: 'easeOut' }}
+                className="absolute inset-x-0 origin-left rounded-sm pointer-events-none"
+                style={{ bottom: '8%', height: '38%', background: 'rgba(134,239,172,0.45)', zIndex: 0 }}
               />
             </span>
             <br />

@@ -45,7 +45,7 @@ export default function Navbar() {
         initial={{ opacity: 0, y: -14 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-        className="w-full max-w-4xl rounded-full px-5 py-2.5 flex items-center justify-between transition-all duration-500"
+        className="w-full max-w-5xl rounded-full px-5 py-2.5 flex items-center justify-between transition-all duration-500"
         style={{
           background: scrolled
             ? 'linear-gradient(135deg, rgba(255,255,255,0.72) 0%, rgba(255,255,255,0.48) 100%)'

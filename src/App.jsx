@@ -13,6 +13,7 @@ import Infrastructure from '@/pages/Infrastructure';
 import Philosophy from '@/pages/Philosophy';
 import Strategy from '@/pages/Strategy';
 import Launch from '@/pages/Launch';
+import LaunchID from '@/pages/LaunchID';
 import Portfolio from '@/pages/Portfolio';
 
 const AuthenticatedApp = () => {
@@ -43,6 +44,7 @@ const AuthenticatedApp = () => {
         <Route path="/philosophy" element={<Philosophy />} />
         <Route path="/strategy" element={<Strategy />} />
         <Route path="/launch" element={<Launch />} />
+        <Route path="/id" element={<LaunchID />} />
         <Route path="/portfolio" element={<Portfolio />} />
       </Route>
       <Route path="*" element={<PageNotFound />} />
