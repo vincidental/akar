@@ -55,15 +55,13 @@ export default function DeviceMockup3D({ screenshotUrl, accentColor = '#3a8c5c' 
       laptopGroup.add(base);
 
       // Keyboard surface
-      laptopGroup.add(
-        Object.assign(
-          new THREE.Mesh(
-            new THREE.PlaneGeometry(2.4, 1.5),
-            new THREE.MeshPhysicalMaterial({ color: 0x141414, metalness: 0.3, roughness: 0.9 })
-          ),
-          { rotation: new THREE.Euler(-Math.PI / 2, 0, 0), position: new THREE.Vector3(0, -0.555, 0) }
-        )
+      const keyboardSurface = new THREE.Mesh(
+        new THREE.PlaneGeometry(2.4, 1.5),
+        new THREE.MeshPhysicalMaterial({ color: 0x141414, metalness: 0.3, roughness: 0.9 })
       );
+      keyboardSurface.rotation.x = -Math.PI / 2;
+      keyboardSurface.position.set(0, -0.555, 0);
+      laptopGroup.add(keyboardSurface);
 
       // Trackpad
       const trackpad = new THREE.Mesh(
