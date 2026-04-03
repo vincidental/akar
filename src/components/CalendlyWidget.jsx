@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 
-const CALENDLY_URL = 'https://calendly.com/vtheodore7?hide_landing_page_details=1&primary_color=275f00';
+const CALENDLY_URL = 'https://calendly.com/vtheodore7/30min?hide_event_type_details=1&hide_gdpr_banner=1&primary_color=275f00';
 
 export default function CalendlyWidget() {
   useEffect(() => {
