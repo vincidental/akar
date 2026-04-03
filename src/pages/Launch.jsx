@@ -53,7 +53,7 @@ const content = {
     process: [
       { step: '01', title: 'Book a Slot', desc: 'Pick a time, fill out our onboarding brief. Takes 10 minutes.' },
       { step: '02', title: 'We Build', desc: 'Our team gets to work immediately. Design, build, test — all in 48 hours.' },
-      { step: '03', title: 'You\'re Live', desc: 'We launch, hand over access, and you start capturing revenue.' },
+      { step: '03', title: 'You\'re Live', desc: 'We launch, the site is live, and you start capturing revenue.' },
     ],
   },
   id: {
