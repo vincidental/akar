@@ -1,12 +1,14 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import ProjectCard from './ProjectCard';
+import ProjectDetailModal from './ProjectDetailModal';
 import { projects } from './projectData';
 
 const filters = ['All', 'Client Work', 'Template'];
 
 export default function PortfolioGrid() {
   const [active, setActive] = useState('All');
+  const [selectedProject, setSelectedProject] = useState(null);
 
   const filtered =
     active === 'All' ? projects : projects.filter((p) => p.tag === active);
@@ -44,10 +46,14 @@ export default function PortfolioGrid() {
         {/* Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-5">
           {filtered.map((project, i) => (
-            <ProjectCard key={project.id} project={project} index={i} />
+            <ProjectCard key={project.id} project={project} index={i} onOpen={setSelectedProject} />
           ))}
         </div>
       </div>
+
+      {selectedProject && (
+        <ProjectDetailModal project={selectedProject} onClose={() => setSelectedProject(null)} />
+      )}
     </section>
   );
 }

@@ -1,9 +1,9 @@
 import { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { ArrowUpRight, ExternalLink } from 'lucide-react';
+import { motion } from 'framer-motion';
+import { ArrowUpRight, Expand } from 'lucide-react';
 import DeviceMockup3D from './DeviceMockup3D';
 
-export default function ProjectCard({ project, index }) {
+export default function ProjectCard({ project, index, onOpen }) {
   const [hovered, setHovered] = useState(false);
 
   const tagStyles = {
@@ -19,7 +19,8 @@ export default function ProjectCard({ project, index }) {
       transition={{ duration: 0.7, delay: index * 0.06 }}
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
-      className="group relative rounded-2xl overflow-hidden bg-white/[0.03] border border-white/8 hover:border-white/16 transition-all duration-500"
+      className="group relative rounded-2xl overflow-hidden bg-white/[0.03] border border-white/8 hover:border-white/16 transition-all duration-500 cursor-pointer"
+      onClick={() => project.screenshots?.length && onOpen(project)}
       style={{
         boxShadow: hovered
           ? `0 0 60px ${project.accentColor}18, 0 24px 48px rgba(0,0,0,0.5)`
@@ -45,6 +46,14 @@ export default function ProjectCard({ project, index }) {
           accentColor={project.accentColor}
           isActive={hovered}
         />
+
+        {/* Explore overlay hint */}
+        {project.screenshots?.length > 0 && (
+          <div className={`absolute top-3 right-3 z-20 flex items-center gap-1.5 px-2.5 py-1.5 rounded-full bg-black/60 border border-white/15 backdrop-blur-sm text-[11px] font-medium text-white/70 transition-opacity duration-300 ${hovered ? 'opacity-100' : 'opacity-0'}`}>
+            <Expand className="w-3 h-3" />
+            Explore
+          </div>
+        )}
       </div>
 
       {/* Card Content */}
@@ -94,15 +103,25 @@ export default function ProjectCard({ project, index }) {
               </span>
             ))}
           </div>
-          <a
-            href={project.url}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center gap-1 text-xs font-medium text-white/40 hover:text-white transition-colors duration-200 group/link"
-          >
-            View live
-            <ArrowUpRight className="w-3 h-3 group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5 transition-transform" />
-          </a>
+          {project.screenshots?.length > 0 ? (
+            <button
+              onClick={(e) => { e.stopPropagation(); onOpen(project); }}
+              className="flex items-center gap-1 text-xs font-medium text-white/40 hover:text-white transition-colors duration-200 group/link"
+            >
+              Explore project
+              <Expand className="w-3 h-3" />
+            </button>
+          ) : (
+            <a
+              href={project.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-1 text-xs font-medium text-white/40 hover:text-white transition-colors duration-200 group/link"
+            >
+              View live
+              <ArrowUpRight className="w-3 h-3 group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5 transition-transform" />
+            </a>
+          )}
         </div>
       </div>
     </motion.div>

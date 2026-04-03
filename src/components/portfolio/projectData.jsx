@@ -8,9 +8,12 @@ export const projects = [
     description:
       'Professional camera & production equipment repair service in Indonesia. Built to convert visitors through trust, speed, and direct WhatsApp lead routing.',
     url: 'https://ibengcam.vercel.app',
-    screenshotUrl: 'https://media.base44.com/images/public/69cc2ed917e94df8870cff9d/8d89cfaa8_image.png',
+    screenshotUrl: 'https://media.base44.com/images/public/69cc2ed917e94df8870cff9d/05fef6fe1_69cfa419d67de003ba16a149.jpg',
     accentColor: '#f97316',
     device: 'browser',
+    screenshots: [
+      'https://media.base44.com/images/public/69cc2ed917e94df8870cff9d/c764a3cb7_screencapture-ibengcam-id-2026-04-03-18_28_38.png',
+    ],
     metrics: [
       { label: 'Load Time', value: '<1s' },
       { label: 'WhatsApp CTA', value: '1-click' },
@@ -26,10 +29,13 @@ export const projects = [
     tagColor: 'green',
     description:
       'High-energy boxing camp website with a premium athletic identity. Built to drive class signups and establish the brand as a serious training destination.',
-    url: 'https://stackblitz.com/edit/vitejs-vite-leyfj',
-    screenshotUrl: 'https://media.base44.com/images/public/69cc2ed917e94df8870cff9d/2c0332920_image.png',
+    url: 'https://esbc.vercel.app',
+    screenshotUrl: 'https://media.base44.com/images/public/69cc2ed917e94df8870cff9d/ce1f69816_Screenshot2026-04-04011007.png',
     accentColor: '#ef4444',
     device: 'browser',
+    screenshots: [
+      'https://media.base44.com/images/public/69cc2ed917e94df8870cff9d/7de66baef_screencapture-esbc-vercel-app-2026-04-03-18_31_10.png',
+    ],
     metrics: [
       { label: 'Class Signups', value: '+40%' },
       { label: 'Brand Score', value: 'A+' },
