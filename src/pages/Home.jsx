@@ -6,26 +6,41 @@ import FAQSection from '../components/home/FAQSection';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { ArrowRight, Zap, MapPin, Bot } from 'lucide-react';
+import { useLang } from '@/lib/LanguageContext';
 
-const offerings = [
-  {
-    icon: Zap,
-    title: 'The Digital Storefront',
-    desc: 'Premium, lightning-fast website built to convert traffic into customers. Launched in days.',
+const offeringsData = {
+  en: {
+    label: 'What We Build',
+    heading: 'Three levels of digital infrastructure.',
+    link: 'View our infrastructure & services',
+    items: [
+      { icon: Zap, title: 'The Digital Storefront', desc: 'Premium, lightning-fast website built to convert traffic into customers. Launched in days.' },
+      { icon: MapPin, title: 'Local Dominance Bundle', desc: 'Web + SEO wired directly to Google Business Profile. Own your local search market.' },
+      { icon: Bot, title: 'The Automated Pipeline', desc: 'AI chatbot + automated lead routing that qualifies prospects 24/7 while you sleep.' },
+    ],
   },
-  {
-    icon: MapPin,
-    title: 'Local Dominance Bundle',
-    desc: 'Web + SEO wired directly to Google Business Profile. Own your local search market.',
+  id: {
+    label: 'Yang Kami Bangun',
+    heading: 'Tiga level infrastruktur digital.',
+    link: 'Lihat infrastruktur & layanan kami',
+    items: [
+      { icon: Zap, title: 'Digital Storefront', desc: 'Website premium berkecepatan tinggi yang dirancang mengubah pengunjung jadi pelanggan. Selesai dalam hitungan hari.' },
+      { icon: MapPin, title: 'Paket Dominasi Lokal', desc: 'Website + SEO yang terhubung langsung ke Google Business Profile. Kuasai hasil pencarian lokal Anda.' },
+      { icon: Bot, title: 'Pipeline Otomatis', desc: 'AI chatbot + routing lead otomatis yang seleksi calon pelanggan 24 jam — bahkan saat Anda tidur.' },
+    ],
   },
-  {
-    icon: Bot,
-    title: 'The Automated Pipeline',
-    desc: 'AI chatbot + automated lead routing that qualifies prospects 24/7 while you sleep.',
-  },
-];
+};
+
+const ctaData = {
+  en: { heading: "Ready to stop leaving revenue on the table?", cta: 'Plug the Leaks' },
+  id: { heading: 'Siap berhenti kehilangan pelanggan setiap harinya?', cta: 'Benahi Sekarang' },
+};
 
 export default function Home() {
+  const { lang } = useLang();
+  const offerings = offeringsData[lang];
+  const cta = ctaData[lang];
+
   return (
     <div>
       <HeroSection />
@@ -42,14 +57,14 @@ export default function Home() {
             transition={{ duration: 0.6 }}
             className="mb-14"
           >
-            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#1a1a1a]/35 mb-4">What We Build</p>
+            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#1a1a1a]/35 mb-4">{offerings.label}</p>
             <h2 className="font-serif text-4xl md:text-5xl text-[#1a1a1a] tracking-tight leading-[1.1]">
-              Three levels of digital infrastructure.
+              {offerings.heading}
             </h2>
           </motion.div>
 
           <div className="grid md:grid-cols-3 gap-4">
-            {offerings.map((item, i) => (
+            {offerings.items.map((item, i) => (
               <motion.div
                 key={i}
                 initial={{ opacity: 0, y: 24 }}
@@ -68,11 +83,8 @@ export default function Home() {
           </div>
 
           <div className="mt-8">
-            <Link
-              to="/infrastructure"
-              className="inline-flex items-center gap-2 text-sm font-medium text-[#1a1a1a]/60 hover:text-[#1a1a1a] transition-colors"
-            >
-              View our infrastructure & services
+            <Link to="/infrastructure" className="inline-flex items-center gap-2 text-sm font-medium text-[#1a1a1a]/60 hover:text-[#1a1a1a] transition-colors">
+              {offerings.link}
               <ArrowRight className="w-3.5 h-3.5" />
             </Link>
           </div>
@@ -80,7 +92,6 @@ export default function Home() {
       </section>
 
       <CaseStudySection />
-
       <FAQSection />
 
       {/* Bottom CTA Banner */}
@@ -94,13 +105,13 @@ export default function Home() {
             className="bg-gradient-to-br from-[#c4956a] via-[#b87d5a] to-[#8c6440] rounded-2xl px-10 py-14 flex flex-col md:flex-row items-center justify-between gap-6"
           >
             <h2 className="font-serif text-3xl md:text-4xl text-white leading-[1.15] max-w-md">
-              Ready to stop leaving revenue on the table?
+              {cta.heading}
             </h2>
             <Link
               to="/strategy"
               className="shrink-0 bg-[#1a1a1a] text-white font-semibold px-7 py-3.5 rounded-full text-sm hover:bg-[#333] transition-colors flex items-center gap-2 whitespace-nowrap"
             >
-              Plug the Leaks
+              {cta.cta}
               <ArrowRight className="w-3.5 h-3.5" />
             </Link>
           </motion.div>

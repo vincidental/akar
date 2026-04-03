@@ -1,6 +1,33 @@
 import { Link } from 'react-router-dom';
+import { useLang } from '@/lib/LanguageContext';
+
+const copy = {
+  en: {
+    tagline: 'Digital infrastructure for businesses that refuse to leave revenue on the table.',
+    services: 'Services',
+    serviceItems: ['Digital Storefront', 'Local SEO', 'AI Pipeline', 'Analytics'],
+    company: 'Company',
+    companyItems: [['Philosophy', '/philosophy'], ['Infrastructure', '/infrastructure'], ['Strategy Call', '/strategy'], ['48-Hour Launch', '/launch']],
+    contact: 'Contact',
+    rights: '© 2026 Akar Systems. All rights reserved.',
+    location: 'Jakarta, Indonesia',
+  },
+  id: {
+    tagline: 'Infrastruktur digital untuk bisnis yang tidak mau kehilangan satu pun pelanggan.',
+    services: 'Layanan',
+    serviceItems: ['Website Premium', 'SEO Lokal', 'Pipeline AI', 'Analytics'],
+    company: 'Perusahaan',
+    companyItems: [['Filosofi', '/philosophy'], ['Infrastruktur', '/infrastructure'], ['Konsultasi', '/strategy'], ['Launch 48 Jam', '/launch']],
+    contact: 'Kontak',
+    rights: '© 2026 Akar Systems. Hak cipta dilindungi.',
+    location: 'Jakarta, Indonesia',
+  },
+};
 
 export default function Footer() {
+  const { lang } = useLang();
+  const c = copy[lang];
+
   return (
     <footer className="bg-[#F0EDE8] border-t border-black/8 py-12 px-6">
       <div className="max-w-6xl mx-auto">
@@ -14,15 +41,15 @@ export default function Footer() {
               <span className="font-semibold text-[#1a1a1a] text-sm">Akar Systems</span>
             </div>
             <p className="text-sm text-[#1a1a1a]/50 leading-relaxed max-w-[180px]">
-              Digital infrastructure for businesses that refuse to leave revenue on the table.
+              {c.tagline}
             </p>
           </div>
 
           {/* Services */}
           <div>
-            <p className="text-xs font-semibold uppercase tracking-widest text-[#1a1a1a]/40 mb-3">Services</p>
+            <p className="text-xs font-semibold uppercase tracking-widest text-[#1a1a1a]/40 mb-3">{c.services}</p>
             <ul className="space-y-2">
-              {['Digital Storefront', 'Local SEO', 'AI Pipeline', 'Analytics'].map((s) => (
+              {c.serviceItems.map((s) => (
                 <li key={s}>
                   <Link to="/infrastructure" className="text-sm text-[#1a1a1a]/60 hover:text-[#1a1a1a] transition-colors">
                     {s}
@@ -34,9 +61,9 @@ export default function Footer() {
 
           {/* Company */}
           <div>
-            <p className="text-xs font-semibold uppercase tracking-widest text-[#1a1a1a]/40 mb-3">Company</p>
+            <p className="text-xs font-semibold uppercase tracking-widest text-[#1a1a1a]/40 mb-3">{c.company}</p>
             <ul className="space-y-2">
-              {[['Philosophy', '/philosophy'], ['Infrastructure', '/infrastructure'], ['Strategy Call', '/strategy'], ['48-Hour Launch', '/launch']].map(([label, to]) => (
+              {c.companyItems.map(([label, to]) => (
                 <li key={label}>
                   <Link to={to} className="text-sm text-[#1a1a1a]/60 hover:text-[#1a1a1a] transition-colors">
                     {label}
@@ -48,7 +75,7 @@ export default function Footer() {
 
           {/* Contact */}
           <div>
-            <p className="text-xs font-semibold uppercase tracking-widest text-[#1a1a1a]/40 mb-3">Contact</p>
+            <p className="text-xs font-semibold uppercase tracking-widest text-[#1a1a1a]/40 mb-3">{c.contact}</p>
             <ul className="space-y-2">
               <li>
                 <a href="https://wa.me/62" target="_blank" rel="noopener noreferrer" className="text-sm text-[#1a1a1a]/60 hover:text-[#1a1a1a] transition-colors">
@@ -61,15 +88,15 @@ export default function Footer() {
                 </a>
               </li>
               <li>
-                <span className="text-sm text-[#1a1a1a]/40">Jakarta, Indonesia</span>
+                <span className="text-sm text-[#1a1a1a]/40">{c.location}</span>
               </li>
             </ul>
           </div>
         </div>
 
         <div className="flex flex-col sm:flex-row items-center justify-between pt-6 border-t border-black/8 gap-4">
-          <p className="text-xs text-[#1a1a1a]/40">© 2026 Akar Systems. All rights reserved.</p>
-          <p className="text-xs text-[#1a1a1a]/40">Jakarta, Indonesia</p>
+          <p className="text-xs text-[#1a1a1a]/40">{c.rights}</p>
+          <p className="text-xs text-[#1a1a1a]/40">{c.location}</p>
         </div>
       </div>
     </footer>
