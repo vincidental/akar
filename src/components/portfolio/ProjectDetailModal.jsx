@@ -94,10 +94,10 @@ export default function ProjectDetailModal({ project, onClose }) {
 
         {/* ── Image viewer ── */}
         <div className="relative flex-1 bg-[#080808]" style={{ minHeight: 0, overflow: 'hidden' }}>
-          {/* Scrollable full-page screenshot */}
+          {/* Scrollable full-page screenshot — rendered at natural width, no downscaling */}
           <div
             key={currentIndex}
-            className="absolute inset-0 overflow-y-auto overflow-x-hidden"
+            className="absolute inset-0 overflow-y-auto overflow-x-auto"
             style={{ scrollbarWidth: 'thin', scrollbarColor: `${project.accentColor}50 #111` }}
           >
             <motion.img
@@ -107,7 +107,7 @@ export default function ProjectDetailModal({ project, onClose }) {
               transition={{ duration: 0.25 }}
               src={screenshots[currentIndex]}
               alt={`${project.title} page ${currentIndex + 1}`}
-              className="w-full block"
+              style={{ display: 'block', maxWidth: 'none', width: 'auto', height: 'auto' }}
               draggable={false}
             />
           </div>
