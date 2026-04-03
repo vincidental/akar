@@ -14,9 +14,10 @@ export default function DeviceMockup3D({ screenshotUrl, accentColor = '#3a8c5c' 
     const init = (w, h) => {
       const scene = new THREE.Scene();
 
-      const camera = new THREE.PerspectiveCamera(42, w / h, 0.1, 100);
-      camera.position.set(0, 0.3, 4.5);
-      camera.lookAt(0, 0, 0);
+      // Camera: slightly above and in front
+      const camera = new THREE.PerspectiveCamera(38, w / h, 0.1, 100);
+      camera.position.set(0, 1.2, 5.5);
+      camera.lookAt(0, 0.4, 0);
 
       renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
       renderer.setSize(w, h);
@@ -24,21 +25,20 @@ export default function DeviceMockup3D({ screenshotUrl, accentColor = '#3a8c5c' 
       el.appendChild(renderer.domElement);
 
       // Lights
-      scene.add(new THREE.AmbientLight(0xffffff, 0.6));
+      scene.add(new THREE.AmbientLight(0xffffff, 0.5));
 
-      const keyLight = new THREE.DirectionalLight(0xffffff, 1.5);
-      keyLight.position.set(2, 5, 4);
+      const keyLight = new THREE.DirectionalLight(0xffffff, 1.8);
+      keyLight.position.set(3, 6, 5);
       scene.add(keyLight);
 
       const fillLight = new THREE.DirectionalLight(0x8899ff, 0.4);
       fillLight.position.set(-4, 2, 2);
       scene.add(fillLight);
 
-      const accentLight = new THREE.PointLight(accentColor, 3, 10);
-      accentLight.position.set(0, -1, 3);
+      const accentLight = new THREE.PointLight(accentColor, 3, 12);
+      accentLight.position.set(0, 2, 3);
       scene.add(accentLight);
 
-      // Materials
       const bodyMat = new THREE.MeshPhysicalMaterial({
         color: 0x1a1a1c,
         metalness: 0.9,
@@ -53,81 +53,80 @@ export default function DeviceMockup3D({ screenshotUrl, accentColor = '#3a8c5c' 
       const laptopGroup = new THREE.Group();
       scene.add(laptopGroup);
 
-      // ---- BASE (bottom half) ----
-      // Sits flat, top face is the keyboard
-      const baseGeo = new THREE.BoxGeometry(3.0, 0.12, 2.0);
-      const baseMesh = new THREE.Mesh(baseGeo, bodyMat);
-      baseMesh.position.set(0, 0, 0);
-      laptopGroup.add(baseMesh);
+      // --- BASE ---
+      // Flat on XZ plane. Y=0 is bottom, Y=0.1 is top surface.
+      const base = new THREE.Mesh(new THREE.BoxGeometry(3.2, 0.14, 2.1), bodyMat);
+      base.position.set(0, 0.07, 0);
+      laptopGroup.add(base);
 
-      // Keyboard deck (dark inset on top of base)
-      const deckGeo = new THREE.BoxGeometry(2.8, 0.01, 1.8);
-      const deckMesh = new THREE.Mesh(deckGeo, darkMat);
-      deckMesh.position.set(0, 0.065, 0);
-      laptopGroup.add(deckMesh);
+      // Keyboard deck inset
+      const deck = new THREE.Mesh(new THREE.BoxGeometry(3.0, 0.01, 1.9), darkMat);
+      deck.position.set(0, 0.145, 0);
+      laptopGroup.add(deck);
 
       // Trackpad
-      const tpadGeo = new THREE.BoxGeometry(0.8, 0.005, 0.55);
-      const tpadMesh = new THREE.Mesh(tpadGeo, new THREE.MeshPhysicalMaterial({
-        color: 0x222224, metalness: 0.5, roughness: 0.3
-      }));
-      tpadMesh.position.set(0, 0.068, 0.55);
-      laptopGroup.add(tpadMesh);
+      const tpad = new THREE.Mesh(
+        new THREE.BoxGeometry(0.85, 0.008, 0.58),
+        new THREE.MeshPhysicalMaterial({ color: 0x222224, metalness: 0.5, roughness: 0.3 })
+      );
+      tpad.position.set(0, 0.148, 0.6);
+      laptopGroup.add(tpad);
 
-      // ---- LID (screen half) ----
-      // Hinge is at the BACK edge of base (z = -1.0)
-      // Lid rotates around X axis at hinge point
-      // Positive open angle tilts lid backward (screen faces forward-up)
+      // --- LID ---
+      // The lidGroup pivot is at the HINGE: back edge of base, at the top surface level.
+      // Position: x=0, y=0.14 (top of base), z=-1.05 (back edge)
+      // The lid geometry extends in the +Y direction (upward) from this pivot.
+      // rotation.x = 0   → lid is lying flat CLOSED on top of base (pointing backward/down)
+      // rotation.x = -PI/2 → lid is perfectly vertical (90° open)
+      // rotation.x = -PI*0.6 → lid is ~108° open (reclined back slightly, screen faces camera)
+
       const lidGroup = new THREE.Group();
-      // Place pivot at back edge, at top of base
-      lidGroup.position.set(0, 0.06, -1.0);
+      lidGroup.position.set(0, 0.14, -1.05);
       laptopGroup.add(lidGroup);
 
-      // Open angle: ~110 degrees from flat (0 = closed flat, PI = fully open flat)
-      // We want screen facing slightly toward camera = ~-1.9 rad from closed
-      lidGroup.rotation.x = Math.PI * 0.6;
+      // Slight tilt back (~20°) from vertical — screen clearly faces camera
+      lidGroup.rotation.x = -Math.PI * 0.11;
 
-      // Lid body — extends upward from pivot (local +Y)
-      const lidGeo = new THREE.BoxGeometry(3.0, 1.9, 0.1);
-      const lidMesh = new THREE.Mesh(lidGeo, bodyMat);
-      // Center of lid is 0.95 above pivot
-      lidMesh.position.set(0, 0.95, 0);
-      lidGroup.add(lidMesh);
+      // Lid body: height=2.0 so center is at y=1.0 from pivot
+      const lid = new THREE.Mesh(new THREE.BoxGeometry(3.2, 2.0, 0.1), bodyMat);
+      lid.position.set(0, 1.0, 0);
+      lidGroup.add(lid);
 
-      // Bezel (inner dark border) — on FRONT face of lid (local +Z = toward viewer when open)
-      const bezelGeo = new THREE.BoxGeometry(2.88, 1.78, 0.01);
-      const bezelMesh = new THREE.Mesh(bezelGeo, darkMat);
-      bezelMesh.position.set(0, 0.95, 0.055);
-      lidGroup.add(bezelMesh);
+      // Bezel: on the FRONT face of the lid (+Z face, faces camera when open)
+      const bezel = new THREE.Mesh(new THREE.BoxGeometry(3.08, 1.88, 0.012), darkMat);
+      bezel.position.set(0, 1.0, 0.056);
+      lidGroup.add(bezel);
 
-      // Screen — sits inside bezel on front face
+      // Screen texture
       const screenTexture = new THREE.TextureLoader().load(screenshotUrl, () => {
         renderer && renderer.render(scene, camera);
       });
       screenTexture.minFilter = THREE.LinearFilter;
       screenTexture.magFilter = THREE.LinearFilter;
 
-      const screenGeo = new THREE.PlaneGeometry(2.7, 1.65);
-      const screenMesh = new THREE.Mesh(screenGeo, new THREE.MeshBasicMaterial({ map: screenTexture }));
-      screenMesh.position.set(0, 0.95, 0.062);
-      lidGroup.add(screenMesh);
+      const screen = new THREE.Mesh(
+        new THREE.PlaneGeometry(2.9, 1.72),
+        new THREE.MeshBasicMaterial({ map: screenTexture })
+      );
+      screen.position.set(0, 1.0, 0.063);
+      lidGroup.add(screen);
 
-      // ---- Mouse tracking ----
-      let targetRotY = -0.2, targetRotX = 0.05;
-      let currentRotY = -0.2, currentRotX = 0.05;
+      // --- Mouse tracking ---
+      let targetRotY = -0.15, targetRotX = 0.0;
+      let currentRotY = -0.15, currentRotX = 0.0;
 
       const onMouseMove = (e) => {
         const rect = el.getBoundingClientRect();
         const x = ((e.clientX - rect.left) / rect.width - 0.5) * 2;
         const y = ((e.clientY - rect.top) / rect.height - 0.5) * 2;
-        targetRotY = -0.2 + x * 0.35;
-        targetRotX = 0.05 - y * 0.15;
+        targetRotY = -0.15 + x * 0.3;
+        targetRotX = 0.0 - y * 0.12;
       };
-      const onMouseLeave = () => { targetRotY = -0.2; targetRotX = 0.05; };
+      const onMouseLeave = () => { targetRotY = -0.15; targetRotX = 0.0; };
       el.addEventListener('mousemove', onMouseMove);
       el.addEventListener('mouseleave', onMouseLeave);
 
-      // ---- Resize ----
+      // --- Resize ---
       const handleResize = () => {
         const nw = el.clientWidth;
         const nh = el.clientHeight;
@@ -138,7 +137,7 @@ export default function DeviceMockup3D({ screenshotUrl, accentColor = '#3a8c5c' 
       };
       window.addEventListener('resize', handleResize);
 
-      // ---- Animation ----
+      // --- Animation loop ---
       let t = 0;
       const animate = () => {
         animFrameId = requestAnimationFrame(animate);
@@ -146,8 +145,8 @@ export default function DeviceMockup3D({ screenshotUrl, accentColor = '#3a8c5c' 
         currentRotY += (targetRotY - currentRotY) * 0.06;
         currentRotX += (targetRotX - currentRotX) * 0.06;
         laptopGroup.rotation.y = currentRotY + Math.sin(t * 0.35) * 0.018;
-        laptopGroup.rotation.x = currentRotX + Math.sin(t * 0.28) * 0.006;
-        laptopGroup.position.y = Math.sin(t * 0.5) * 0.06;
+        laptopGroup.rotation.x = currentRotX + Math.sin(t * 0.28) * 0.005;
+        laptopGroup.position.y = Math.sin(t * 0.5) * 0.05 - 0.2;
         accentLight.intensity = 2.5 + Math.sin(t * 1.1) * 0.5;
         renderer.render(scene, camera);
       };
