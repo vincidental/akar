@@ -12,6 +12,7 @@ import Infrastructure from '@/pages/Infrastructure';
 import Philosophy from '@/pages/Philosophy';
 import Strategy from '@/pages/Strategy';
 import Launch from '@/pages/Launch';
+import Portfolio from '@/pages/Portfolio';
 
 const AuthenticatedApp = () => {
   const { isLoadingAuth, isLoadingPublicSettings, authError, navigateToLogin } = useAuth();
@@ -41,6 +42,7 @@ const AuthenticatedApp = () => {
         <Route path="/philosophy" element={<Philosophy />} />
         <Route path="/strategy" element={<Strategy />} />
         <Route path="/launch" element={<Launch />} />
+        <Route path="/portfolio" element={<Portfolio />} />
       </Route>
       <Route path="*" element={<PageNotFound />} />
     </Routes>

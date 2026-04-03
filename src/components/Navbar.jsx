@@ -5,6 +5,7 @@ import { Menu, X } from 'lucide-react';
 
 const navLinks = [
   { label: 'Infrastructure', to: '/infrastructure' },
+  { label: 'Portfolio', to: '/portfolio' },
   { label: 'Philosophy', to: '/philosophy' },
 ];
 
@@ -106,6 +107,7 @@ export default function Navbar() {
                 {link.label}
               </Link>
             ))}
+
             <Link
               to="/launch"
               className="px-4 py-2.5 rounded-xl text-sm font-medium text-green-600 hover:bg-green-50 transition-colors flex items-center gap-2"
