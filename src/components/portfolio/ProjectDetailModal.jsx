@@ -50,9 +50,10 @@ export default function ProjectDetailModal({ project, onClose }) {
         exit={{ opacity: 0, scale: 0.93, y: 28 }}
         transition={{ duration: 0.38, ease: [0.22, 1, 0.36, 1] }}
         onClick={(e) => e.stopPropagation()}
-        className="relative z-10 w-full max-w-5xl rounded-3xl overflow-hidden bg-[#0f0f0f] border border-white/10 flex flex-col"
+        className="relative z-10 w-full rounded-3xl overflow-hidden bg-[#0f0f0f] border border-white/10 flex flex-col"
         style={{
-          height: 'min(90vh, 920px)',
+          maxWidth: 'min(95vw, 1400px)',
+          height: 'min(92vh, 1000px)',
           boxShadow: `0 0 100px ${project.accentColor}22, 0 48px 96px rgba(0,0,0,0.75)`,
         }}
       >
@@ -107,7 +108,7 @@ export default function ProjectDetailModal({ project, onClose }) {
               transition={{ duration: 0.25 }}
               src={screenshots[currentIndex]}
               alt={`${project.title} page ${currentIndex + 1}`}
-              style={{ display: 'block', maxWidth: 'none', width: 'auto', height: 'auto' }}
+              style={{ display: 'block', width: '100%', height: 'auto', imageRendering: 'high-quality' }}
               draggable={false}
             />
           </div>
