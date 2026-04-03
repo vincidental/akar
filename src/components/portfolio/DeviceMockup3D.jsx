@@ -85,7 +85,7 @@ export default function DeviceMockup3D({ screenshotUrl, accentColor = '#3a8c5c' 
 
       // Open angle: ~110 degrees from flat (0 = closed flat, PI = fully open flat)
       // We want screen facing slightly toward camera = ~-1.9 rad from closed
-      lidGroup.rotation.x = -1.85;
+      lidGroup.rotation.x = Math.PI * 0.6;
 
       // Lid body — extends upward from pivot (local +Y)
       const lidGeo = new THREE.BoxGeometry(3.0, 1.9, 0.1);
