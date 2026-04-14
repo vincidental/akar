@@ -91,7 +91,7 @@ const content = {
     scarcityTitle: '⚠ Slot Terbatas — Bulan Ini Saja',
     scarcityDesc: 'Untuk menjamin kualitas pengiriman 48 jam, kami membatasi jumlah proyek Launch per bulan. Begitu slot penuh, ketersediaan berikutnya baru bulan depan. Tanpa pengecualian.',
     psychTitle: 'Sementara Anda Membaca Ini, Kompetitor Anda Sedang Maju.',
-    psychDesc: 'Bisnis yang menang di pasar digital Indonesia bukan yang "tunggu dan lihat dulu." Mereka bergerak cepat. Mereka muncul online lebih dulu. Mereka mengkonversi traffic yang dilewatkan orang lain. Pertanyaannya bukan APAKAH Anda butuh kehadiran web profesional — tapi seberapa cepat Anda bisa mendapatkannya.',
+    psychDesc: 'Bisnis yang menang di pasar digital Indonesia bukan yang "tunggu dan lihat dulu." Mereka bergerak cepat. Mereka muncul online lebih dulu. Mereka mengkonversi traffic yang dilewatkan orang lain. Pertanyaannya bukan APAKAH Anda butuh kehadiran web profesional, tapi seberapa cepat Anda bisa mendapatkannya.',
     quoteText: '"Pelanggan cari Anda di Google sebelum menelepon. Kalau mereka tidak menemukan website yang profesional, mereka menemukan kompetitor Anda."',
     quoteAuthor: '— Akar Systems',
     bookTitle: 'Pesan Slot 48 Jam Anda',
