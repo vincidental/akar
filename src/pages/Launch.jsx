@@ -58,11 +58,11 @@ const content = {
     ],
   },
   id: {
-    badge: 'Slot Bulanan Terbatas',
+    badge: 'Slot Terbatas',
     headline1: 'Langsung LIVE Hanya 48 Jam.',
     headline2: 'Buat Website Premium Anda,',
     headline3: 'Online Sebelum Weekend.',
-    sub: "Lupakan agensi yang minta waktu 3 bulan dan revisi tak berujung. Untuk pemilik bisnis yang butuh hasil nyata — kami desain, bangun, dan luncurkan website profesional lengkap hanya dalam 48 jam.",
+    sub: "Lupakan agensi yang minta waktu 3 bulan dan revisi tak berujung. Untuk pemilik bisnis yang butuh hasil nyata ; kami desain, bangun, dan luncurkan website profesional lengkap hanya dalam 48 jam.",
     subBold: "Amankan slot Anda sebelum kehabisan.",
     whatYouGet: "Semua yang Anda Dapatkan",
     whatYouGetSub: "Website siap pakai dan siap jualan — bukan template murahan, bukan page builder gratisan. Produk premium sesungguhnya.",
