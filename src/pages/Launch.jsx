@@ -59,7 +59,7 @@ const content = {
   },
   id: {
     badge: 'Slot Bulanan Terbatas',
-    headline1: 'Website 48 Jam.',
+    headline1: 'Website Langsung LIVE Hanya 48 Jam.',
     headline2: 'Website Premium Anda,',
     headline3: 'Online Sebelum Weekend.',
     sub: "Lupakan agensi yang minta waktu 3 bulan dan revisi tak berujung. Untuk pemilik bisnis yang butuh hasil nyata — kami desain, bangun, dan luncurkan website profesional lengkap hanya dalam 48 jam.",
