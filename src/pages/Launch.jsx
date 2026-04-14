@@ -2,7 +2,7 @@ import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import {
   Zap, Clock, Shield, Globe, Smartphone, Search, Wifi,
-  MessageCircle, Lock, CheckCircle2, Star, ArrowRight, Users, TrendingUp, Award
+  MessageCircle, Lock, CheckCircle2, Star, ArrowRight, Users, TrendingUp, Award, MapPin
 } from 'lucide-react';
 import { useLang } from '@/lib/LanguageContext';
 import CalendlyWidget from '@/components/CalendlyWidget';
@@ -262,6 +262,214 @@ export default function Launch() {
               </motion.div>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* ── PRICING ── */}
+      <section className="py-24 px-6 bg-[#F0EDE8]">
+        <div className="max-w-6xl mx-auto">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-center mb-14"
+          >
+            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#1a1a1a]/35 mb-3">
+              {lang === 'id' ? 'Transparan & Terjangkau' : 'Transparent Pricing'}
+            </p>
+            <h2 className="font-serif text-4xl md:text-5xl text-[#1a1a1a] tracking-tight mb-4">
+              {lang === 'id' ? 'Pilih Paket yang Tepat' : 'Choose Your Package'}
+            </h2>
+            <p className="text-[#1a1a1a]/50 max-w-xl mx-auto text-sm leading-relaxed">
+              {lang === 'id'
+                ? 'Semua paket dikerjakan dalam 48 jam dan sudah termasuk desain kustom, SSL, serta pendampingan 30 hari pasca-launch.'
+                : 'Every package is delivered in 48 hours and includes custom design, SSL, and 30 days of post-launch support.'}
+            </p>
+          </motion.div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-5 items-stretch">
+            {[
+              {
+                id: 1,
+                nama: lang === 'id' ? 'Landing Page' : 'Landing Page',
+                tagline: lang === 'id' ? 'Cocok untuk kebutuhan iklan digital' : 'Built for digital ad campaigns',
+                hargaCoret: 'Rp 2.500.000',
+                harga: 'Rp 1.490.000',
+                highlight: false,
+                badge: null,
+                isCustom: false,
+                fitur: lang === 'id'
+                  ? ['1 halaman landing page', 'Domain & Hosting Premium', 'Web Performance Analytics', 'FREE Integrasi Pixel (Meta, TikTok, dll)', 'FREE Konsultasi & Pre-Production Meeting']
+                  : ['1-page landing page', 'Premium Domain & Hosting', 'Web Performance Analytics', 'FREE Pixel Integration (Meta, TikTok, etc.)', 'FREE Consultation & Pre-Production Meeting'],
+                note: lang === 'id'
+                  ? 'Konsultasikan kebutuhan landing page Anda yang terhubung dengan kampanye iklan digital di Meta, TikTok, dan platform lainnya.'
+                  : 'Tell us your ad campaign goals — we align the page structure to convert traffic from Meta, TikTok, and more.',
+              },
+              {
+                id: 2,
+                nama: lang === 'id' ? 'Website Bisnis' : 'Business Website',
+                tagline: lang === 'id' ? 'Multi-page untuk bisnis yang serius' : 'Multi-page for serious businesses',
+                hargaCoret: 'Rp 5.500.000',
+                harga: 'Rp 2.790.000',
+                highlight: false,
+                badge: null,
+                isCustom: false,
+                fitur: lang === 'id'
+                  ? ['Website 2–5 halaman', 'Domain & Hosting Premium', 'Web Performance Analytics', 'FREE Integrasi Pixel', 'FREE Konsultasi & Pre-Production Meeting', 'Direktori Blog & SEO', 'Akses Admin Blog Publishing', 'FREE Training Blog Publishing (sampai bisa)']
+                  : ['2–5 page website', 'Premium Domain & Hosting', 'Web Performance Analytics', 'FREE Pixel Integration', 'FREE Consultation & Pre-Production Meeting', 'Blog & SEO Directory', 'Admin Access for Blog Publishing', 'FREE Blog Publishing Training'],
+                note: lang === 'id'
+                  ? 'Blog & SEO membantu calon pelanggan menemukan bisnis Anda di Google dengan keyword yang mereka cari.'
+                  : 'Blog & SEO helps customers discover you on Google for the exact keywords they search.',
+              },
+              {
+                id: 3,
+                nama: lang === 'id' ? 'Website + Local Boost' : 'Website + Local Boost',
+                tagline: lang === 'id' ? 'Dominasi Google Maps di kota Anda' : 'Dominate Google Maps in your city',
+                hargaCoret: 'Rp 8.000.000',
+                harga: 'Rp 4.990.000',
+                highlight: true,
+                badge: lang === 'id' ? 'Terpopuler' : 'Most Popular',
+                isCustom: false,
+                gbp: true,
+                fitur: lang === 'id'
+                  ? ['Website 2–5 halaman', 'Domain & Hosting Premium', 'Web Performance Analytics', 'FREE Integrasi Pixel', 'FREE Konsultasi & Pre-Production Meeting', 'Direktori Blog & SEO', 'Akses Admin Blog Publishing', 'FREE Training Blog Publishing (sampai bisa)']
+                  : ['2–5 page website', 'Premium Domain & Hosting', 'Web Performance Analytics', 'FREE Pixel Integration', 'FREE Consultation & Pre-Production Meeting', 'Blog & SEO Directory', 'Admin Access for Blog Publishing', 'FREE Blog Publishing Training'],
+                note: null,
+              },
+              {
+                id: 4,
+                nama: lang === 'id' ? 'Paket Kustom' : 'Custom Package',
+                tagline: lang === 'id' ? 'Sesuai kebutuhan spesifik bisnis Anda' : 'Tailored to your exact business needs',
+                hargaCoret: null,
+                harga: lang === 'id' ? 'Mulai Rp 2.790.000' : 'From Rp 2.790.000',
+                highlight: false,
+                badge: lang === 'id' ? 'Fleksibel' : 'Flexible',
+                isCustom: true,
+                fitur: lang === 'id'
+                  ? ['Website multi-page kustom', 'Google Business Profile Boosting', 'SEO Bulanan & Laporan Performa', 'Google Ads Management', 'Integrasi Marketplace', 'Fitur Booking / Kalender Online', 'Payment Gateway Integration', 'Custom Feature & Aplikasi Web']
+                  : ['Custom multi-page website', 'Google Business Profile Boosting', 'Monthly SEO & Performance Reports', 'Google Ads Management', 'Marketplace Integration', 'Online Booking / Calendar Feature', 'Payment Gateway Integration', 'Custom Features & Web Apps'],
+                note: lang === 'id'
+                  ? 'Komunikasikan kebutuhan Anda dan dapatkan penawaran terbaik. Bisa dikustomisasi mulai dari paket Website Bisnis.'
+                  : 'Tell us what you need and get the best offer. Fully customizable from the Business Website package up.',
+              },
+            ].map((p, i) => (
+              <motion.div
+                key={p.id}
+                initial={{ opacity: 0, y: 28 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.45, delay: i * 0.07 }}
+                className={`relative flex flex-col rounded-2xl border overflow-hidden transition-all duration-300 ${
+                  p.highlight
+                    ? 'border-green-500 shadow-xl shadow-green-500/10 bg-white'
+                    : 'border-black/8 bg-white hover:shadow-md'
+                }`}
+              >
+                {p.badge && (
+                  <div className={`absolute top-0 right-0 px-3 py-1 text-[10px] font-bold uppercase tracking-widest rounded-bl-xl ${
+                    p.highlight ? 'bg-green-600 text-white' : 'bg-[#1a1a1a] text-white'
+                  }`}>
+                    {p.badge}
+                  </div>
+                )}
+                <div className={`px-6 pt-7 pb-5 ${p.highlight ? 'bg-green-600' : ''}`}>
+                  <p className={`text-[10px] font-bold uppercase tracking-widest mb-1 ${p.highlight ? 'text-white/60' : 'text-[#1a1a1a]/35'}`}>
+                    {lang === 'id' ? `Paket ${p.id}` : `Package ${p.id}`}
+                  </p>
+                  <h3 className={`font-serif text-xl font-bold mb-1 ${p.highlight ? 'text-white' : 'text-[#1a1a1a]'}`}>{p.nama}</h3>
+                  <p className={`text-xs leading-relaxed mb-5 ${p.highlight ? 'text-white/65' : 'text-[#1a1a1a]/45'}`}>{p.tagline}</p>
+                  <div>
+                    {p.hargaCoret && (
+                      <p className={`text-xs line-through mb-0.5 ${p.highlight ? 'text-white/40' : 'text-[#1a1a1a]/30'}`}>{p.hargaCoret}</p>
+                    )}
+                    <p className={`font-serif text-2xl font-bold ${p.highlight ? 'text-white' : 'text-green-600'}`}>{p.harga}</p>
+                    {p.isCustom && (
+                      <p className={`text-[10px] mt-0.5 ${p.highlight ? 'text-white/50' : 'text-[#1a1a1a]/35'}`}>
+                        {lang === 'id' ? 'harga disesuaikan kebutuhan' : 'price tailored to your needs'}
+                      </p>
+                    )}
+                  </div>
+                </div>
+
+                <div className={`h-px mx-6 ${p.highlight ? 'bg-green-500/30' : 'bg-black/6'}`} />
+
+                <div className="px-6 py-5 flex-1 flex flex-col gap-4">
+                  <ul className="space-y-2.5">
+                    {p.fitur.map((f, fi) => (
+                      <li key={fi} className="flex items-start gap-2 text-xs text-[#1a1a1a]/65 leading-relaxed">
+                        <CheckCircle2 className="w-3.5 h-3.5 text-green-600 shrink-0 mt-0.5" />
+                        {f}
+                      </li>
+                    ))}
+                  </ul>
+
+                  {p.gbp && (
+                    <div className="mt-1 rounded-xl border border-green-200 bg-green-50 p-4">
+                      <div className="flex items-center gap-2 mb-2">
+                        <MapPin className="w-4 h-4 text-green-600 shrink-0" />
+                        <p className="text-xs font-bold text-green-700 uppercase tracking-wide">Google Business Boosting</p>
+                      </div>
+                      <p className="text-xs text-green-800/70 leading-relaxed">
+                        {lang === 'id'
+                          ? 'Profil Google Bisnis Anda dioptimasi hingga muncul di peringkat teratas Google Maps — pelanggan yang cari produk/jasa Anda langsung menemukan bisnis Anda.'
+                          : 'Your Google Business Profile is optimized to rank at the top of Google Maps — customers searching for your product/service find you first.'}
+                      </p>
+                    </div>
+                  )}
+
+                  {p.note && (
+                    <p className="text-[11px] text-[#1a1a1a]/40 leading-relaxed italic border-t border-black/5 pt-3">{p.note}</p>
+                  )}
+
+                  {p.isCustom && (
+                    <div className="rounded-xl bg-[#F8F6F2] border border-black/6 p-3 mt-1">
+                      <p className="text-[10px] font-semibold uppercase tracking-wider text-[#1a1a1a]/40 mb-1">
+                        {lang === 'id' ? 'Add-on Tersedia' : 'Add-ons Available'}
+                      </p>
+                      <p className="text-[11px] text-[#1a1a1a]/45 leading-relaxed">
+                        {lang === 'id'
+                          ? 'Marketplace integration, kalender booking, payment gateway, fitur member, dan lainnya — sesuai permintaan.'
+                          : 'Marketplace integration, booking calendar, payment gateway, member features, and more — on request.'}
+                      </p>
+                    </div>
+                  )}
+                </div>
+
+                <div className="px-6 pb-6 pt-2">
+                  <button
+                    onClick={() => p.isCustom
+                      ? window.open('https://wa.me/62', '_blank')
+                      : document.getElementById('book')?.scrollIntoView({ behavior: 'smooth' })
+                    }
+                    className={`w-full flex items-center justify-center gap-2 py-3 rounded-full text-sm font-semibold transition-all duration-200 ${
+                      p.highlight
+                        ? 'bg-green-600 text-white hover:bg-green-700 shadow-lg shadow-green-500/20'
+                        : p.isCustom
+                        ? 'bg-[#1a1a1a] text-white hover:bg-[#333]'
+                        : 'border border-[#1a1a1a]/15 text-[#1a1a1a] hover:bg-[#1a1a1a] hover:text-white'
+                    }`}
+                  >
+                    {p.isCustom
+                      ? <><MessageCircle className="w-4 h-4" />{lang === 'id' ? 'Konsultasi Gratis' : 'Free Consultation'}</>
+                      : <>{lang === 'id' ? 'Pilih Paket Ini' : 'Choose This Package'}<ArrowRight className="w-3.5 h-3.5" /></>
+                    }
+                  </button>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+
+          <motion.p
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.3 }}
+            className="text-center text-xs text-[#1a1a1a]/35 mt-8"
+          >
+            {lang === 'id'
+              ? 'Semua harga sudah termasuk desain kustom, SSL, domain, hosting, dan pendampingan 30 hari. Tidak ada biaya tersembunyi.'
+              : 'All prices include custom design, SSL, domain, hosting, and 30-day support. No hidden fees.'}
+          </motion.p>
         </div>
       </section>
 
