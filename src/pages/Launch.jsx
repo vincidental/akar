@@ -101,7 +101,7 @@ const content = {
     strategyLink: 'Butuh lebih dari sekadar website? Pesan Sesi Strategi lengkap →',
     processTitle: 'Cara Kerjanya — 3 Langkah Mudah',
     process: [
-      { step: '01', title: 'Pesan Slot', desc: 'Pilih waktu, isi brief onboarding kami. Hanya butuh 10 menit.' },
+      { step: '01', title: 'Meeting Dengan Tim', desc: 'Pilih waktu, isi brief onboarding kami. Hanya butuh 10 menit.' },
       { step: '02', title: 'Kami Bangun', desc: 'Tim kami langsung bekerja. Desain, bangun, test — semua dalam 48 jam.' },
       { step: '03', title: 'Anda Online', desc: 'Kami launch, serahkan akses, dan Anda mulai mendapatkan pelanggan.' },
     ],
