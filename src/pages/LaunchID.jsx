@@ -12,6 +12,7 @@ import {
   MessageCircle, Lock, CheckCircle2, Star, ArrowRight, Users, TrendingUp, Award
 } from 'lucide-react';
 import CalendlyWidget from '@/components/CalendlyWidget';
+import PricingSectionID from '@/components/launch/PricingSectionID';
 
 // ─────────────────────────────────────────────────────────────────────────────
 // COPY — Edit bebas di sini. Ini bukan terjemahan otomatis.
@@ -272,6 +273,9 @@ export default function LaunchID() {
           </div>
         </div>
       </section>
+
+      {/* ── PRICING ── */}
+      <PricingSectionID />
 
       {/* ── BOOKING ── */}
       <section id="pesan" className="py-20 px-6">
