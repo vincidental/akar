@@ -2,10 +2,11 @@ import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import {
   Zap, Clock, Shield, Globe, Smartphone, Search, Wifi,
-  MessageCircle, Lock, CheckCircle2, Star, ArrowRight, Users, TrendingUp, Award, MapPin
+  MessageCircle, Lock, CheckCircle2, Star, ArrowRight, Users, TrendingUp, Award, MapPin, Eye
 } from 'lucide-react';
 import { useLang } from '@/lib/LanguageContext';
 import CalendlyWidget from '@/components/CalendlyWidget';
+import GBPShowcaseSection from '@/components/launch/GBPShowcaseSection';
 
 const content = {
   en: {
@@ -435,7 +436,7 @@ export default function Launch() {
                   )}
                 </div>
 
-                <div className="px-6 pb-6 pt-2">
+                <div className="px-6 pb-6 pt-2 flex flex-col gap-2">
                   <button
                     onClick={() => p.isCustom
                       ? window.open('https://wa.me/62', '_blank')
@@ -454,6 +455,15 @@ export default function Launch() {
                       : <>{lang === 'id' ? 'Pilih Paket Ini' : 'Choose This Package'}<ArrowRight className="w-3.5 h-3.5" /></>
                     }
                   </button>
+                  <Link
+                    to="/portfolio"
+                    className={`w-full flex items-center justify-center gap-1.5 py-2 text-xs font-medium transition-colors ${
+                      p.highlight ? 'text-green-600 hover:text-green-700' : 'text-[#1a1a1a]/40 hover:text-[#1a1a1a]/70'
+                    }`}
+                  >
+                    <Eye className="w-3 h-3" />
+                    {lang === 'id' ? 'Lihat Contoh Portfolio →' : 'View Sample Portfolio →'}
+                  </Link>
                 </div>
               </motion.div>
             ))}
@@ -472,6 +482,9 @@ export default function Launch() {
           </motion.p>
         </div>
       </section>
+
+      {/* ── GBP SHOWCASE ── */}
+      <GBPShowcaseSection lang={lang} />
 
       {/* ── MAIN CONTENT: trust + booking ── */}
       <section id="book" className="py-20 px-6">
