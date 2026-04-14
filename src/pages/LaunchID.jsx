@@ -82,7 +82,7 @@ const fitur = [
 const langkah = [
   {
     step: '01',
-    title: 'Pesan Slot',
+    title: 'Meeting Dengan Tim Kami',
     desc: 'Pilih jadwal, isi brief singkat kami. Tidak sampai 10 menit.',
   },
   {
