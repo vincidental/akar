@@ -14,7 +14,7 @@ const logos = [
   {
     name: 'Foom',
     url: 'https://images.glints.com/unsafe/glints-dashboard.oss-ap-southeast-1.aliyuncs.com/company-logo/02dd783f1a7a9055dc756b703c494c58.png',
-    invert: false,
+    invert: true,
   },
   {
     name: 'TP-Link',
