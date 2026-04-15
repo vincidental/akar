@@ -2,7 +2,7 @@ import { motion } from 'framer-motion';
 
 export default function PortfolioHero() {
   return (
-    <section className="pt-36 pb-20 px-6 text-center relative overflow-hidden">
+    <section className="pt-36 pb-8 px-6 text-center relative overflow-hidden">
       {/* Ambient glow */}
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-green-600/8 rounded-full blur-[120px]" />

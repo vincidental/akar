@@ -1,61 +1,64 @@
 import { motion } from 'framer-motion';
 
+// filter: 'dark-text' = dark text on transparent bg → grayscale + brighten to make light
+//         'light-text' = white/light text on transparent bg → grayscale + invert
+//         'opaque' = logo on solid white/colored bg → grayscale only
 const logos = [
   {
     name: 'Ruangguru',
     url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/6d/Ruangguru_logo.svg/3840px-Ruangguru_logo.svg.png',
-    invert: true,
+    filter: 'light-text',
   },
   {
     name: 'Astro',
     url: 'https://upload.wikimedia.org/wikipedia/id/b/bd/Logo-astro-indonesia.png',
-    invert: false,
+    filter: 'dark-text',
   },
   {
     name: 'Foom',
     url: 'https://images.glints.com/unsafe/glints-dashboard.oss-ap-southeast-1.aliyuncs.com/company-logo/02dd783f1a7a9055dc756b703c494c58.png',
-    invert: true,
+    filter: 'light-text',
   },
   {
     name: 'TP-Link',
     url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d0/TPLINK_Logo_2.svg/1280px-TPLINK_Logo_2.svg.png',
-    invert: true,
+    filter: 'light-text',
   },
   {
     name: 'McEasy',
     url: 'https://www.mceasy.com/wp-content/uploads/2024/03/McEasy-Logo1.png',
-    invert: true,
+    filter: 'light-text',
   },
   {
     name: 'Indotrading',
     url: 'https://resources.indotrading.com/frontend/images/logo.png',
-    invert: true,
+    filter: 'light-text',
   },
   {
     name: 'Jetinno',
     url: 'https://sc04.alicdn.com/kf/Hf2aa88cad0b245a0bcbf3d7ad73c2f32C.jpg',
-    invert: false,
+    filter: 'opaque',
     rounded: true,
   },
   {
     name: 'SunnyGold',
     url: 'https://www.matari-ad.com/wp-content/uploads/2017/09/sunnygold-logo.png',
-    invert: true,
+    filter: 'dark-text',
   },
   {
     name: 'Malindo',
     url: 'https://www.malindofeedmill.com/wp-content/uploads/2022/03/LOGO-MALINDO-APPROVAL-e1648183463719.png',
-    invert: false,
+    filter: 'dark-text',
   },
   {
     name: 'Ibengcam',
     url: 'https://media.base44.com/images/public/69cc2ed917e94df8870cff9d/e4b9af989_Logo_Ibeng-Cam-02__1_-removebg-preview.png',
-    invert: false,
+    filter: 'light-text',
   },
   {
     name: 'ESBC',
     url: 'https://media.base44.com/images/public/69cc2ed917e94df8870cff9d/b51bab792_logopng.png',
-    invert: false,
+    filter: 'light-text',
     rounded: true,
   },
 ];
@@ -65,7 +68,7 @@ const track = [...logos, ...logos];
 
 export default function ClientLogoMarquee() {
   return (
-    <section className="py-14 relative overflow-hidden">
+    <section className="pt-6 pb-10 relative overflow-hidden">
       {/* Top separator line */}
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
       {/* Bottom separator line */}
@@ -77,7 +80,7 @@ export default function ClientLogoMarquee() {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.5 }}
-        className="text-center mb-10"
+        className="text-center mb-6"
       >
         <p className="text-[10px] font-bold uppercase tracking-[0.25em] text-white/25">
           Trusted by businesses across Indonesia
@@ -110,7 +113,11 @@ export default function ClientLogoMarquee() {
                 src={logo.url}
                 alt={logo.name}
                 className={`max-h-[40px] w-auto max-w-[130px] object-contain transition-all duration-300 ${
-                  logo.invert ? 'brightness-0 invert opacity-40 hover:opacity-70' : 'opacity-55 hover:opacity-90'
+                  logo.filter === 'light-text'
+                    ? 'grayscale brightness-0 invert opacity-40 hover:opacity-65'
+                    : logo.filter === 'dark-text'
+                    ? 'grayscale brightness-[4] opacity-50 hover:opacity-75'
+                    : 'grayscale opacity-40 hover:opacity-65'
                 } ${logo.rounded ? 'rounded-lg' : ''}`}
                 draggable={false}
               />
