@@ -5,10 +5,12 @@ import { motion } from 'framer-motion';
  * CurvedConnector — Desktop only.
  * Draws an animated curved SVG arrow from the bottom of the Paket3 card
  * to the top-left of the GBP section, visually merging two sections.
+ *
+ * The SVG is positioned absolutely relative to the document (top/left in px).
+ * overflow: visible ensures nothing is clipped by the SVG boundary.
  */
 export default function CurvedConnector({ sourceRef, targetRef, lang }) {
-  const [path, setPath] = useState(null);
-  const [dims, setDims] = useState({ width: 0, height: 0, offsetTop: 0, offsetLeft: 0 });
+  const [coords, setCoords] = useState(null);
   const svgRef = useRef(null);
 
   useEffect(() => {
@@ -17,66 +19,62 @@ export default function CurvedConnector({ sourceRef, targetRef, lang }) {
 
       const src = sourceRef.current.getBoundingClientRect();
       const tgt = targetRef.current.getBoundingClientRect();
+      const scrollY = window.scrollY;
 
-      // Source point: bottom-center of Paket 3 card
+      // Source: bottom-center of Package 3 card
       const srcX = src.left + src.width / 2;
-      const srcY = src.bottom;
+      const srcY = src.bottom + scrollY;
 
-      // Target point: top-center-left of GBP section (slightly left of center for elegance)
+      // Target: top area of GBP section, slightly left of center
       const tgtX = tgt.left + tgt.width * 0.42;
-      const tgtY = tgt.top + 60;
+      const tgtY = tgt.top + scrollY + 55;
 
-      // SVG container spans from just above srcY to tgtY
-      const padding = 40;
-      const svgLeft = Math.min(srcX, tgtX) - padding;
-      const svgTop = srcY - padding;
-      const svgWidth = Math.abs(srcX - tgtX) + padding * 2 + 120;
-      const svgHeight = tgtY - srcY + padding * 2 + 60;
+      // Control points for flowing S-curve
+      const cp1x = srcX + (tgtX - srcX) * 0.1;
+      const cp1y = srcY + (tgtY - srcY) * 0.55;
+      const cp2x = tgtX - (tgtX - srcX) * 0.1;
+      const cp2y = tgtY - (tgtY - srcY) * 0.3;
 
-      // Translate to local SVG coords
-      const x1 = srcX - svgLeft;
-      const y1 = srcY - svgTop;
-      const x2 = tgtX - svgLeft;
-      const y2 = tgtY - svgTop;
+      // Pill midpoint — ~40% along the bezier (approximate)
+      const t = 0.4;
+      const pillX = Math.pow(1-t,3)*srcX + 3*Math.pow(1-t,2)*t*cp1x + 3*(1-t)*Math.pow(t,2)*cp2x + Math.pow(t,3)*tgtX;
+      const pillY = Math.pow(1-t,3)*srcY + 3*Math.pow(1-t,2)*t*cp1y + 3*(1-t)*Math.pow(t,2)*cp2y + Math.pow(t,3)*tgtY;
 
-      // Cubic bezier control points for a flowing S-curve
-      const cp1x = x1 + (x2 - x1) * 0.1;
-      const cp1y = y1 + (y2 - y1) * 0.55;
-      const cp2x = x2 - (x2 - x1) * 0.1;
-      const cp2y = y2 - (y2 - y1) * 0.3;
+      // Arrow tip angle
+      const dx = tgtX - cp2x;
+      const dy = tgtY - cp2y;
+      const angle = Math.atan2(dy, dx) * (180 / Math.PI);
 
-      setPath(`M ${x1} ${y1} C ${cp1x} ${cp1y}, ${cp2x} ${cp2y}, ${x2} ${y2}`);
-      setDims({
-        width: svgWidth,
-        height: svgHeight,
-        offsetTop: svgTop + window.scrollY,
-        offsetLeft: svgLeft,
-        arrowTipX: x2,
-        arrowTipY: y2,
-        // angle at tip for arrowhead
-        dx: x2 - cp2x,
-        dy: y2 - cp2y,
-      });
+      setCoords({ srcX, srcY, tgtX, tgtY, cp1x, cp1y, cp2x, cp2y, pillX, pillY, dx, dy, angle });
     };
 
-    // Use rAF to ensure layout is fully painted before measuring
     let raf = requestAnimationFrame(() => {
       calculate();
-      // Secondary pass for webfonts / images that shift layout
-      setTimeout(calculate, 500);
+      setTimeout(calculate, 600);
     });
 
     window.addEventListener('resize', calculate);
+    window.addEventListener('scroll', calculate);
     return () => {
       cancelAnimationFrame(raf);
       window.removeEventListener('resize', calculate);
+      window.removeEventListener('scroll', calculate);
     };
   }, [sourceRef, targetRef]);
 
-  if (!path) return null;
+  if (!coords) return null;
 
-  // Arrowhead angle
-  const angle = Math.atan2(dims.dy, dims.dx) * (180 / Math.PI);
+  const { srcX, srcY, tgtX, tgtY, cp1x, cp1y, cp2x, cp2y, pillX, pillY, angle } = coords;
+
+  // SVG is a single large overlay covering the entire document
+  // We use a fixed-positioned transparent full-page SVG so nothing clips
+  const path = `M ${srcX} ${srcY} C ${cp1x} ${cp1y}, ${cp2x} ${cp2y}, ${tgtX} ${tgtY}`;
+
+  // Pill dimensions
+  const pillW = 200;
+  const pillH = 34;
+  const pillRx = pillX - pillW / 2;
+  const pillRy = pillY - pillH / 2;
 
   return (
     <svg
@@ -84,12 +82,12 @@ export default function CurvedConnector({ sourceRef, targetRef, lang }) {
       className="hidden xl:block pointer-events-none"
       style={{
         position: 'absolute',
-        top: dims.offsetTop,
-        left: dims.offsetLeft,
-        width: dims.width,
-        height: dims.height,
+        top: 0,
+        left: 0,
+        width: '100%',
+        height: `${Math.max(srcY, tgtY) + 200}px`,
         zIndex: 5,
-        overflow: 'hidden',
+        overflow: 'visible',
       }}
     >
       <defs>
@@ -97,14 +95,13 @@ export default function CurvedConnector({ sourceRef, targetRef, lang }) {
           <stop offset="0%" stopColor="#16a34a" stopOpacity="0.6" />
           <stop offset="100%" stopColor="#16a34a" stopOpacity="1" />
         </linearGradient>
-        <filter id="glow">
+        <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
           <feGaussianBlur stdDeviation="3" result="coloredBlur" />
           <feMerge>
             <feMergeNode in="coloredBlur" />
             <feMergeNode in="SourceGraphic" />
           </feMerge>
         </filter>
-        {/* Animated dash */}
         <style>{`
           @keyframes dashMove {
             to { stroke-dashoffset: -40; }
@@ -129,7 +126,7 @@ export default function CurvedConnector({ sourceRef, targetRef, lang }) {
         transition={{ duration: 1.2, ease: 'easeInOut' }}
       />
 
-      {/* Main curved line */}
+      {/* Main line */}
       <motion.path
         d={path}
         fill="none"
@@ -142,7 +139,7 @@ export default function CurvedConnector({ sourceRef, targetRef, lang }) {
         transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1], delay: 0.1 }}
       />
 
-      {/* Animated dashes flowing along the curve */}
+      {/* Animated dashes */}
       <motion.path
         d={path}
         fill="none"
@@ -157,57 +154,50 @@ export default function CurvedConnector({ sourceRef, targetRef, lang }) {
         transition={{ delay: 0.8, duration: 0.4 }}
       />
 
-      {/* Arrowhead at tip */}
+      {/* Arrowhead */}
       <motion.g
-        transform={`translate(${dims.arrowTipX}, ${dims.arrowTipY}) rotate(${angle})`}
+        transform={`translate(${tgtX}, ${tgtY}) rotate(${angle})`}
         initial={{ opacity: 0, scale: 0 }}
         whileInView={{ opacity: 1, scale: 1 }}
         viewport={{ once: true }}
         transition={{ delay: 1.1, duration: 0.3, ease: 'backOut' }}
       >
-        <polygon
-          points="-10,-6 0,0 -10,6"
-          fill="#16a34a"
-          filter="url(#glow)"
-        />
+        <polygon points="-10,-6 0,0 -10,6" fill="#16a34a" filter="url(#glow)" />
       </motion.g>
 
-      {/* Label pill on the curve (approx midpoint) */}
+      {/* Label pill — rendered as SVG shapes so it can never be clipped */}
       <motion.g
         initial={{ opacity: 0, y: 10 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ delay: 0.7, duration: 0.4 }}
       >
-        {/* Position the pill roughly at 45% along the path — approximate midpoint */}
-        <foreignObject
-          x={dims.width * 0.28}
-          y={dims.height * 0.38}
-          width="180"
-          height="36"
+        {/* Pill background */}
+        <rect
+          x={pillRx}
+          y={pillRy}
+          width={pillW}
+          height={pillH}
+          rx={pillH / 2}
+          fill="#16a34a"
+          filter="url(#glow)"
+        />
+        {/* Dot */}
+        <circle cx={pillRx + 18} cy={pillY} r={4} fill="rgba(255,255,255,0.7)" />
+        {/* Text */}
+        <text
+          x={pillRx + 30}
+          y={pillY + 4}
+          fill="white"
+          fontSize="10"
+          fontWeight="700"
+          fontFamily="Inter, sans-serif"
+          letterSpacing="0.1em"
+          textAnchor="start"
+          style={{ textTransform: 'uppercase' }}
         >
-          <div
-            xmlns="http://www.w3.org/1999/xhtml"
-            style={{
-              background: '#16a34a',
-              borderRadius: '999px',
-              padding: '6px 14px',
-              display: 'inline-flex',
-              alignItems: 'center',
-              gap: '6px',
-              boxShadow: '0 4px 20px rgba(22,163,74,0.35)',
-              whiteSpace: 'nowrap',
-              fontSize: '10px',
-              fontWeight: '700',
-              letterSpacing: '0.1em',
-              textTransform: 'uppercase',
-              color: 'white',
-            }}
-          >
-            <span style={{ width: '6px', height: '6px', borderRadius: '50%', background: 'rgba(255,255,255,0.7)', animation: 'pulse 2s infinite' }} />
-            {lang === 'id' ? 'Termasuk di Paket 3' : 'Included in Package 3'}
-          </div>
-        </foreignObject>
+          {lang === 'id' ? 'Termasuk di Paket 3' : 'Included in Package 3'}
+        </text>
       </motion.g>
     </svg>
   );
