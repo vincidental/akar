@@ -21,7 +21,7 @@ const content = {
     sub: "Skip the 3-month agency build times and endless revisions. For ambitious business owners who need immediate results — we design, build, and deploy a complete, professional website in just 48 hours.",
     subBold: "Secure your spot before slots run out.",
     whatYouGet: "Everything You Get",
-    whatYouGetSub: "A fully equipped, battle-ready website — not a template, not a page builder. A real premium product.",
+    whatYouGetSub: "A fully equipped, battle-ready website. Not a template, not a page builder. A real premium product.",
     features: [
       { icon: Shield, title: 'SSL Certificate', desc: 'Full HTTPS security. Builds trust instantly with visitors and required by Google for ranking.' },
       { icon: Globe, title: 'Premium Domain', desc: 'Your own professional .com or .id domain. We handle registration and DNS setup completely.' },
