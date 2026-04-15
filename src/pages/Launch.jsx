@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import { useRef } from 'react';
 import { Link } from 'react-router-dom';
 import {
   Zap, Clock, Shield, Globe, Smartphone, Search, Wifi,
@@ -7,6 +8,7 @@ import {
 import { useLang } from '@/lib/LanguageContext';
 import CalendlyWidget from '@/components/CalendlyWidget';
 import GBPShowcaseSection from '@/components/launch/GBPShowcaseSection';
+import CurvedConnector from '@/components/launch/CurvedConnector';
 
 const content = {
   en: {
@@ -118,9 +120,11 @@ const fadeUp = (delay = 0) => ({
 export default function Launch() {
   const { lang } = useLang();
   const c = content[lang];
+  const paket3Ref = useRef(null);
+  const gbpRef = useRef(null);
 
   return (
-    <div className="bg-[#F0EDE8] min-h-screen">
+    <div className="bg-[#F0EDE8] min-h-screen relative">
 
       {/* ── HERO ── */}
       <section className="pt-36 pb-16 px-6">
@@ -356,6 +360,7 @@ export default function Launch() {
             ].map((p, i) => (
               <motion.div
                 key={p.id}
+                ref={p.highlight ? paket3Ref : undefined}
                 initial={{ opacity: 0, y: 28 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -415,6 +420,14 @@ export default function Launch() {
                           ? 'Profil Google Bisnis Anda dioptimasi hingga muncul di peringkat teratas Google Maps — pelanggan yang cari produk/jasa Anda langsung menemukan bisnis Anda.'
                           : 'Your Google Business Profile is optimized to rank at the top of Google Maps — customers searching for your product/service find you first.'}
                       </p>
+                      {/* Mobile CTA — visible only below xl */}
+                      <button
+                        onClick={() => gbpRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' })}
+                        className="xl:hidden mt-3 w-full flex items-center justify-center gap-2 py-2.5 px-4 bg-green-600 text-white rounded-full text-xs font-bold uppercase tracking-wide hover:bg-green-700 transition-colors shadow-md shadow-green-500/20"
+                      >
+                        <MapPin className="w-3.5 h-3.5" />
+                        {lang === 'id' ? 'Lihat GBP Boosting ↓' : 'Explore GBP Boosting ↓'}
+                      </button>
                     </div>
                   )}
 
@@ -483,8 +496,13 @@ export default function Launch() {
         </div>
       </section>
 
+      {/* ── CURVED CONNECTOR (desktop only) ── */}
+      <CurvedConnector sourceRef={paket3Ref} targetRef={gbpRef} lang={lang} />
+
       {/* ── GBP SHOWCASE ── */}
-      <GBPShowcaseSection lang={lang} />
+      <div ref={gbpRef}>
+        <GBPShowcaseSection lang={lang} />
+      </div>
 
       {/* ── MAIN CONTENT: trust + booking ── */}
       <section id="book" className="py-20 px-6">
