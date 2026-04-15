@@ -5,10 +5,12 @@ import {
   Zap, Clock, Shield, Globe, Smartphone, Search, Wifi,
   MessageCircle, Lock, CheckCircle2, Star, ArrowRight, Users, TrendingUp, Award, MapPin, Eye
 } from 'lucide-react';
+import { useState } from 'react';
 import { useLang } from '@/lib/LanguageContext';
 import CalendlyWidget from '@/components/CalendlyWidget';
 import GBPShowcaseSection from '@/components/launch/GBPShowcaseSection';
 import CurvedConnector from '@/components/launch/CurvedConnector';
+import FeatureModal from '@/components/launch/FeatureModal';
 
 const content = {
   en: {
@@ -122,12 +124,13 @@ export default function Launch() {
   const c = content[lang];
   const paket3Ref = useRef(null);
   const gbpRef = useRef(null);
+  const [activeFeature, setActiveFeature] = useState(null);
 
   return (
     <div className="bg-[#F0EDE8] min-h-screen relative">
 
       {/* ── HERO ── */}
-      <section className="pt-36 pb-16 px-6">
+      <section className="pt-36 pb-8 md:pb-16 px-6">
         <div className="max-w-5xl mx-auto text-center">
           <motion.div {...fadeUp(0)}>
             <span className="inline-flex items-center gap-2 px-4 py-1.5 bg-green-600 text-white text-xs font-bold uppercase tracking-widest rounded-full mb-6">
@@ -182,7 +185,7 @@ export default function Launch() {
       </section>
 
       {/* ── PSYCHOLOGY SECTION ── */}
-      <section className="py-16 px-6 bg-[#1a1a1a]">
+      <section className="py-8 md:py-16 px-6 bg-[#1a1a1a]">
         <div className="max-w-4xl mx-auto text-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -201,20 +204,21 @@ export default function Launch() {
       </section>
 
       {/* ── WHAT YOU GET ── */}
-      <section className="py-24 px-6">
+      <section className="py-10 md:py-24 px-6">
         <div className="max-w-6xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="mb-14 text-center"
+            className="mb-8 md:mb-14 text-center"
           >
             <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#1a1a1a]/35 mb-3">{lang === 'id' ? 'Paket Lengkap' : 'Full Package'}</p>
             <h2 className="font-serif text-4xl md:text-5xl text-[#1a1a1a] tracking-tight mb-3">{c.whatYouGet}</h2>
             <p className="text-[#1a1a1a]/45 max-w-xl mx-auto text-sm leading-relaxed">{c.whatYouGetSub}</p>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4">
+          {/* Desktop: full cards */}
+          <div className="hidden md:grid md:grid-cols-2 xl:grid-cols-3 gap-4">
             {c.features.map((f, i) => (
               <motion.div
                 key={i}
@@ -234,17 +238,44 @@ export default function Launch() {
               </motion.div>
             ))}
           </div>
+
+          {/* Mobile: 4×3 icon grid — tap to expand modal */}
+          <div className="md:hidden grid grid-cols-4 gap-2">
+            {c.features.map((f, i) => (
+              <motion.button
+                key={i}
+                initial={{ opacity: 0, scale: 0.92 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.3, delay: i * 0.03 }}
+                onClick={() => setActiveFeature(f)}
+                className="flex flex-col items-center justify-center gap-1.5 bg-white rounded-2xl border border-black/7 p-3 aspect-square active:scale-95 transition-all duration-150 hover:border-green-200 hover:shadow-sm"
+              >
+                <div className="w-8 h-8 bg-green-50 border border-green-100 rounded-xl flex items-center justify-center shrink-0">
+                  <f.icon className="w-3.5 h-3.5 text-green-600" />
+                </div>
+                <p className="text-[9px] font-semibold text-[#1a1a1a]/70 text-center leading-tight line-clamp-2">{f.title}</p>
+              </motion.button>
+            ))}
+          </div>
+
+          {/* Mobile hint */}
+          <p className="md:hidden text-center text-[10px] text-[#1a1a1a]/30 mt-3 font-medium">
+            {lang === 'id' ? 'Ketuk ikon untuk detail' : 'Tap any icon for details'}
+          </p>
         </div>
       </section>
 
+      <FeatureModal feature={activeFeature} onClose={() => setActiveFeature(null)} />
+
       {/* ── HOW IT WORKS ── */}
-      <section className="py-20 px-6 bg-[#E8E4DC]">
+      <section className="py-10 md:py-20 px-6 bg-[#E8E4DC]">
         <div className="max-w-4xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="mb-12 text-center"
+            className="mb-6 md:mb-12 text-center"
           >
             <h2 className="font-serif text-4xl text-[#1a1a1a] tracking-tight">{c.processTitle}</h2>
           </motion.div>
@@ -271,7 +302,7 @@ export default function Launch() {
       </section>
 
       {/* ── PRICING ── */}
-      <section className="py-24 px-6 bg-[#F0EDE8]">
+      <section className="py-10 md:py-24 px-6 bg-[#F0EDE8]">
         <div className="max-w-6xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -506,7 +537,7 @@ export default function Launch() {
       </div>
 
       {/* ── MAIN CONTENT: trust + booking ── */}
-      <section id="book" className="py-20 px-6">
+      <section id="book" className="py-10 md:py-20 px-6">
         <div className="max-w-6xl mx-auto">
           <div className="grid md:grid-cols-[1fr_1.15fr] gap-10 items-start">
 
