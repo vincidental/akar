@@ -14,7 +14,7 @@ export default function PortfolioGrid() {
     active === 'All' ? projects : projects.filter((p) => p.tag === active);
 
   return (
-    <section className="pb-24 px-6">
+    <section className="pt-12 pb-24 px-6">
       <div className="max-w-7xl mx-auto">
         {/* Filter pills */}
         <motion.div

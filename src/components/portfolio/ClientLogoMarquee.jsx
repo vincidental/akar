@@ -112,13 +112,13 @@ export default function ClientLogoMarquee() {
               <img
                 src={logo.url}
                 alt={logo.name}
-                className={`max-h-[40px] w-auto max-w-[130px] object-contain transition-all duration-300 ${
+                className={`max-h-[40px] w-auto max-w-[130px] object-contain transition-all duration-500 ${logo.rounded ? 'rounded-lg' : ''} ${
                   logo.filter === 'light-text'
-                    ? 'grayscale brightness-0 invert opacity-40 hover:opacity-65'
+                    ? 'grayscale brightness-0 invert opacity-40 hover:grayscale-0 hover:brightness-100 hover:invert-0 hover:opacity-90'
                     : logo.filter === 'dark-text'
-                    ? 'grayscale brightness-[4] opacity-50 hover:opacity-75'
-                    : 'grayscale opacity-40 hover:opacity-65'
-                } ${logo.rounded ? 'rounded-lg' : ''}`}
+                    ? 'grayscale brightness-[4] opacity-50 hover:grayscale-0 hover:brightness-100 hover:opacity-90'
+                    : 'grayscale opacity-40 hover:grayscale-0 hover:opacity-90'
+                }`}
                 draggable={false}
               />
             </div>
