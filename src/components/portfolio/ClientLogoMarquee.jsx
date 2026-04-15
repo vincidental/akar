@@ -9,7 +9,7 @@ const logos = [
   {
     name: 'Astro',
     url: 'https://upload.wikimedia.org/wikipedia/id/b/bd/Logo-astro-indonesia.png',
-    invert: true,
+    invert: false,
   },
   {
     name: 'Foom',
@@ -33,7 +33,7 @@ const logos = [
   },
   {
     name: 'Jetinno',
-    url: 'https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/d7/a1/0c/d7a10c70-d5a6-c8f9-7e33-9e6cf68ddc16/AppIcon-prod-0-0-1x_U007emarketing-0-11-0-85-220.png/1200x630wa.png',
+    url: 'https://sc04.alicdn.com/kf/Hf2aa88cad0b245a0bcbf3d7ad73c2f32C.jpg',
     invert: false,
     rounded: true,
   },
@@ -45,7 +45,7 @@ const logos = [
   {
     name: 'Malindo',
     url: 'https://www.malindofeedmill.com/wp-content/uploads/2022/03/LOGO-MALINDO-APPROVAL-e1648183463719.png',
-    invert: true,
+    invert: false,
   },
   {
     name: 'Ibengcam',
