@@ -36,7 +36,7 @@ export default function PortfolioHero() {
           transition={{ duration: 0.6, delay: 0.2 }}
           className="text-lg text-white/40 max-w-2xl mx-auto leading-relaxed"
         >
-          From local service businesses to enterprise SaaS — every project is
+          From local service businesses to enterprise SaaS, every project is
           engineered for speed, conversion, and scale.
         </motion.p>
       </div>
