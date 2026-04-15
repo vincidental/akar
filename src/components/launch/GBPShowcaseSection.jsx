@@ -179,38 +179,23 @@ export default function GBPShowcaseSection({ lang }) {
 
   return (
     <>
-      {/* ── Curved SVG arrow from Paket 3 ── */}
-      <div className="relative bg-[#F0EDE8] flex flex-col items-center" style={{ height: 120 }}>
-        <svg
-          width="340"
-          height="120"
-          viewBox="0 0 340 120"
-          fill="none"
-          className="absolute top-0"
-          style={{ left: '50%', transform: 'translateX(-50%)' }}
-        >
-          {/* Curved path: starts at top-center (Paket 3 card area), curves outward then down */}
-          <path
-            d="M170 0 C 170 40, 60 40, 60 80 C 60 100, 100 115, 170 115"
-            stroke="#16a34a"
-            strokeWidth="3"
-            strokeDasharray="none"
-            fill="none"
-            strokeLinecap="round"
-          />
-          {/* Arrowhead at bottom */}
-          <polygon points="170,120 163,108 177,108" fill="#16a34a" />
-        </svg>
-
-        {/* Label pill on the curve */}
-        <div className="absolute flex items-center gap-2 px-4 py-2 bg-green-600 rounded-full shadow-lg shadow-green-500/30 border-2 border-green-500/40"
-          style={{ top: 32, left: '50%', transform: 'translateX(calc(-50% - 55px))' }}
-        >
-          <MapPin className="w-3.5 h-3.5 text-white" />
-          <span className="text-[10px] font-bold text-white uppercase tracking-widest whitespace-nowrap">
+      {/* ── Connector from Paket 3 ── */}
+      <div className="bg-[#F0EDE8] flex flex-col items-center py-6 gap-0">
+        {/* Top stem */}
+        <div className="w-0.5 h-8 bg-gradient-to-b from-transparent to-green-500" />
+        {/* Label pill */}
+        <div className="flex items-center gap-2 px-5 py-2.5 bg-green-600 rounded-full shadow-lg shadow-green-500/25 z-10">
+          <MapPin className="w-3.5 h-3.5 text-white shrink-0" />
+          <span className="text-[11px] font-bold text-white uppercase tracking-widest whitespace-nowrap">
             {lang === 'id' ? 'Termasuk di Paket 3' : 'Included in Package 3'}
           </span>
         </div>
+        {/* Bottom stem */}
+        <div className="w-0.5 h-6 bg-green-500" />
+        {/* Arrowhead */}
+        <svg width="16" height="10" viewBox="0 0 16 10" fill="none">
+          <path d="M8 10L0.5 0.5H15.5L8 10Z" fill="#16a34a" />
+        </svg>
       </div>
 
       {/* ── GBP Section ── */}
