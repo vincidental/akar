@@ -487,7 +487,8 @@ export default function Launch() {
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
             transition={{ delay: 0.3 }}
-            className="text-center text-xs text-[#1a1a1a]/35 mt-8"
+            className="text-center text-xs text-[#1a1a1a]/35 mt-8 relative"
+          style={{ zIndex: 10 }}
           >
             {lang === 'id'
               ? 'Semua harga sudah termasuk desain kustom, SSL, domain, hosting, dan pendampingan 30 hari. Tidak ada biaya tersembunyi.'

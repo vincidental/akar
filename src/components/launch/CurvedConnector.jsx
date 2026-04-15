@@ -59,13 +59,17 @@ export default function CurvedConnector({ sourceRef, targetRef, lang }) {
       });
     };
 
-    calculate();
+    // Use rAF to ensure layout is fully painted before measuring
+    let raf = requestAnimationFrame(() => {
+      calculate();
+      // Secondary pass for webfonts / images that shift layout
+      setTimeout(calculate, 500);
+    });
+
     window.addEventListener('resize', calculate);
-    // Re-calculate after layout settles
-    const t = setTimeout(calculate, 300);
     return () => {
+      cancelAnimationFrame(raf);
       window.removeEventListener('resize', calculate);
-      clearTimeout(t);
     };
   }, [sourceRef, targetRef]);
 
@@ -84,8 +88,8 @@ export default function CurvedConnector({ sourceRef, targetRef, lang }) {
         left: dims.offsetLeft,
         width: dims.width,
         height: dims.height,
-        zIndex: 20,
-        overflow: 'visible',
+        zIndex: 5,
+        overflow: 'hidden',
       }}
     >
       <defs>
