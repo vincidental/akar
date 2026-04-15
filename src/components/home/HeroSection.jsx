@@ -20,7 +20,7 @@ const copy = {
     h1a: 'Iklan Anda sudah jalan.',
     h1b: 'Tapi websitenya ',
     h1em: 'gagal tangkep pelanggan.',
-    sub: 'Akar Systems bangun website super cepat, SEO lokal, dan otomasi AI — supaya tidak ada satu pun lead yang terlewat.',
+    sub: 'Akar Systems bangun website super cepat, SEO lokal, dan otomasi AI, supaya tidak ada satu pun lead yang terlewat.',
     cta1: 'Benahi Sekarang',
     cta2: 'Lihat Cara Kerjanya',
   },
