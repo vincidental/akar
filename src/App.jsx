@@ -15,6 +15,7 @@ import Strategy from '@/pages/Strategy';
 import Launch from '@/pages/Launch';
 import LaunchID from '@/pages/LaunchID';
 import Portfolio from '@/pages/Portfolio';
+import { SpeedInsights } from '@vercel/speed-insights/react';
 
 const AuthenticatedApp = () => {
   const { isLoadingAuth, isLoadingPublicSettings, authError, navigateToLogin } = useAuth();
@@ -62,6 +63,7 @@ function App() {
           <AuthenticatedApp />
         </Router>
         <Toaster />
+        <SpeedInsights />
       </QueryClientProvider>
       </LanguageProvider>
     </AuthProvider>
