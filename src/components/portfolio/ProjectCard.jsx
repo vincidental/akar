@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { ArrowUpRight, Expand } from 'lucide-react';
+import { ArrowUpRight, Expand } from 'lucide-react'; // ArrowUpRight used for Client Work live links
 import DeviceMockup3D from './DeviceMockup3D';
 
 export default function ProjectCard({ project, index, onOpen }) {
@@ -111,7 +111,7 @@ export default function ProjectCard({ project, index, onOpen }) {
               Explore project
               <Expand className="w-3 h-3" />
             </button>
-          ) : (
+          ) : project.tag === 'Client Work' ? (
             <a
               href={project.url}
               target="_blank"
@@ -121,7 +121,7 @@ export default function ProjectCard({ project, index, onOpen }) {
               View live
               <ArrowUpRight className="w-3 h-3 group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5 transition-transform" />
             </a>
-          )}
+          ) : null}
         </div>
       </div>
     </motion.div>

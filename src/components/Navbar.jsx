@@ -60,15 +60,11 @@ export default function Navbar() {
       >
         {/* Logo */}
         <Link to="/" className="flex items-center gap-2 shrink-0">
-          <div
-            className="w-6 h-6 rounded-md flex items-center justify-center"
-            style={{
-              background: 'linear-gradient(135deg, #2a2520 0%, #1a1a1a 100%)',
-              boxShadow: '0 2px 8px rgba(0,0,0,0.25), inset 0 1px 0 rgba(255,255,255,0.12)',
-            }}
-          >
-            <span className="text-white text-[9px] font-bold tracking-tight">AS</span>
-          </div>
+          <img
+            src="https://media.base44.com/images/public/69cc2ed917e94df8870cff9d/1d908550c_akarlogopng.png"
+            alt="Akar Systems"
+            className="w-7 h-7 object-contain"
+          />
           <span className="font-semibold text-[#1a1a1a] text-sm tracking-tight drop-shadow-[0_1px_1px_rgba(255,255,255,0.8)]">
             Akar Systems
           </span>

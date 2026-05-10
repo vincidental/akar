@@ -35,9 +35,11 @@ export default function Footer() {
           {/* Brand */}
           <div className="col-span-2 md:col-span-1">
             <div className="flex items-center gap-2 mb-4">
-              <div className="w-6 h-6 bg-[#1a1a1a] rounded-sm flex items-center justify-center">
-                <span className="text-white text-[9px] font-bold tracking-tight">AS</span>
-              </div>
+              <img
+                src="https://media.base44.com/images/public/69cc2ed917e94df8870cff9d/1d908550c_akarlogopng.png"
+                alt="Akar Systems"
+                className="w-7 h-7 object-contain"
+              />
               <span className="font-semibold text-[#1a1a1a] text-sm">Akar Systems</span>
             </div>
             <p className="text-sm text-[#1a1a1a]/50 leading-relaxed max-w-[180px]">
@@ -78,13 +80,13 @@ export default function Footer() {
             <p className="text-xs font-semibold uppercase tracking-widest text-[#1a1a1a]/40 mb-3">{c.contact}</p>
             <ul className="space-y-2">
               <li>
-                <a href="https://wa.me/62" target="_blank" rel="noopener noreferrer" className="text-sm text-[#1a1a1a]/60 hover:text-[#1a1a1a] transition-colors">
+                <a href="https://wa.me/6281809006757" target="_blank" rel="noopener noreferrer" className="text-sm text-[#1a1a1a]/60 hover:text-[#1a1a1a] transition-colors">
                   WhatsApp
                 </a>
               </li>
               <li>
-                <a href="mailto:hello@akarsystems.id" className="text-sm text-[#1a1a1a]/60 hover:text-[#1a1a1a] transition-colors">
-                  hello@akarsystems.id
+                <a href="mailto:hello@akar.systems" className="text-sm text-[#1a1a1a]/60 hover:text-[#1a1a1a] transition-colors">
+                  hello@akar.systems
                 </a>
               </li>
               <li>

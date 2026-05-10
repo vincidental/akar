@@ -5,6 +5,11 @@ import { motion } from 'framer-motion';
 //         'opaque' = logo on solid white/colored bg → grayscale only
 const logos = [
   {
+    name: 'Mandiri Livin',
+    url: 'https://iconlogovector.com/uploads/images/2024/09/lg-66f74950d4c4c-Livin-by-Mandiri.webp',
+    filter: 'dark-text',
+  },
+  {
     name: 'Ruangguru',
     url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/6d/Ruangguru_logo.svg/3840px-Ruangguru_logo.svg.png',
     filter: 'light-text',
