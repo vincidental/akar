@@ -30,6 +30,8 @@ import AdminOverview from '@/pages/admin/AdminOverview';
 import AdminLeads from '@/pages/admin/AdminLeads';
 import AdminApplications from '@/pages/admin/AdminApplications';
 import AdminPartners from '@/pages/admin/AdminPartners';
+import AdminDocuments from '@/pages/admin/AdminDocuments';
+import PortalDocuments from '@/pages/portal/PortalDocuments';
 import Apply from '@/pages/Apply';
 
 const AuthenticatedApp = () => {
@@ -77,6 +79,7 @@ const AuthenticatedApp = () => {
         <Route path="playbook" element={<PortalPlaybook />} />
         <Route path="services" element={<PortalServices />} />
         <Route path="profile" element={<PortalProfile />} />
+        <Route path="documents" element={<PortalDocuments />} />
       </Route>
 
       {/* ── Admin Panel (admin-only) ── */}
@@ -85,6 +88,7 @@ const AuthenticatedApp = () => {
         <Route path="leads" element={<AdminLeads />} />
         <Route path="applications" element={<AdminApplications />} />
         <Route path="partners" element={<AdminPartners />} />
+        <Route path="documents" element={<AdminDocuments />} />
       </Route>
 
       {/* ── Partner Application ── */}

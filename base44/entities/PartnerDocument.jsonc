@@ -1,0 +1,57 @@
+{
+  "name": "PartnerDocument",
+  "type": "object",
+  "properties": {
+    "title": {
+      "type": "string",
+      "description": "Document title"
+    },
+    "description": {
+      "type": "string",
+      "description": "Short description of the document"
+    },
+    "file_url": {
+      "type": "string",
+      "description": "URL to the uploaded file"
+    },
+    "file_name": {
+      "type": "string",
+      "description": "Original file name"
+    },
+    "category": {
+      "type": "string",
+      "enum": [
+        "agreement",
+        "commission",
+        "brand",
+        "pitch",
+        "other"
+      ],
+      "default": "other",
+      "description": "Document category"
+    },
+    "target": {
+      "type": "string",
+      "enum": [
+        "all",
+        "specific"
+      ],
+      "default": "all",
+      "description": "Whether this doc is for all partners or a specific one"
+    },
+    "partner_email": {
+      "type": "string",
+      "description": "If target=specific, which partner email this is for"
+    },
+    "is_static": {
+      "type": "boolean",
+      "default": false,
+      "description": "True for static/built-in resource links"
+    }
+  },
+  "required": [
+    "title",
+    "file_url",
+    "category"
+  ]
+}
