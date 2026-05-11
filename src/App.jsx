@@ -21,6 +21,10 @@ import PortalLogin from '@/pages/portal/PortalLogin';
 import PortalDashboard from '@/pages/portal/PortalDashboard';
 import PortalLeads from '@/pages/portal/PortalLeads';
 import PortalLeadForm from '@/pages/portal/PortalLeadForm';
+import PortalEarnings from '@/pages/portal/PortalEarnings';
+import PortalPlaybook from '@/pages/portal/PortalPlaybook';
+import PortalServices from '@/pages/portal/PortalServices';
+import PortalProfile from '@/pages/portal/PortalProfile';
 
 const AuthenticatedApp = () => {
   const { isLoadingAuth, isLoadingPublicSettings, authError, navigateToLogin } = useAuth();
@@ -62,6 +66,10 @@ const AuthenticatedApp = () => {
         <Route index element={<PortalDashboard />} />
         <Route path="leads" element={<PortalLeads />} />
         <Route path="leads/new" element={<PortalLeadForm />} />
+        <Route path="earnings" element={<PortalEarnings />} />
+        <Route path="playbook" element={<PortalPlaybook />} />
+        <Route path="services" element={<PortalServices />} />
+        <Route path="profile" element={<PortalProfile />} />
       </Route>
 
       <Route path="*" element={<PageNotFound />} />
