@@ -1,11 +1,12 @@
 import { Outlet, Link, useLocation, Navigate } from 'react-router-dom';
 import { useAuth } from '@/lib/AuthContext';
-import { LayoutDashboard, Users, LogOut, Menu, X, ChevronRight, Shield } from 'lucide-react';
+import { LayoutDashboard, Users, LogOut, Menu, X, ChevronRight, Shield, ClipboardList } from 'lucide-react';
 import { useState } from 'react';
 
 const navItems = [
-  { icon: LayoutDashboard, label: 'Overview', to: '/admin' },
-  { icon: Users, label: 'All Leads', to: '/admin/leads' },
+  { icon: LayoutDashboard, label: 'Overview',     to: '/admin'              },
+  { icon: Users,           label: 'All Leads',    to: '/admin/leads'        },
+  { icon: ClipboardList,   label: 'Applications', to: '/admin/applications' },
 ];
 
 function Sidebar({ onClose }) {
