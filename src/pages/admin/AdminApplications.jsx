@@ -33,7 +33,14 @@ function ApplicationDrawer({ app, onClose, onStatusChange }) {
 
   const save = async () => {
     setSaving(true);
+    const wasApproved = app.status !== 'approved' && status === 'approved';
+
     await base44.entities.PartnerApplication.update(app.id, { status, admin_notes: notes });
+
+    if (wasApproved) {
+      await base44.functions.invoke('invitePartner', { email: app.email, full_name: app.full_name });
+    }
+
     onStatusChange(app.id, status, notes);
     setSaving(false);
     onClose();
