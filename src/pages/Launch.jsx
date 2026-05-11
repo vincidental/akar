@@ -432,6 +432,11 @@ export default function Launch() {
                     {p.hargaCoret && (
                       <p className={`text-xs line-through mb-0.5 ${p.highlight ? 'text-white/40' : 'text-[#1a1a1a]/30'}`}>{p.hargaCoret}</p>
                     )}
+                    {!p.isCustom && (
+                      <p className={`text-[10px] font-semibold uppercase tracking-widest mb-0.5 ${p.highlight ? 'text-white/55' : 'text-[#1a1a1a]/35'}`}>
+                        {lang === 'id' ? 'Mulai dari' : 'Start from'}
+                      </p>
+                    )}
                     <p className={`font-serif text-2xl font-bold ${p.highlight ? 'text-white' : 'text-green-600'}`}>{p.harga}</p>
                     {p.isCustom && (
                       <p className={`text-[10px] mt-0.5 ${p.highlight ? 'text-white/50' : 'text-[#1a1a1a]/35'}`}>
