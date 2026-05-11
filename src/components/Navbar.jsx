@@ -85,6 +85,16 @@ export default function Navbar() {
               {link.label}
             </Link>
           ))}
+          <Link
+            to="/partners"
+            className={`px-4 py-1.5 rounded-full text-sm font-medium transition-all duration-200 ${
+              location.pathname === '/partners'
+                ? 'bg-white/60 text-[#1a1a1a] shadow-[0_1px_4px_rgba(0,0,0,0.08),inset_0_1px_0_rgba(255,255,255,0.9)]'
+                : 'text-[#1a1a1a]/60 hover:text-[#1a1a1a] hover:bg-white/40'
+            }`}
+          >
+            {lang === 'en' ? 'Partners' : 'Partner'}
+          </Link>
           <div className="w-px h-4 bg-black/10 mx-1" />
           <Link
             to="/launch"
@@ -188,6 +198,12 @@ export default function Navbar() {
             >
               <span className="w-1.5 h-1.5 rounded-full bg-green-500" />
               {copy.launch}
+            </Link>
+            <Link
+              to="/partners"
+              className="px-4 py-2.5 rounded-xl text-sm font-medium text-[#1a1a1a]/70 hover:bg-white/60 transition-colors"
+            >
+              {lang === 'en' ? 'Partners' : 'Partner'}
             </Link>
             <div className="pt-2 border-t border-black/5">
               <Link

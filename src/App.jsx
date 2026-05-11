@@ -15,6 +15,10 @@ import Strategy from '@/pages/Strategy';
 import Launch from '@/pages/Launch';
 import LaunchID from '@/pages/LaunchID';
 import Portfolio from '@/pages/Portfolio';
+import Partners from '@/pages/Partners';
+import PortalLayout from '@/components/portal/PortalLayout';
+import PortalLogin from '@/pages/portal/PortalLogin';
+import PortalDashboard from '@/pages/portal/PortalDashboard';
 
 const AuthenticatedApp = () => {
   const { isLoadingAuth, isLoadingPublicSettings, authError, navigateToLogin } = useAuth();
@@ -38,6 +42,7 @@ const AuthenticatedApp = () => {
 
   return (
     <Routes>
+      {/* ── Public Marketing Site ── */}
       <Route element={<Layout />}>
         <Route path="/" element={<Home />} />
         <Route path="/infrastructure" element={<Infrastructure />} />
@@ -46,7 +51,15 @@ const AuthenticatedApp = () => {
         <Route path="/launch" element={<Launch />} />
         <Route path="/id" element={<LaunchID />} />
         <Route path="/portfolio" element={<Portfolio />} />
+        <Route path="/partners" element={<Partners />} />
       </Route>
+
+      {/* ── Partner Portal (auth-gated, separate layout) ── */}
+      <Route path="/portal/login" element={<PortalLogin />} />
+      <Route path="/portal" element={<PortalLayout />}>
+        <Route index element={<PortalDashboard />} />
+      </Route>
+
       <Route path="*" element={<PageNotFound />} />
     </Routes>
   );
