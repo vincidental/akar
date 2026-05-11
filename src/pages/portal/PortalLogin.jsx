@@ -14,16 +14,11 @@ export default function PortalLogin() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    // If access_token is in URL, Base44 SDK (app-params) will have stored it.
-    // Just check if we're now authenticated and redirect to portal.
+    // Only handle token redirect when landing on /login (Base44's default redirect)
     const urlParams = new URLSearchParams(window.location.search);
     if (urlParams.get('access_token')) {
       navigate('/portal', { replace: true });
-      return;
     }
-    base44.auth.isAuthenticated().then((authed) => {
-      if (authed) navigate('/portal', { replace: true });
-    });
   }, []);
 
   const handleLogin = () => {
