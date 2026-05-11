@@ -1,0 +1,82 @@
+{
+  "name": "ReferralLead",
+  "type": "object",
+  "properties": {
+    "partner_email": {
+      "type": "string",
+      "description": "Email of the partner who registered this lead"
+    },
+    "partner_name": {
+      "type": "string",
+      "description": "Full name of the partner"
+    },
+    "prospect_name": {
+      "type": "string",
+      "description": "Full name of the prospect / business contact"
+    },
+    "prospect_business": {
+      "type": "string",
+      "description": "Business or company name of the prospect"
+    },
+    "prospect_phone": {
+      "type": "string",
+      "description": "WhatsApp or phone number of the prospect"
+    },
+    "prospect_email": {
+      "type": "string",
+      "description": "Email address of the prospect"
+    },
+    "service_interest": {
+      "type": "string",
+      "enum": [
+        "landing_page",
+        "business_website",
+        "website_local_boost",
+        "custom",
+        "unknown"
+      ],
+      "default": "unknown",
+      "description": "Which Akar Systems service the prospect is interested in"
+    },
+    "notes": {
+      "type": "string",
+      "description": "Any context or notes the partner wants to share about this lead"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "pending",
+        "approved",
+        "contacted",
+        "proposal_sent",
+        "closed_won",
+        "closed_lost"
+      ],
+      "default": "pending",
+      "description": "Current pipeline status of the lead"
+    },
+    "deal_value": {
+      "type": "number",
+      "description": "Actual deal value in IDR once closed"
+    },
+    "commission_amount": {
+      "type": "number",
+      "description": "Commission amount in IDR owed to the partner"
+    },
+    "commission_paid": {
+      "type": "boolean",
+      "default": false,
+      "description": "Whether the commission has been paid out"
+    },
+    "admin_notes": {
+      "type": "string",
+      "description": "Internal notes from the Akar Systems team"
+    }
+  },
+  "required": [
+    "prospect_name",
+    "prospect_business",
+    "prospect_phone",
+    "service_interest"
+  ]
+}

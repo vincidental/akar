@@ -19,6 +19,8 @@ import Partners from '@/pages/Partners';
 import PortalLayout from '@/components/portal/PortalLayout';
 import PortalLogin from '@/pages/portal/PortalLogin';
 import PortalDashboard from '@/pages/portal/PortalDashboard';
+import PortalLeads from '@/pages/portal/PortalLeads';
+import PortalLeadForm from '@/pages/portal/PortalLeadForm';
 
 const AuthenticatedApp = () => {
   const { isLoadingAuth, isLoadingPublicSettings, authError, navigateToLogin } = useAuth();
@@ -58,6 +60,8 @@ const AuthenticatedApp = () => {
       <Route path="/portal/login" element={<PortalLogin />} />
       <Route path="/portal" element={<PortalLayout />}>
         <Route index element={<PortalDashboard />} />
+        <Route path="leads" element={<PortalLeads />} />
+        <Route path="leads/new" element={<PortalLeadForm />} />
       </Route>
 
       <Route path="*" element={<PageNotFound />} />

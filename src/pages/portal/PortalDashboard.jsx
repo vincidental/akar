@@ -2,6 +2,8 @@ import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { TrendingUp, Users, DollarSign, FileText, ArrowRight, PlusCircle, BookOpen, Package } from 'lucide-react';
 import { useAuth } from '@/lib/AuthContext';
+import { useQuery } from '@tanstack/react-query';
+import { base44 } from '@/api/base44Client';
 
 const fadeUp = (delay = 0) => ({
   initial: { opacity: 0, y: 20 },
@@ -22,6 +24,16 @@ export default function PortalDashboard() {
   const { user } = useAuth();
   const firstName = user?.full_name?.split(' ')[0] || 'Partner';
 
+  const { data: leads = [] } = useQuery({
+    queryKey: ['referral-leads', user?.email],
+    queryFn: () => base44.entities.ReferralLead.filter({ partner_email: user?.email }),
+    enabled: !!user?.email,
+  });
+
+  const activeLeads = leads.filter(l => !['closed_won', 'closed_lost'].includes(l.status)).length;
+  const closedWon = leads.filter(l => l.status === 'closed_won');
+  const totalEarned = closedWon.reduce((sum, l) => sum + (l.commission_amount || 0), 0);
+
   return (
     <div className="p-6 md:p-10 max-w-5xl mx-auto">
       {/* Greeting */}
@@ -36,10 +48,10 @@ export default function PortalDashboard() {
       {/* Stats row */}
       <motion.div {...fadeUp(0.06)} className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
         {[
-          { icon: Users, label: 'Total Leads', value: '—' },
-          { icon: TrendingUp, label: 'Active Pipeline', value: '—' },
-          { icon: DollarSign, label: 'Total Earned', value: '—' },
-          { icon: FileText, label: 'Deals Closed', value: '—' },
+          { icon: Users, label: 'Total Leads', value: leads.length || '0' },
+          { icon: TrendingUp, label: 'Active Pipeline', value: activeLeads || '0' },
+          { icon: DollarSign, label: 'Total Earned', value: totalEarned ? `Rp ${totalEarned.toLocaleString('id-ID')}` : '—' },
+          { icon: FileText, label: 'Deals Closed', value: closedWon.length || '0' },
         ].map((stat, i) => (
           <div key={i} className="bg-white rounded-2xl border border-black/7 p-5 flex flex-col gap-2">
             <stat.icon className="w-4 h-4 text-green-600" />
