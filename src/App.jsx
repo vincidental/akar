@@ -29,6 +29,7 @@ import AdminLayout from '@/components/portal/AdminLayout';
 import AdminOverview from '@/pages/admin/AdminOverview';
 import AdminLeads from '@/pages/admin/AdminLeads';
 import AdminApplications from '@/pages/admin/AdminApplications';
+import AdminPartners from '@/pages/admin/AdminPartners';
 import Apply from '@/pages/Apply';
 
 const AuthenticatedApp = () => {
@@ -82,6 +83,7 @@ const AuthenticatedApp = () => {
         <Route index element={<AdminOverview />} />
         <Route path="leads" element={<AdminLeads />} />
         <Route path="applications" element={<AdminApplications />} />
+        <Route path="partners" element={<AdminPartners />} />
       </Route>
 
       {/* ── Partner Application ── */}
