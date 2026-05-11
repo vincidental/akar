@@ -185,10 +185,10 @@ export default function Partners() {
 
           <motion.div {...fadeUp(0.26)} className="flex flex-wrap items-center justify-center gap-4">
             <Link
-              to="/portal"
+              to="/apply"
               className="inline-flex items-center gap-2 bg-green-600 text-white font-semibold px-8 py-4 rounded-full text-sm hover:bg-green-700 transition-colors shadow-lg shadow-green-500/20"
             >
-              {c.ctaPortal}
+              {c.ctaApply}
               <ArrowRight className="w-4 h-4" />
             </Link>
             <a
@@ -326,7 +326,7 @@ export default function Partners() {
             <p className="text-white/60 text-base leading-relaxed max-w-xl mx-auto mb-10">{c.ctaDesc}</p>
             <div className="flex flex-wrap items-center justify-center gap-4">
               <Link
-                to="/portal"
+                to="/apply"
                 className="inline-flex items-center gap-2 bg-white text-green-700 font-bold px-8 py-4 rounded-full text-sm hover:bg-green-50 transition-colors shadow-lg"
               >
                 {c.ctaApply}

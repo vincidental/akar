@@ -1,0 +1,141 @@
+{
+  "name": "PartnerApplication",
+  "type": "object",
+  "properties": {
+    "full_name": {
+      "type": "string",
+      "description": "Full name of the applicant"
+    },
+    "email": {
+      "type": "string",
+      "description": "Email address of the applicant"
+    },
+    "phone": {
+      "type": "string",
+      "description": "WhatsApp or phone number"
+    },
+    "occupation_type": {
+      "type": "string",
+      "enum": [
+        "student",
+        "employed",
+        "freelancer",
+        "business_owner",
+        "consultant",
+        "other"
+      ],
+      "description": "Current occupation category"
+    },
+    "company_or_institution": {
+      "type": "string",
+      "description": "Company, university, or institution name"
+    },
+    "job_title_or_major": {
+      "type": "string",
+      "description": "Job title (for professionals) or field of study (for students)"
+    },
+    "industry": {
+      "type": "string",
+      "enum": [
+        "marketing_agency",
+        "it_tech",
+        "finance_accounting",
+        "education",
+        "real_estate",
+        "retail_ecommerce",
+        "hospitality_fnb",
+        "consulting",
+        "media_creative",
+        "other"
+      ],
+      "description": "Industry or niche"
+    },
+    "network_size": {
+      "type": "string",
+      "enum": [
+        "small",
+        "medium",
+        "large",
+        "massive"
+      ],
+      "description": "Estimated professional network size: small (<50), medium (50-200), large (200-500), massive (500+)"
+    },
+    "network_type": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "local_businesses",
+          "startups",
+          "campus_community",
+          "online_community",
+          "corporate_contacts",
+          "social_media_following",
+          "real_estate_clients",
+          "other"
+        ]
+      },
+      "description": "Types of networks the applicant has access to"
+    },
+    "referral_source": {
+      "type": "string",
+      "enum": [
+        "friend_referral",
+        "social_media",
+        "google_search",
+        "existing_client",
+        "event_or_seminar",
+        "other"
+      ],
+      "description": "How they heard about the partner program"
+    },
+    "linkedin_url": {
+      "type": "string",
+      "description": "LinkedIn profile URL (optional)"
+    },
+    "motivation": {
+      "type": "string",
+      "enum": [
+        "earn_commission",
+        "grow_my_network",
+        "add_value_to_contacts",
+        "build_resume_experience",
+        "believe_in_akar",
+        "all_of_the_above"
+      ],
+      "description": "Primary motivation for joining"
+    },
+    "agreed_to_terms": {
+      "type": "boolean",
+      "default": false,
+      "description": "Whether the applicant agreed to the partner program terms"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "pending",
+        "approved",
+        "rejected",
+        "waitlisted"
+      ],
+      "default": "pending",
+      "description": "Admin review status of the application"
+    },
+    "admin_notes": {
+      "type": "string",
+      "description": "Internal notes from the Akar Systems team"
+    }
+  },
+  "required": [
+    "full_name",
+    "email",
+    "phone",
+    "occupation_type",
+    "industry",
+    "network_size",
+    "network_type",
+    "referral_source",
+    "motivation",
+    "agreed_to_terms"
+  ]
+}

@@ -28,6 +28,8 @@ import PortalProfile from '@/pages/portal/PortalProfile';
 import AdminLayout from '@/components/portal/AdminLayout';
 import AdminOverview from '@/pages/admin/AdminOverview';
 import AdminLeads from '@/pages/admin/AdminLeads';
+import AdminApplications from '@/pages/admin/AdminApplications';
+import Apply from '@/pages/Apply';
 
 const AuthenticatedApp = () => {
   const { isLoadingAuth, isLoadingPublicSettings, authError, navigateToLogin } = useAuth();
@@ -79,7 +81,11 @@ const AuthenticatedApp = () => {
       <Route path="/admin" element={<AdminLayout />}>
         <Route index element={<AdminOverview />} />
         <Route path="leads" element={<AdminLeads />} />
+        <Route path="applications" element={<AdminApplications />} />
       </Route>
+
+      {/* ── Partner Application ── */}
+      <Route path="/apply" element={<Apply />} />
 
       <Route path="*" element={<PageNotFound />} />
     </Routes>
