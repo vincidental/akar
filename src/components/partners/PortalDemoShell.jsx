@@ -8,15 +8,18 @@ import DemoDashboard from './demo/DemoDashboard';
 import DemoLeads from './demo/DemoLeads';
 import DemoEarnings from './demo/DemoEarnings';
 import DemoPlaybook from './demo/DemoPlaybook';
+import DemoServices from './demo/DemoServices';
+import DemoDocuments from './demo/DemoDocuments';
+import DemoProfile from './demo/DemoProfile';
 
 const navItems = [
   { icon: LayoutDashboard, label: 'Dashboard', id: 'dashboard' },
   { icon: Users, label: 'My Leads', id: 'leads' },
   { icon: DollarSign, label: 'Earnings', id: 'earnings' },
   { icon: BookOpen, label: 'Sales Playbook', id: 'playbook' },
-  { icon: Package, label: 'Service Catalog', id: 'services', disabled: true },
-  { icon: FileText, label: 'Documents', id: 'documents', disabled: true },
-  { icon: UserCircle, label: 'My Profile', id: 'profile', disabled: true },
+  { icon: Package, label: 'Service Catalog', id: 'services' },
+  { icon: FileText, label: 'Documents', id: 'documents' },
+  { icon: UserCircle, label: 'My Profile', id: 'profile' },
 ];
 
 const screens = {
@@ -24,6 +27,9 @@ const screens = {
   leads: DemoLeads,
   earnings: DemoEarnings,
   playbook: DemoPlaybook,
+  services: DemoServices,
+  documents: DemoDocuments,
+  profile: DemoProfile,
 };
 
 export default function PortalDemoShell({ lang }) {
@@ -74,7 +80,6 @@ export default function PortalDemoShell({ lang }) {
                   <item.icon className="w-3.5 h-3.5 shrink-0" />
                   {item.label}
                   {isActive && <ChevronRight className="w-3 h-3 ml-auto" />}
-                  {item.disabled && <span className="ml-auto text-[8px] bg-black/6 rounded px-1 py-0.5">Soon</span>}
                 </button>
               );
             })}
@@ -111,7 +116,7 @@ export default function PortalDemoShell({ lang }) {
 
       {/* Tab nav for mobile (below the frame) */}
       <div className="sm:hidden flex overflow-x-auto gap-1 mt-2 pb-1">
-        {navItems.filter(n => !n.disabled).map(item => (
+        {navItems.map(item => (
           <button
             key={item.id}
             onClick={() => setActive(item.id)}
