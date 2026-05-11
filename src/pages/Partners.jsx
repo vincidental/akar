@@ -5,6 +5,7 @@ import {
   DollarSign, Network, Lock, Briefcase, ChevronRight, Zap
 } from 'lucide-react';
 import { useLang } from '@/lib/LanguageContext';
+import PortalDemoShell from '@/components/partners/PortalDemoShell';
 
 const content = {
   en: {
@@ -290,6 +291,28 @@ export default function Partners() {
               </motion.div>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* ── PORTAL DEMO ── */}
+      <section className="py-20 px-6 bg-[#F0EDE8]">
+        <div className="max-w-5xl mx-auto">
+          <motion.div {...fadeUp(0)} className="text-center mb-12">
+            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#1a1a1a]/35 mb-3">
+              {lang === 'id' ? 'Eksklusif untuk Approved Partners' : 'Exclusive to Approved Partners'}
+            </p>
+            <h2 className="font-serif text-4xl md:text-5xl text-[#1a1a1a] tracking-tight mb-4">
+              {lang === 'id' ? 'Jelajahi Portal Anda' : 'Explore Your Portal'}
+            </h2>
+            <p className="text-[#1a1a1a]/50 max-w-lg mx-auto text-sm leading-relaxed">
+              {lang === 'id'
+                ? 'Setelah disetujui, Anda mendapatkan akses ke dashboard lengkap ini — kelola lead, lacak komisi, dan akses semua resource.'
+                : 'Once approved, you get access to this full dashboard — manage leads, track commissions, and access all resources.'}
+            </p>
+          </motion.div>
+          <motion.div {...fadeUp(0.1)}>
+            <PortalDemoShell lang={lang} />
+          </motion.div>
         </div>
       </section>
 
