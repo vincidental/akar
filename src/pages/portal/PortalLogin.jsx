@@ -1,7 +1,8 @@
 import { motion } from 'framer-motion';
 import { base44 } from '@/api/base44Client';
 import { Shield, ArrowLeft, Users, TrendingUp, DollarSign } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { useEffect } from 'react';
 
 const perks = [
   { icon: Users, text: 'Track your full referral pipeline' },
@@ -10,6 +11,21 @@ const perks = [
 ];
 
 export default function PortalLogin() {
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    // If access_token is in URL, Base44 SDK (app-params) will have stored it.
+    // Just check if we're now authenticated and redirect to portal.
+    const urlParams = new URLSearchParams(window.location.search);
+    if (urlParams.get('access_token')) {
+      navigate('/portal', { replace: true });
+      return;
+    }
+    base44.auth.isAuthenticated().then((authed) => {
+      if (authed) navigate('/portal', { replace: true });
+    });
+  }, []);
+
   const handleLogin = () => {
     base44.auth.redirectToLogin('/portal');
   };
