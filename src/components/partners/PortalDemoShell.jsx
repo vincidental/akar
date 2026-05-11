@@ -46,7 +46,7 @@ export default function PortalDemoShell({ lang }) {
           <div className="w-3 h-3 rounded-full bg-green-400/70" />
         </div>
         <div className="flex-1 bg-white/60 rounded-full px-3 py-1 text-[11px] text-[#1a1a1a]/35 font-medium text-center mx-8">
-          partner.akarsystems.com/portal
+          https://akar.systems/portal
         </div>
         <div className="flex items-center gap-1 bg-green-600/15 border border-green-500/20 rounded-full px-2 py-0.5">
           <Shield className="w-2.5 h-2.5 text-green-600" />
