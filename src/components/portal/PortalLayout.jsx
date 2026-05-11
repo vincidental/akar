@@ -2,7 +2,7 @@ import { Outlet, Link, useLocation, Navigate } from 'react-router-dom';
 import { useAuth } from '@/lib/AuthContext';
 import {
   LayoutDashboard, Users, DollarSign, BookOpen,
-  Package, FileText, UserCircle, LogOut, Menu, X, ChevronRight
+  Package, FileText, UserCircle, LogOut, Menu, X, ChevronRight, Shield
 } from 'lucide-react';
 import { useState } from 'react';
 
@@ -16,7 +16,7 @@ const navItems = [
   { icon: UserCircle, label: 'My Profile', to: '/portal/profile' },
 ];
 
-function Sidebar({ onClose }) {
+function Sidebar({ onClose, user }) {
   const location = useLocation();
 
   return (
@@ -58,7 +58,17 @@ function Sidebar({ onClose }) {
       </nav>
 
       {/* Footer */}
-      <div className="px-3 py-4 border-t border-black/8">
+      <div className="px-3 py-4 border-t border-black/8 space-y-0.5">
+        {user?.role === 'admin' && (
+          <Link
+            to="/admin"
+            onClick={onClose}
+            className="flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium text-red-500/70 hover:text-red-600 hover:bg-red-50 transition-all duration-150"
+          >
+            <Shield className="w-4 h-4 shrink-0" />
+            Admin Panel
+          </Link>
+        )}
         <Link
           to="/"
           className="flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium text-[#1a1a1a]/40 hover:text-[#1a1a1a]/70 hover:bg-black/5 transition-all duration-150"
@@ -91,7 +101,7 @@ export default function PortalLayout() {
     <div className="flex min-h-screen bg-[#F8F6F2]">
       {/* Desktop Sidebar */}
       <aside className="hidden md:flex flex-col w-60 shrink-0 bg-white border-r border-black/8 fixed inset-y-0 left-0 z-30">
-        <Sidebar />
+        <Sidebar user={user} />
       </aside>
 
       {/* Mobile Sidebar Drawer */}
@@ -99,7 +109,7 @@ export default function PortalLayout() {
         <div className="fixed inset-0 z-50 flex md:hidden">
           <div className="absolute inset-0 bg-black/30 backdrop-blur-sm" onClick={() => setMobileOpen(false)} />
           <aside className="relative w-64 bg-white h-full shadow-2xl">
-            <Sidebar onClose={() => setMobileOpen(false)} />
+            <Sidebar user={user} onClose={() => setMobileOpen(false)} />
           </aside>
         </div>
       )}

@@ -25,6 +25,9 @@ import PortalEarnings from '@/pages/portal/PortalEarnings';
 import PortalPlaybook from '@/pages/portal/PortalPlaybook';
 import PortalServices from '@/pages/portal/PortalServices';
 import PortalProfile from '@/pages/portal/PortalProfile';
+import AdminLayout from '@/components/portal/AdminLayout';
+import AdminOverview from '@/pages/admin/AdminOverview';
+import AdminLeads from '@/pages/admin/AdminLeads';
 
 const AuthenticatedApp = () => {
   const { isLoadingAuth, isLoadingPublicSettings, authError, navigateToLogin } = useAuth();
@@ -70,6 +73,12 @@ const AuthenticatedApp = () => {
         <Route path="playbook" element={<PortalPlaybook />} />
         <Route path="services" element={<PortalServices />} />
         <Route path="profile" element={<PortalProfile />} />
+      </Route>
+
+      {/* ── Admin Panel (admin-only) ── */}
+      <Route path="/admin" element={<AdminLayout />}>
+        <Route index element={<AdminOverview />} />
+        <Route path="leads" element={<AdminLeads />} />
       </Route>
 
       <Route path="*" element={<PageNotFound />} />
