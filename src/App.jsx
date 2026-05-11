@@ -67,6 +67,7 @@ const AuthenticatedApp = () => {
       </Route>
 
       {/* ── Partner Portal (auth-gated, separate layout) ── */}
+      <Route path="/login" element={<PortalLogin />} />
       <Route path="/portal/login" element={<PortalLogin />} />
       <Route path="/portal" element={<PortalLayout />}>
         <Route index element={<PortalDashboard />} />
