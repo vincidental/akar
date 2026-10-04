@@ -5,11 +5,11 @@ export default function RebuildZero() {
   return (
     <section className="py-24 md:py-32">
       <div className="max-w-[640px] mx-auto px-6">
-        <ChapterHeader n="02" title="The Rebuild from Zero" />
+        <ChapterHeader n="02" title="The Rebuild from Zero" dataEra="2" />
 
         <div className="space-y-8 md:space-y-10 text-base md:text-lg leading-[1.75]">
           <Reveal>
-            <p>I picked myself up by the end of year two and started from absolute zero. I began making my own money online from scratch, just scraping together cash by selling secondhand stuff. I took that money, bought courses to learn dropshipping, and figured out how to earn USD. Unlearned a lot of things and old beliefs about money, marketing, the psychology of selling, and relearned everything from scratch. By the time I was 18, I was running multiple private label Shopify stores targeting the US market. Brands like GirlChandise, Swire Audio, and Good Matcha Morning. I managed the entire end-to-end process and eventually generated over $100 in daily revenue.</p>
+            <p className="dropcap">I picked myself up by the end of year two and started from absolute zero. I began making my own money online from scratch, just scraping together cash by selling secondhand stuff. I took that money, bought courses to learn dropshipping, and figured out how to earn USD. Unlearned a lot of things and old beliefs about money, marketing, the psychology of selling, and relearned everything from scratch. By the time I was 18, I was running multiple private label Shopify stores targeting the US market. Brands like GirlChandise, Swire Audio, and Good Matcha Morning. I managed the entire end-to-end process and eventually generated over $100 in daily revenue.</p>
           </Reveal>
           <Reveal>
             <p>But as all dropshippers have felt, this thing isn't exactly scalable nor sustainable, maybe it's just me who didn't know any better, but with the business model I used to run which was heavily reliant on trendy things, I knew it would go in that cycle forever and if I want to build something real and compounding, running things solo in my bedroom wasn't enough. So what do I need to do and how do I do that? Well I didn't know either, but I knew that I don't know what I don't know, and I had to learn from people who have done it before. Now the question is, how do I find those people, work with them, and learn from them? I never really had plans to have a traditional "career," especially not in Indonesia. But I knew that the people I wanted to work with, the people whose real brains I wanted to pick to learn how they ran their companies, required me to sort of have one.</p>

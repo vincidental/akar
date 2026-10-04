@@ -6,11 +6,11 @@ export default function KickingDoors() {
   return (
     <section className="py-24 md:py-32">
       <div className="max-w-[640px] mx-auto px-6">
-        <ChapterHeader n="03" title="Kicking the Doors In" />
+        <ChapterHeader n="03" title="Kicking the Doors In" dataEra="3" />
 
         <div className="space-y-8 md:space-y-10 text-base md:text-lg leading-[1.75]">
           <Reveal>
-            <p>Everything worked crazy wonders in my business, but I still believed in that long term vision and at this point I was even more sure of the game. I realized I needed a powerful start in my CV, a prestigious brand, not to prove something to myself, but to shortcut the future conversations. One of the options was consulting.</p>
+            <p className="dropcap">Everything worked crazy wonders in my business, but I still believed in that long term vision and at this point I was even more sure of the game. I realized I needed a powerful start in my CV, a prestigious brand, not to prove something to myself, but to shortcut the future conversations. One of the options was consulting.</p>
           </Reveal>
           <Reveal>
             <p>At the time, none of the top-tier consulting firms were hiring for internships because it wasn't the season yet. But I don't run on the same timeline as everyone else. I had time, I knew what they needed, I knew what I could bring, and I just needed to get on a call to convince them.</p>

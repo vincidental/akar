@@ -6,11 +6,11 @@ export default function UnendingGame() {
   return (
     <section className="py-24 md:py-32">
       <div className="max-w-[640px] mx-auto px-6">
-        <ChapterHeader n="04" title="The Unending Game" />
+        <ChapterHeader n="04" title="The Unending Game" dataEra="4" />
 
         <div className="space-y-8 md:space-y-10 text-base md:text-lg leading-[1.75]">
           <Reveal>
-            <p>I thought I had beaten all the games. I had hacked the educational system. I had hacked the corporate ladder. But once I got inside those elite executive rooms, I noticed a completely different, invisible wall.</p>
+            <p className="dropcap">I thought I had beaten all the games. I had hacked the educational system. I had hacked the corporate ladder. But once I got inside those elite executive rooms, I noticed a completely different, invisible wall.</p>
           </Reveal>
           <Reveal>
             <p>When I was CoS for Kevin Cho (YC-backed founder), I'm 5'9 and weighed almost 80kg. I was hired for my brain, but physically, I looked soft, so I was basically hidden. I rarely got invited to client meetings. Every time we went out, he would eye me up and down, picking on my hair, my clothes, or my shoes with this look of disappointment. He always had something to comment on. But if you think about it, he had every reason to. That was probably his risk management lol</p>

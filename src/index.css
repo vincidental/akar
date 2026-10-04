@@ -90,3 +90,14 @@
   90% { transform: translate(-10%, 10%); }
 }
 .grain-anim { animation: grain 6s steps(8) infinite; }
+
+.dropcap::first-letter {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 3.4em;
+  line-height: 0.82;
+  float: left;
+  margin-right: 0.1em;
+  margin-top: 0.04em;
+  font-weight: 600;
+  opacity: 0.85;
+}

@@ -10,11 +10,11 @@ export default function GoldenPath() {
 
         <div className="space-y-8 md:space-y-10 text-base md:text-lg leading-[1.75]">
           <Reveal>
-            <p>Up until junior high, I had the game completely figured out. I was the student athlete, the main roster for all sports, the mini soccer team captain, and the main guitarist for the school band. Academically, I was sitting comfortably in the top three of my class. By all traditional metrics, I was the golden kid. Basically, what you'd call peaked in high school. I had my senior high life pictured perfectly in my mind, and I fully expected to run that shit the exact same way I always did.</p>
+            <p className="dropcap">Up until junior high, I had the game completely figured out. I was the student athlete, the main roster for all sports, the mini soccer team captain, and the main guitarist for the school band. Academically, I was sitting comfortably in the top three of my class. By all traditional metrics, I was the golden kid. Basically, what you'd call peaked in high school. I had my senior high life pictured perfectly in my mind, and I fully expected to run that shit the exact same way I always did.</p>
           </Reveal>
         </div>
 
-        <PullQuote>Then the universe just said, <em>nope.</em></PullQuote>
+        <PullQuote dataEra="1">Then the universe just said, <em>nope.</em></PullQuote>
 
         <div className="space-y-8 md:space-y-10 text-base md:text-lg leading-[1.75]">
           <Reveal>
