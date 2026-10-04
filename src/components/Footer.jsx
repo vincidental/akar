@@ -98,6 +98,9 @@ export default function Footer() {
 
         <div className="flex flex-col sm:flex-row items-center justify-between pt-6 border-t border-black/8 gap-4">
           <p className="text-xs text-[#1a1a1a]/40">{c.rights}</p>
+          <Link to="/founder" className="text-xs text-[#1a1a1a]/40 hover:text-[#1a1a1a] transition-colors">
+            Founder's Manifesto
+          </Link>
           <p className="text-xs text-[#1a1a1a]/40">{c.location}</p>
         </div>
       </div>

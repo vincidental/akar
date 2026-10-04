@@ -75,3 +75,18 @@
     @apply border border-[#1a1a1a]/20 text-[#1a1a1a] font-medium px-5 py-2.5 rounded-full text-sm hover:border-[#1a1a1a]/40 hover:bg-[#1a1a1a]/5 transition-all duration-200;
   }
 }
+
+::selection {
+  background: #2a7a4f;
+  color: white;
+}
+
+@keyframes grain {
+  0%, 100% { transform: translate(0, 0); }
+  10% { transform: translate(-5%, -10%); }
+  30% { transform: translate(7%, -25%); }
+  50% { transform: translate(-15%, 10%); }
+  70% { transform: translate(0%, 15%); }
+  90% { transform: translate(-10%, 10%); }
+}
+.grain-anim { animation: grain 6s steps(8) infinite; }

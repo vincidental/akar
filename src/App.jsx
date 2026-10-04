@@ -33,6 +33,7 @@ import AdminPartners from '@/pages/admin/AdminPartners';
 import AdminDocuments from '@/pages/admin/AdminDocuments';
 import PortalDocuments from '@/pages/portal/PortalDocuments';
 import Apply from '@/pages/Apply';
+import Founder from '@/pages/Founder';
 
 const AuthenticatedApp = () => {
   const { isLoadingAuth, isLoadingPublicSettings, authError, navigateToLogin } = useAuth();
@@ -93,6 +94,7 @@ const AuthenticatedApp = () => {
 
       {/* ── Partner Application ── */}
       <Route path="/apply" element={<Apply />} />
+      <Route path="/founder" element={<Founder />} />
 
       <Route path="*" element={<PageNotFound />} />
     </Routes>
