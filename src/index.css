@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600&family=JetBrains+Mono:wght@400;500;600&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -74,6 +74,15 @@
   .btn-outline-pill {
     @apply border border-[#1a1a1a]/20 text-[#1a1a1a] font-medium px-5 py-2.5 rounded-full text-sm hover:border-[#1a1a1a]/40 hover:bg-[#1a1a1a]/5 transition-all duration-200;
   }
+  .font-tech {
+    font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+  }
+  .scrollbar-none::-webkit-scrollbar { display: none; }
+  .scrollbar-none { -ms-overflow-style: none; scrollbar-width: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .grain-anim, .animate-marquee { animation: none !important; }
 }
 
 ::selection {
