@@ -1,75 +1,98 @@
 import { motion } from 'framer-motion';
-import MetricCounter from './MetricCounter';
 
-const metrics = [
-  { target: 16, suffix: 'x', label: 'Revenue Unit Growth' },
-  { prefix: '$', target: 100, suffix: 'K+', label: 'Bootstrapped ARR' },
-  { target: 100, suffix: '/100', label: 'Top Honors (PM)' },
-  { target: 7, suffix: ' Yrs', label: 'Scaling Ventures' },
+const figures = [
+  { value: '16×', label: 'Revenue growth · McEasy' },
+  { value: '30%', label: 'Churn reduction · McEasy' },
+  { value: '$100K+', label: 'Year 1 revenue · Flexilis' },
+  { value: '100/100', label: 'Top Honors · RevoU' },
 ];
 
 export default function Hero() {
   return (
-    <section className="relative min-h-screen flex flex-col justify-center px-6 py-28 overflow-hidden">
-      {/* mesh orbs */}
-      <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-1/4 -left-20 w-[36rem] h-[36rem] bg-[#00E5A0]/[0.08] rounded-full blur-[130px]" />
-        <div className="absolute bottom-0 right-0 w-[28rem] h-[28rem] bg-[#00E5A0]/[0.05] rounded-full blur-[110px]" />
-      </div>
-      {/* grid lines */}
-      <div
-        className="absolute inset-0 pointer-events-none opacity-[0.035]"
-        style={{
-          backgroundImage:
-            'linear-gradient(#fff 1px, transparent 1px), linear-gradient(90deg, #fff 1px, transparent 1px)',
-          backgroundSize: '64px 64px',
-        }}
-      />
-
-      <div className="relative max-w-6xl mx-auto w-full">
+    <section className="px-6 pt-28 md:pt-36 pb-20">
+      <div className="max-w-5xl mx-auto">
         <motion.p
-          initial={{ opacity: 0, y: 12 }}
+          initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          className="font-tech text-[11px] tracking-[0.35em] text-[#00E5A0] mb-8"
+          transition={{ duration: 0.7 }}
+          className="font-tech text-[10px] tracking-[0.3em] text-[#1a1a1a]/40 mb-6"
         >
-          VINCENTIUS THEODORE
+          PROFESSIONAL DOSSIER
         </motion.p>
 
         <motion.h1
-          initial={{ opacity: 0, y: 24 }}
+          initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
-          className="font-sans text-4xl md:text-6xl lg:text-7xl font-semibold tracking-[-0.03em] leading-[1.02] max-w-4xl"
+          transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
+          className="font-serif text-5xl md:text-7xl text-[#1a1a1a] tracking-tight leading-[1.04] mb-7"
         >
-          Proven executor across <span className="text-[#00E5A0]">Product</span>,{' '}
-          <span className="text-[#00E5A0]">Operations</span>, and{' '}
-          <span className="text-[#00E5A0]">Applied AI</span>.
+          Vincentius Theodore
         </motion.h1>
 
         <motion.p
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 18 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, delay: 0.4 }}
-          className="mt-8 text-base md:text-lg text-[#9a9a9a] leading-relaxed max-w-2xl"
+          transition={{ duration: 0.9, delay: 0.12 }}
+          className="text-lg md:text-xl text-[#1a1a1a] font-medium max-w-2xl leading-snug mb-5"
         >
-          I scale chaos for high-growth companies. Whether it's driving 16x revenue growth as a
-          Founding Operator, rebuilding commercial CRMs as a RevOps Leader, or architecting custom
-          automations as an AI Product Manager, I bridge the gap between high-level corporate
-          strategy and technical execution.
+          Founding Operator, RevOps leader, and AI product manager. I build the systems that turn
+          growth ambition into revenue — and I ship them myself.
+        </motion.p>
+
+        <motion.p
+          initial={{ opacity: 0, y: 18 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.9, delay: 0.2 }}
+          className="text-base text-[#1a1a1a]/55 max-w-2xl leading-relaxed mb-9"
+        >
+          I've led P0 initiatives across corporate strategy, B2G consulting, and quick-commerce
+          product — often in parallel with a full academic load. I work where business strategy
+          meets technical execution, with the ownership of a founder.
         </motion.p>
 
         <motion.div
-          initial={{ opacity: 0, y: 24 }}
+          initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, delay: 0.6 }}
-          className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-px bg-white/[0.06] border border-white/[0.06] rounded-2xl overflow-hidden"
+          transition={{ duration: 0.9, delay: 0.3 }}
+          className="flex flex-wrap items-center gap-x-4 gap-y-2 mb-16"
         >
-          {metrics.map((m) => (
-            <div key={m.label} className="bg-[#0a0a0a] p-5 md:p-6">
-              <MetricCounter {...m} />
-              <p className="font-tech text-[10px] uppercase tracking-widest text-[#6a6a6a] mt-2">
-                {m.label}
+          <a
+            href="mailto:vtheodore7@gmail.com"
+            className="text-sm font-medium text-[#1a1a1a] underline underline-offset-4 decoration-[#1a1a1a]/20 hover:decoration-[#2a7a4f] transition-colors"
+          >
+            vtheodore7@gmail.com
+          </a>
+          <span className="text-[#1a1a1a]/20">·</span>
+          <a
+            href="https://wa.me/6281809006757"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-sm font-medium text-[#1a1a1a] underline underline-offset-4 decoration-[#1a1a1a]/20 hover:decoration-[#2a7a4f] transition-colors"
+          >
+            WhatsApp
+          </a>
+          <span className="text-[#1a1a1a]/20">·</span>
+          <a
+            href="https://www.linkedin.com/in/vincentiustheodore"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-sm font-medium text-[#1a1a1a]/60 hover:text-[#1a1a1a] transition-colors"
+          >
+            LinkedIn
+          </a>
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 18 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.9, delay: 0.4 }}
+          className="grid grid-cols-2 md:grid-cols-4 gap-px bg-[#1a1a1a]/8 border border-[#1a1a1a]/8 rounded-xl overflow-hidden"
+        >
+          {figures.map((f) => (
+            <div key={f.label} className="bg-[#F7F5F0] p-5">
+              <p className="font-serif text-3xl md:text-4xl text-[#1a1a1a] tracking-tight">{f.value}</p>
+              <p className="font-tech text-[10px] uppercase tracking-widest text-[#1a1a1a]/40 mt-2">
+                {f.label}
               </p>
             </div>
           ))}
