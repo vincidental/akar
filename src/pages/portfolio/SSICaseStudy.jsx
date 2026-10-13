@@ -1,8 +1,13 @@
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { Smartphone, Banknote, Building2, MapPin, ArrowLeft } from 'lucide-react';
+import {
+  Smartphone, Banknote, Building2, MapPin, ArrowLeft,
+  Wrench, Truck, ClipboardCheck,
+} from 'lucide-react';
 import CaseStudyHero from '@/components/portfolio/CaseStudyHero';
 import ProjectGallery from '@/components/portfolio/ProjectGallery';
+import TechGrid from '@/components/portfolio/TechGrid';
+import FlowSteps from '@/components/portfolio/FlowSteps';
 
 const fadeUp = (delay = 0) => ({
   initial: { opacity: 0, y: 18 },
@@ -24,6 +29,20 @@ const modules = [
   },
 ];
 
+const tech = [
+  { icon: Smartphone, title: 'SOA Mobile phase 2', desc: 'Akar Systems delivered SOA Mobile phase 2 — extending the Android application used by field teams.' },
+  { icon: Wrench, title: 'FLM & SLM', desc: 'First and Second Level Maintenance teams report and track jobs in real time through SOA Mobile.' },
+  { icon: Truck, title: 'CIT operations', desc: 'Cash-in-transit crews use CIT Mobile / SAPRIVA BCA for cash management workflows.' },
+  { icon: ClipboardCheck, title: 'Field evidence', desc: 'Job progress, seal/segment verification, and field evidence are captured and tracked from the portal.' },
+];
+
+const flow = [
+  { title: 'Assign', desc: 'A maintenance or cash-management job is assigned to a field team — FLM, SLM, or CIT.' },
+  { title: 'Report', desc: 'Technicians capture and report job progress in real time through SOA Mobile on Android.' },
+  { title: 'Track', desc: 'Operations track job status, seal/segment verification, and field evidence from the web portal.' },
+  { title: 'Reconcile', desc: 'Cash-in-transit workflows reconcile through CIT Mobile / SAPRIVA BCA.' },
+];
+
 const profile = [
   { icon: Building2, label: 'Parent Group', value: 'PT. Swadharma Sarana Informatika (SSI) — part of Telkom Indonesia via TelkomMetra.' },
   { icon: MapPin, label: 'Coverage', value: 'Nationwide — ATM managed services and cash management across Indonesia.' },
@@ -35,6 +54,8 @@ const gallery = [
   'https://media.base44.com/images/public/69cc2ed917e94df8870cff9d/51d5683c8_9225be45-cef8-4077-9070-365a39b7db61.jpg',
   'https://media.base44.com/images/public/69cc2ed917e94df8870cff9d/b3cc8b16f_IMG_1736.jpg',
 ];
+
+const ACCENT = '#e53935';
 
 export default function SSICaseStudy() {
   return (
@@ -52,7 +73,7 @@ export default function SSICaseStudy() {
       <section className="px-6 py-16 border-t border-white/8">
         <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-12 gap-8">
           <div className="md:col-span-4">
-            <motion.p {...fadeUp(0)} className="text-[10px] font-bold uppercase tracking-[0.25em] text-[#e53935] mb-3">
+            <motion.p {...fadeUp(0)} className="text-[10px] font-bold uppercase tracking-[0.25em] text-[#ef5350] mb-3">
               What is SOA
             </motion.p>
             <motion.h2 {...fadeUp(0.05)} className="font-serif text-3xl md:text-4xl text-white tracking-tight">
@@ -70,8 +91,26 @@ export default function SSICaseStudy() {
         </div>
       </section>
 
-      {/* Core modules */}
+      {/* Technical approach */}
       <section className="px-6 py-16 border-t border-white/8 bg-white/[0.02]">
+        <div className="max-w-5xl mx-auto">
+          <motion.p {...fadeUp(0)} className="text-[10px] font-bold uppercase tracking-[0.25em] text-[#ef5350] mb-3">
+            Technical Approach
+          </motion.p>
+          <motion.h2 {...fadeUp(0.05)} className="font-serif text-3xl md:text-4xl text-white tracking-tight mb-4">
+            A field-ops system for the teams that keep ATMs running.
+          </motion.h2>
+          <motion.p {...fadeUp(0.1)} className="text-base text-white/55 max-w-2xl leading-relaxed mb-10">
+            SOA was built as the internal system of record for SSI's field operations — the technicians,
+            FLM/SLM teams, and cash-in-transit crews who maintain and replenish ATMs across Indonesia.
+            Akar Systems delivered SOA Mobile phase 2, extending the Android application used in the field.
+          </motion.p>
+          <TechGrid items={tech} accent={ACCENT} />
+        </div>
+      </section>
+
+      {/* Core modules */}
+      <section className="px-6 py-16 border-t border-white/8">
         <div className="max-w-5xl mx-auto">
           <motion.p {...fadeUp(0)} className="text-[10px] font-bold uppercase tracking-[0.25em] text-white/30 mb-3">
             Core Modules
@@ -84,7 +123,7 @@ export default function SSICaseStudy() {
               <motion.div
                 key={m.name}
                 {...fadeUp(i * 0.08)}
-                className="group bg-[#0a0a0a] border border-white/8 rounded-2xl p-6 hover:border-[#e53935]/40 transition-colors flex gap-4"
+                className="group bg-white/[0.03] border border-white/8 rounded-2xl p-6 hover:border-[#e53935]/40 transition-colors flex gap-4"
               >
                 <div className="w-11 h-11 rounded-xl bg-[#e53935]/15 border border-[#e53935]/25 flex items-center justify-center shrink-0">
                   <m.icon className="w-5 h-5 text-[#ef5350]" />
@@ -96,6 +135,19 @@ export default function SSICaseStudy() {
               </motion.div>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* Product logic & flow */}
+      <section className="px-6 py-16 border-t border-white/8 bg-white/[0.02]">
+        <div className="max-w-5xl mx-auto">
+          <motion.p {...fadeUp(0)} className="text-[10px] font-bold uppercase tracking-[0.25em] text-white/30 mb-3">
+            Product Logic & Flow
+          </motion.p>
+          <motion.h2 {...fadeUp(0.05)} className="font-serif text-3xl md:text-4xl text-white tracking-tight mb-10">
+            From job assignment to cash management.
+          </motion.h2>
+          <FlowSteps steps={flow} accent={ACCENT} />
         </div>
       </section>
 

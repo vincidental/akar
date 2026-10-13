@@ -9,7 +9,7 @@ export const projects = [
       "Designed and built the Sukha experience inside Bank Mandiri's Livin' super-app — SukhaTV, SukhaReels, SukhaPromo, and SukhaNews, plus a partner marketplace across travel, recreation, electronics, and events. Bank Mandiri remains the sole source of funds via Closed-Amount Virtual Accounts.",
     url: 'https://www.bankmandiri.co.id/livin/sukha',
     screenshotUrl:
-      'https://media.base44.com/images/public/69cc2ed917e94df8870cff9d/b2c0ce26e_Screenshot1294.png',
+      'https://media.base44.com/images/public/69cc2ed917e94df8870cff9d/f31e65745_Screenshot2026-10-13092558.png',
     accentColor: '#3949ab',
     device: 'browser',
     caseStudyPath: '/portfolio/sukha',

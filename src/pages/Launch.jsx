@@ -324,7 +324,7 @@ export default function Launch() {
             className="text-center mb-14"
           >
             <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#1a1a1a]/35 mb-3">
-              {lang === 'id' ? 'Transparan & Terjangkau' : 'Transparent Pricing'}
+              {lang === 'id' ? 'Paket 48 Jam' : '48-Hour Packages'}
             </p>
             <h2 className="font-serif text-4xl md:text-5xl text-[#1a1a1a] tracking-tight mb-4">
               {lang === 'id' ? 'Pilih Paket yang Tepat' : 'Choose Your Package'}
@@ -429,20 +429,15 @@ export default function Launch() {
                   <h3 className={`font-serif text-xl font-bold mb-1 ${p.highlight ? 'text-white' : 'text-[#1a1a1a]'}`}>{p.nama}</h3>
                   <p className={`text-xs leading-relaxed mb-5 ${p.highlight ? 'text-white/65' : 'text-[#1a1a1a]/45'}`}>{p.tagline}</p>
                   <div>
-                    {p.hargaCoret && (
-                      <p className={`text-xs line-through mb-0.5 ${p.highlight ? 'text-white/40' : 'text-[#1a1a1a]/30'}`}>{p.hargaCoret}</p>
-                    )}
-                    {!p.isCustom && (
-                      <p className={`text-[10px] font-semibold uppercase tracking-widest mb-0.5 ${p.highlight ? 'text-white/55' : 'text-[#1a1a1a]/35'}`}>
-                        {lang === 'id' ? 'Mulai dari' : 'Start from'}
-                      </p>
-                    )}
-                    <p className={`font-serif text-2xl font-bold ${p.highlight ? 'text-white' : 'text-green-600'}`}>{p.harga}</p>
-                    {p.isCustom && (
-                      <p className={`text-[10px] mt-0.5 ${p.highlight ? 'text-white/50' : 'text-[#1a1a1a]/35'}`}>
-                        {lang === 'id' ? 'harga disesuaikan kebutuhan' : 'price tailored to your needs'}
-                      </p>
-                    )}
+                    <p className={`text-[10px] font-semibold uppercase tracking-widest mb-1 ${p.highlight ? 'text-white/60' : 'text-[#1a1a1a]/35'}`}>
+                      {lang === 'id' ? 'Harga Sesuai Kebutuhan' : 'Pricing on Request'}
+                    </p>
+                    <p className={`font-serif text-lg font-semibold leading-snug ${p.highlight ? 'text-white' : 'text-[#1a1a1a]'}`}>
+                      {lang === 'id' ? 'Minta Penawaran' : 'Request a Quote'}
+                    </p>
+                    <p className={`text-[11px] mt-1 leading-relaxed ${p.highlight ? 'text-white/55' : 'text-[#1a1a1a]/45'}`}>
+                      {lang === 'id' ? 'Konsultasi gratis — harga disesuaikan scope.' : 'Free consultation, scoped to your needs.'}
+                    </p>
                   </div>
                 </div>
 
@@ -540,8 +535,8 @@ export default function Launch() {
           style={{ zIndex: 10 }}
           >
             {lang === 'id'
-              ? 'Semua harga sudah termasuk desain kustom, SSL, domain, hosting, dan pendampingan 30 hari. Tidak ada biaya tersembunyi.'
-              : 'All prices include custom design, SSL, domain, hosting, and 30-day support. No hidden fees.'}
+              ? 'Harga disesuaikan dengan kebutuhan Anda. Hubungi kami untuk penawaran.'
+              : 'Pricing is tailored to your needs. Contact us for a quote.'}
           </motion.p>
         </div>
       </section>

@@ -107,7 +107,7 @@ export default function PricingSectionID() {
           viewport={{ once: true }}
           className="text-center mb-14"
         >
-          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#1a1a1a]/35 mb-3">Transparan & Terjangkau</p>
+          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#1a1a1a]/35 mb-3">Paket 48 Jam</p>
           <h2 className="font-serif text-4xl md:text-5xl text-[#1a1a1a] tracking-tight mb-4">
             Pilih Paket yang Tepat
           </h2>
@@ -152,19 +152,15 @@ export default function PricingSectionID() {
                   {p.tagline}
                 </p>
                 <div>
-                  {p.hargaCoret && (
-                    <p className={`text-xs line-through mb-0.5 ${p.highlight ? 'text-white/40' : 'text-[#1a1a1a]/30'}`}>
-                      {p.hargaCoret}
-                    </p>
-                  )}
-                  <p className={`font-serif text-2xl font-bold ${p.highlight ? 'text-white' : 'text-green-600'}`}>
-                    {p.harga}
+                  <p className={`text-[10px] font-semibold uppercase tracking-widest mb-1 ${p.highlight ? 'text-white/60' : 'text-[#1a1a1a]/35'}`}>
+                    Harga Sesuai Kebutuhan
                   </p>
-                  {p.isCustom && (
-                    <p className={`text-[10px] mt-0.5 ${p.highlight ? 'text-white/50' : 'text-[#1a1a1a]/35'}`}>
-                      harga disesuaikan kebutuhan
-                    </p>
-                  )}
+                  <p className={`font-serif text-lg font-semibold leading-snug ${p.highlight ? 'text-white' : 'text-[#1a1a1a]'}`}>
+                    Minta Penawaran
+                  </p>
+                  <p className={`text-[11px] mt-1 leading-relaxed ${p.highlight ? 'text-white/55' : 'text-[#1a1a1a]/45'}`}>
+                    Konsultasi gratis — harga disesuaikan scope.
+                  </p>
                 </div>
               </div>
 
@@ -256,7 +252,7 @@ export default function PricingSectionID() {
           transition={{ delay: 0.3 }}
           className="text-center text-xs text-[#1a1a1a]/35 mt-8"
         >
-          Semua harga sudah termasuk desain kustom, SSL, domain, hosting, dan pendampingan 30 hari. Tidak ada biaya tersembunyi.
+          Harga disesuaikan dengan kebutuhan Anda. Hubungi kami untuk penawaran.
         </motion.p>
       </div>
     </section>
