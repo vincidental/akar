@@ -36,7 +36,7 @@ const logos = [
   },
   {
     name: 'Indotrading',
-    url: 'https://resources.indotrading.com/frontend/images/logo.png',
+    url: 'https://www.nusantarafoodhotel.com/wp-content/uploads/2026/06/Logo-INDOTRADING.png',
     filter: 'light-text',
   },
   {

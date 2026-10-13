@@ -15,6 +15,8 @@ import Strategy from '@/pages/Strategy';
 import Launch from '@/pages/Launch';
 import LaunchID from '@/pages/LaunchID';
 import Portfolio from '@/pages/Portfolio';
+import SukhaCaseStudy from '@/pages/portfolio/SukhaCaseStudy';
+import SSICaseStudy from '@/pages/portfolio/SSICaseStudy';
 import Partners from '@/pages/Partners';
 import PortalLayout from '@/components/portal/PortalLayout';
 import PortalLogin from '@/pages/portal/PortalLogin';
@@ -67,6 +69,8 @@ const AuthenticatedApp = () => {
         <Route path="/launch" element={<Launch />} />
         <Route path="/id" element={<LaunchID />} />
         <Route path="/portfolio" element={<Portfolio />} />
+        <Route path="/portfolio/sukha" element={<SukhaCaseStudy />} />
+        <Route path="/portfolio/ssi-soa" element={<SSICaseStudy />} />
         <Route path="/partners" element={<Partners />} />
       </Route>
 

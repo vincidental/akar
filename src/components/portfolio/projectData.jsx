@@ -1,5 +1,47 @@
 export const projects = [
   {
+    id: 'mandiri-sukha',
+    title: "Mandiri Livin' Sukha",
+    category: 'Fintech Super-App · Content & Partner Marketplace',
+    tag: 'Client Work',
+    tagColor: 'green',
+    description:
+      "Designed and built the Sukha experience inside Bank Mandiri's Livin' super-app — SukhaTV, SukhaReels, SukhaPromo, and SukhaNews, plus a partner marketplace across travel, recreation, electronics, and events. Bank Mandiri remains the sole source of funds via Closed-Amount Virtual Accounts.",
+    url: 'https://www.bankmandiri.co.id/livin/sukha',
+    screenshotUrl:
+      'https://media.base44.com/images/public/69cc2ed917e94df8870cff9d/b2c0ce26e_Screenshot1294.png',
+    accentColor: '#3949ab',
+    device: 'browser',
+    caseStudyPath: '/portfolio/sukha',
+    metrics: [
+      { label: 'Modules', value: '4' },
+      { label: 'Partners', value: '40+' },
+      { label: 'Platform', value: 'Super-App' },
+    ],
+    tech: ['Next.js', 'Vercel Edge', 'Livin’ WebView', 'Mandiri API'],
+  },
+  {
+    id: 'ssi-soa',
+    title: 'SSI SOA — Telkom Indonesia',
+    category: 'Field Operations · Mobile + Web Portal',
+    tag: 'Client Work',
+    tagColor: 'green',
+    description:
+      'SSI Operational Application — the internal mobile and web portal built for PT. Swadharma Sarana Informatika (SSI by Telkom Indonesia), powering field service, ATM maintenance, cash management, and technician tracking across Indonesia.',
+    url: 'https://www.ssi-soa.com/',
+    screenshotUrl:
+      'https://media.base44.com/images/public/69cc2ed917e94df8870cff9d/448b50811_IMG_4023.jpg',
+    accentColor: '#e53935',
+    device: 'browser',
+    caseStudyPath: '/portfolio/ssi-soa',
+    metrics: [
+      { label: 'Teams', value: 'FLM/SLM' },
+      { label: 'Modules', value: 'SOA + CIT' },
+      { label: 'Coverage', value: 'Nationwide' },
+    ],
+    tech: ['Android', 'Web Portal', 'ATM Services', 'Cash Mgmt'],
+  },
+  {
     id: 'ibengcam',
     title: 'Ibengcam Repair',
     category: 'Local Service · Website',

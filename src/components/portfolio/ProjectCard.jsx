@@ -1,10 +1,13 @@
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { ArrowUpRight, Expand } from 'lucide-react'; // ArrowUpRight used for Client Work live links
 import DeviceMockup3D from './DeviceMockup3D';
 
 export default function ProjectCard({ project, index, onOpen }) {
   const [hovered, setHovered] = useState(false);
+  const navigate = useNavigate();
+  const hasCaseStudy = Boolean(project.caseStudyPath);
 
   const tagStyles = {
     green: 'bg-green-500/15 text-green-400 border-green-500/25',
@@ -20,7 +23,10 @@ export default function ProjectCard({ project, index, onOpen }) {
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
       className="group relative rounded-2xl overflow-hidden bg-white/[0.03] border border-white/8 hover:border-white/16 transition-all duration-500 cursor-pointer"
-      onClick={() => project.screenshots?.length && onOpen(project)}
+      onClick={() => {
+        if (hasCaseStudy) navigate(project.caseStudyPath);
+        else if (project.screenshots?.length) onOpen(project);
+      }}
       style={{
         boxShadow: hovered
           ? `0 0 60px ${project.accentColor}18, 0 24px 48px rgba(0,0,0,0.5)`
@@ -48,7 +54,7 @@ export default function ProjectCard({ project, index, onOpen }) {
         />
 
         {/* Explore overlay hint */}
-        {project.screenshots?.length > 0 && (
+        {(project.screenshots?.length > 0 || hasCaseStudy) && (
           <div className={`absolute top-3 right-3 z-20 flex items-center gap-1.5 px-2.5 py-1.5 rounded-full bg-black/60 border border-white/15 backdrop-blur-sm text-[11px] font-medium text-white/70 transition-opacity duration-300 ${hovered ? 'opacity-100' : 'opacity-0'}`}>
             <Expand className="w-3 h-3" />
             Explore
@@ -103,7 +109,15 @@ export default function ProjectCard({ project, index, onOpen }) {
               </span>
             ))}
           </div>
-          {project.screenshots?.length > 0 ? (
+          {hasCaseStudy ? (
+            <button
+              onClick={(e) => { e.stopPropagation(); navigate(project.caseStudyPath); }}
+              className="flex items-center gap-1 text-xs font-medium text-white/40 hover:text-white transition-colors duration-200 group/link"
+            >
+              Explore project
+              <Expand className="w-3 h-3" />
+            </button>
+          ) : project.screenshots?.length > 0 ? (
             <button
               onClick={(e) => { e.stopPropagation(); onOpen(project); }}
               className="flex items-center gap-1 text-xs font-medium text-white/40 hover:text-white transition-colors duration-200 group/link"
