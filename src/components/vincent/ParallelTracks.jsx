@@ -11,7 +11,10 @@ const yearRows = [
   {
     year: '2019',
     cells: {
-      corp: [{ title: 'PT Perkasa Surya Prima', range: '2019 – 2021', detail: 'Special Projects Manager. Grew equipment-parts revenue 400%.' }],
+      corp: [
+        { title: 'PT Perkasa Surya Prima', range: '2019 – 2021', detail: 'Special Projects Manager. Grew equipment-parts revenue 400%.' },
+        { title: 'Minor Figures', range: '2020 – 2021', detail: 'Remote Jr. Media Buyer. Developed and negotiated media-buying strategies across health media outlets.' },
+      ],
       vent: [{ title: 'Shopify private-label brands', range: '2019 – 2021', detail: 'GirlChandise & Swire Audio, US-market dropshipping. $100+/day.' }],
       edu: [{ title: 'Universitas Pelita Harapan', range: 'Ongoing', detail: 'BSc, Integrated Marketing Communications. Concurrent with all roles.' }],
     },
@@ -27,7 +30,9 @@ const yearRows = [
   {
     year: '2022',
     cells: {
-      corp: [],
+      corp: [
+        { title: 'Astro', range: 'Sep 2022 – Jan 2023', detail: "Associate PM (Labs), Discovery Team. Revamped the Discovery Channel for SEA's premier quick-commerce app — introduced an ML-like algorithm for frequently shopped items. Presented directly to Head of Product." },
+      ],
       vent: [],
       edu: [{ title: 'RevoU', range: '2022 – 2023', detail: 'Full Stack PM. Top Honors, 100/100 across 28 rubrics.' }],
     },
@@ -36,9 +41,9 @@ const yearRows = [
     year: '2023',
     cells: {
       corp: [
-        { title: 'Astro', range: 'Early 2023', detail: 'Associate PM Intern in SEA quick-commerce.' },
-        { title: 'KPMG', range: 'Q2 2023', detail: 'Management Consulting Intern. Fastest return-offer track as a sophomore.' },
-        { title: 'Pensieve Technology', range: '2023', detail: "CEO Office Analyst, B2G. Stood up Indonesia's 10th licensed e-sign provider." },
+        { title: 'KPMG', range: 'Jan – Aug 2023', detail: 'Management Consultant, Business Transformation. Fastest return-offer track in division history. Led full client-inception phases across IT, urban planning, and ESG.' },
+        { title: 'Pensieve Technology', range: 'Jul – Dec 2023', detail: "CEO Office Analyst, Defence & Intelligence Office. Served in a strategic think tank alongside the Philippine President's OPS Undersecretary and Indonesia's Coordinating Minister Pak Luhut. Sole analyst to stand up a new portfolio company — certified as Indonesia's 10th licensed e-sign provider." },
+        { title: 'McEasy', range: 'Nov 2023 – Nov 2024', detail: 'Strategy & Operations Manager, CEO Office. Launched and scaled a new business unit (SPS). Managed a 20+ person team end-to-end. 16× growth in 3.5 months; led a P0 initiative that cut churn 30%.' },
       ],
       vent: [],
       edu: [
@@ -53,8 +58,18 @@ const yearRows = [
     year: '2024',
     cells: {
       corp: [
-        { title: 'Deloitte SEA', range: '2024', detail: 'Subject Matter Expert on Indonesian & SEA logistics tech.' },
-        { title: 'McEasy', range: '2024 – 2025', detail: 'Corporate Strategy → CEO Office. 16× revenue on a new unit; rebuilt CRM, cut churn 30%.' },
+        { title: 'Deloitte SEA', range: 'Jul 2024 – Aug 2025', detail: 'Subject Matter Expert — the youngest SME engaged by Deloitte SEA. Advised on the FMS industry across Indonesia and Southeast Asia.', tag: 'Concurrent' },
+        { title: 'Peeba × GetFound', range: 'Nov 2024 – Oct 2025', detail: 'Founding Chief of Staff to Kevin Cho (YC W23, Forbes 30u30). Drove elite growth-consultancy initiatives.' },
+      ],
+      vent: [],
+      edu: [],
+    },
+  },
+  {
+    year: '2025',
+    cells: {
+      corp: [
+        { title: 'Ruangguru', range: 'Oct 2025 – Sep 2026', detail: "Chief of Staff. Co-piloted executive operations alongside Belva (CEO) and Iman (COO) at SEA's largest EdTech — >22M users, $150M Series C, Forbes 30u30." },
       ],
       vent: [],
       edu: [],
@@ -63,7 +78,9 @@ const yearRows = [
   {
     year: 'Present',
     cells: {
-      corp: [],
+      corp: [
+        { title: 'Akar Systems', range: 'Oct 2026 – Present', detail: 'Founder & Systems Architect. Architecting enterprise AI workflows, digital infrastructure, and operational automations. Secured two state-owned enterprise clients (Bank Mandiri & Telkom Indonesia) in the first quarter.' },
+      ],
       vent: [{ title: 'Akar Systems', range: 'Present', detail: 'Founder. Digital infrastructure agency serving enterprise & SME clients.' }],
       edu: [],
     },
@@ -73,7 +90,14 @@ const yearRows = [
 function Entry({ e }) {
   return (
     <div className="bg-white border border-[#1a1a1a]/8 rounded-lg px-4 py-3 hover:border-[#2a7a4f]/30 transition-colors">
-      <p className="font-sans text-sm font-semibold text-[#1a1a1a] leading-snug">{e.title}</p>
+      <div className="flex items-start justify-between gap-2">
+        <p className="font-sans text-sm font-semibold text-[#1a1a1a] leading-snug">{e.title}</p>
+        {e.tag && (
+          <span className="shrink-0 mt-0.5 inline-flex items-center text-[9px] font-tech font-semibold uppercase tracking-[0.15em] text-[#2a7a4f] border border-[#2a7a4f]/30 rounded-full px-2 py-0.5">
+            {e.tag}
+          </span>
+        )}
+      </div>
       <p className="font-tech text-[10px] text-[#2a7a4f] mt-1">{e.range}</p>
       <p className="text-xs text-[#1a1a1a]/55 leading-relaxed mt-1.5">{e.detail}</p>
     </div>
