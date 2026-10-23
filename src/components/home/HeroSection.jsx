@@ -27,9 +27,7 @@ const copy = {
 };
 
 const VIDEO_SRC =
-  'https://media.base44.com/videos/public/69cc2ed917e94df8870cff9d/c428b0e72_gemini_generated_video_cffdda4b.mp4';
-const VIDEO_POSTER =
-  'https://media.base44.com/images/public/69cc2ed917e94df8870cff9d/952ed5abb_generated_e4a3c252.jpg';
+  'https://media.base44.com/videos/public/69cc2ed917e94df8870cff9d/4a3b2c765_AkarAnimation.mp4';
 
 const actionBase =
   'hero-action inline-flex items-center justify-center gap-[11px] min-h-[44px] px-[19px] rounded-full text-[13px] font-semibold tracking-[0.01em] cursor-pointer hover:-translate-y-px active:translate-y-0 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[3px] focus-visible:outline-[#9ce0aa]';
@@ -52,7 +50,6 @@ export default function HeroSection() {
       <video
         className="hero-footage absolute inset-0 w-full h-full object-cover object-[center_48%] z-[-2] pointer-events-none"
         src={VIDEO_SRC}
-        poster={VIDEO_POSTER}
         autoPlay
         loop
         muted
