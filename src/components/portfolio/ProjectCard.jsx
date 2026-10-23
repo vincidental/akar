@@ -64,41 +64,48 @@ export default function ProjectCard({ project, index, onOpen }) {
 
       {/* Card Content */}
       <div className="p-6">
-        {/* Tags row */}
-        <div className="flex items-center justify-between mb-3">
+        {/* Tag + Category */}
+        <div className="flex flex-wrap items-center gap-x-3 gap-y-2 mb-3">
           <span
             className={`inline-flex items-center px-2.5 py-1 rounded-full text-[10px] font-semibold uppercase tracking-widest border ${tagStyles[project.tagColor]}`}
           >
             {project.tag}
           </span>
-          <span className="text-[11px] text-white/30 font-medium">{project.category}</span>
+          <span className="flex items-center gap-2 min-w-0 text-[11px] text-white/35 font-medium">
+            <span className="w-1 h-1 rounded-full bg-green-400/70 shrink-0" />
+            <span className="truncate">{project.category}</span>
+          </span>
         </div>
 
         {/* Title */}
-        <h3 className="font-serif text-xl text-white mb-2 group-hover:text-green-400 transition-colors duration-300">
+        <h3 className="font-serif text-xl text-white group-hover:text-green-400 transition-colors duration-300">
           {project.title}
         </h3>
 
-        {/* Description */}
-        <p className="text-sm text-white/45 leading-relaxed mb-5">{project.description}</p>
+        {/* Description + Metrics */}
+        <div className="mt-3 grid grid-cols-1 md:grid-cols-[minmax(0,1.7fr)_minmax(0,1fr)] gap-4 md:gap-5 items-start">
+          <p className="text-sm text-white/45 leading-relaxed">{project.description}</p>
 
-        {/* Metrics */}
-        <div className="grid grid-cols-3 gap-2 mb-5">
-          {project.metrics.map((m, i) => (
-            <div key={i} className="bg-white/4 rounded-xl p-2.5 text-center border border-white/6">
-              <p
-                className="text-sm font-bold mb-0.5"
-                style={{ color: project.accentColor }}
+          <div className="grid grid-cols-1 gap-2">
+            {project.metrics.map((m, i) => (
+              <div
+                key={i}
+                className="flex items-center justify-between gap-3 md:flex-col md:items-start md:gap-1 bg-white/4 rounded-lg px-3 py-2 border border-white/6 min-w-0"
               >
-                {m.value}
-              </p>
-              <p className="text-[10px] text-white/35 uppercase tracking-wide">{m.label}</p>
-            </div>
-          ))}
+                <p className="text-[10px] text-white/35 uppercase tracking-wide">{m.label}</p>
+                <p
+                  className="text-sm font-bold whitespace-nowrap md:whitespace-normal"
+                  style={{ color: project.accentColor }}
+                >
+                  {m.value}
+                </p>
+              </div>
+            ))}
+          </div>
         </div>
 
-        {/* Tech tags + Link */}
-        <div className="flex items-center justify-between">
+        {/* Tech tags + Action */}
+        <div className="mt-5 pt-4 border-t border-white/8 flex flex-col gap-3">
           <div className="flex flex-wrap gap-1.5">
             {project.tech.slice(0, 3).map((t, i) => (
               <span
@@ -112,7 +119,7 @@ export default function ProjectCard({ project, index, onOpen }) {
           {hasCaseStudy ? (
             <button
               onClick={(e) => { e.stopPropagation(); navigate(project.caseStudyPath); }}
-              className="flex items-center gap-1 text-xs font-medium text-white/40 hover:text-white transition-colors duration-200 group/link"
+              className="self-start flex items-center gap-1 text-xs font-medium text-white/40 hover:text-white transition-colors duration-200 group/link"
             >
               Explore project
               <Expand className="w-3 h-3" />
@@ -120,7 +127,7 @@ export default function ProjectCard({ project, index, onOpen }) {
           ) : project.screenshots?.length > 0 ? (
             <button
               onClick={(e) => { e.stopPropagation(); onOpen(project); }}
-              className="flex items-center gap-1 text-xs font-medium text-white/40 hover:text-white transition-colors duration-200 group/link"
+              className="self-start flex items-center gap-1 text-xs font-medium text-white/40 hover:text-white transition-colors duration-200 group/link"
             >
               Explore project
               <Expand className="w-3 h-3" />
@@ -130,7 +137,7 @@ export default function ProjectCard({ project, index, onOpen }) {
               href={project.url}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-1 text-xs font-medium text-white/40 hover:text-white transition-colors duration-200 group/link"
+              className="self-start flex items-center gap-1 text-xs font-medium text-white/40 hover:text-white transition-colors duration-200 group/link"
             >
               View live
               <ArrowUpRight className="w-3 h-3 group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5 transition-transform" />
