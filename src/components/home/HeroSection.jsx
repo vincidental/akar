@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
@@ -26,8 +27,12 @@ const copy = {
   },
 };
 
-const VIDEO_SRC =
+// Desktop + tablet: paper animation. Mobile: previous footage (better vertical framing).
+const VIDEO_SRC_DESKTOP =
   'https://media.base44.com/videos/public/69cc2ed917e94df8870cff9d/4a3b2c765_AkarAnimation.mp4';
+const VIDEO_SRC_MOBILE =
+  'https://media.base44.com/videos/public/69cc2ed917e94df8870cff9d/c428b0e72_gemini_generated_video_cffdda4b.mp4';
+const MOBILE_QUERY = '(max-width: 767px)';
 
 const actionBase =
   'hero-action inline-flex items-center justify-center gap-[11px] min-h-[44px] px-[19px] rounded-full text-[13px] font-semibold tracking-[0.01em] cursor-pointer hover:-translate-y-px active:translate-y-0 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[3px] focus-visible:outline-[#9ce0aa]';
@@ -39,6 +44,18 @@ export default function HeroSection() {
   const { lang } = useLang();
   const c = copy[lang];
 
+  const [isMobile, setIsMobile] = useState(
+    () => typeof window !== 'undefined' && window.matchMedia(MOBILE_QUERY).matches
+  );
+
+  useEffect(() => {
+    const mql = window.matchMedia(MOBILE_QUERY);
+    const onChange = (event) => setIsMobile(event.matches);
+    setIsMobile(mql.matches);
+    mql.addEventListener('change', onChange);
+    return () => mql.removeEventListener('change', onChange);
+  }, []);
+
   return (
     <motion.section
       initial={{ opacity: 0, y: 8 }}
@@ -48,8 +65,9 @@ export default function HeroSection() {
     >
       {/* Looping footage — muted, aspect-ratio safe cover crop */}
       <video
+        key={isMobile ? 'mobile' : 'desktop'}
         className="hero-footage absolute inset-0 w-full h-full object-cover object-[center_48%] z-[-2] pointer-events-none"
-        src={VIDEO_SRC}
+        src={isMobile ? VIDEO_SRC_MOBILE : VIDEO_SRC_DESKTOP}
         autoPlay
         loop
         muted
